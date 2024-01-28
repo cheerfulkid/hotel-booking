@@ -10,8 +10,18 @@
     <div class="lg:max-w-[960px] relative before:absolute before:w-full before:h-[170px] before:bg-[url('/src/assets/img/pc/line3.png')] before:bg-cover before:block before:left-0 before:top-[72px] bg-no-repeat">
      <div class="lg:max-w-[416px] mx-auto lg:pt-[159px]">
       <span class="text-[16px] text-[#BF9D7D] line-height-[24px] font-bold relative">享樂酒店，誠摯歡迎</span>
-      <h3 class="pt-[8px] pb-[40px] text-[#FFFFFF] text-[48px] font-bold line-height-[57.6px] relative">立即註冊</h3>
-      <form>
+      <h3 class="pt-[8px] pb-[32px] text-[#FFFFFF] text-[48px] font-bold line-height-[57.6px] relative">立即註冊</h3>
+      <div class="step flex justify-between relative after:top-[50%] after:left-[50%] after:translate-y-[-50%] after:translate-x-[-50%]  after:absolute after:bg-[#909090] after:block after:h-[2px] after:w-[188px]">
+       <div class="flex flex-col items-center">
+        <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]">1</span>
+        <p class="text-white">輸入信箱及密碼</p>
+       </div>
+       <div class="flex flex-col items-center">
+        <span class="rounded-full w-[32px] h-[32px] border-[1px]  block text-[#909090] flex items-center justify-center mb-[4px]">2</span>
+        <p class="text-[#909090]">填寫基本資料</p>
+       </div>
+      </div>    
+      <form class="mt-[56px]">
        <div class="flex flex-col mb-[8px]">
         <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold mb-[8px]">電子信箱</label>
         <input type="text" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="hello@exsample.com">
@@ -34,7 +44,19 @@
     <div class="lg:max-w-[960px] relative before:absolute before:w-full before:h-[170px] before:bg-[url('/src/assets/img/pc/line3.png')] before:bg-cover before:block before:left-0 before:top-[72px] bg-no-repeat">
      <div class="lg:max-w-[416px] mx-auto lg:pt-[159px]">      
       <h3 class="pt-[8px] pb-[40px] text-[#FFFFFF] text-[48px] font-bold line-height-[57.6px] relative">立即註冊</h3>
-      <form>
+      <div class="step flex justify-between relative after:top-[50%] after:left-[50%] after:translate-y-[-50%] after:translate-x-[-50%]  after:absolute after:bg-[#909090] after:block after:h-[2px] after:w-[188px]">
+       <div class="flex flex-col items-center">
+        <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]">
+         <img src="/src/assets/img/ic_check.svg" alt="">
+        </span>
+        <p class="text-white">輸入信箱及密碼</p>
+       </div>
+       <div class="flex flex-col items-center">
+        <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]">2</span>
+        <p class="text-white">填寫基本資料</p>
+       </div>
+      </div>
+      <form class="mt-[56px]">
        <div class="flex flex-col mb-[8px]">
         <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold mb-[8px]">姓名</label>
         <input type="text" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="請輸入姓名">
