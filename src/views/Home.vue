@@ -13,20 +13,20 @@
      <form>
       <div class="flex flex-col mb-[8px]">
        <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold mb-[8px]">電子信箱</label>
-       <input type="email" v-model="loginData.email" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="hello@exsample.com">
+       <input type="text" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="hello@exsample.com">
       </div>
       <div class="flex flex-col mb-[16px]"> 
        <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold mb-[8px]">密碼</label>
-       <input type="password" v-model="loginData.password" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="請輸入密碼">
+       <input type="text" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="請輸入密碼">
       </div>
       <div class="flex mb-[40px] justify-between">
        <div class="flex mb-[8px]">
-        <input id="remember" type="checkbox" class="w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url('/src/assets/img/ic_check.svg')] before:block before:w-full before:h-full checked:bg-[#BF9D7D]">
-        <label for="remember" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold">記住帳號</label>
+        <input type="checkbox" class="w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url('/src/assets/img/ic_check.svg')] before:block before:w-full before:h-full checked:bg-[#BF9D7D]">
+        <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold">記住帳號</label>
        </div>
        <a href="" class="text-[#BF9D7D] text-[16px] line-height-[24px] font-bold underline">忘記密碼？</a>  
       </div>
-      <a href="" @click.prevent="login" class="mb-[56px] inline-block py-[16px] text-[#909090] bg-[#ECECEC] rounded-[8px] text-[16px] line-height-[24px] font-bold w-full text-center hover:bg-[#BF9D7D] hover:text-[#FFFFFF]">會員登入</a>
+      <a href="" class="mb-[56px] inline-block py-[16px] text-[#909090] bg-[#ECECEC] rounded-[8px] text-[16px] line-height-[24px] font-bold w-full text-center hover:bg-[#BF9D7D] hover:text-[#FFFFFF]">會員登入</a>
      </form>
      <p class="text-[#FFFFFF]">沒有會員嗎？<router-link :to="{name:'Signup',params:{step:1}}" class="mt-[8px] text-[#BF9D7D] underline">前往註冊</router-link></p> 
     </div>    
@@ -38,22 +38,5 @@
 <style scoped>
 </style>
 <script setup lang="ts">
-import { ref } from "vue";
 import Header from "../components/Header.vue";
-import type { Login } from "../types/login"
-const loginData = ref<Login>({
- email: "",
- password: ""
-})
-const login = async() => {
- let response = await fetch('https://freyja-e4gc.onrender.com/api/v1/user/login', {
-   method: 'POST',
-   headers: {
-     'Content-Type': 'application/json;charset=utf-8'
-   },
-   body: JSON.stringify(loginData.value)
- });
- let result = await response.json();
- alert(result.message);
-}
 </script>

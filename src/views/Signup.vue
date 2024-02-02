@@ -24,19 +24,19 @@
       <form class="mt-[56px]">
        <div class="flex flex-col mb-[8px]">
         <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold mb-[8px]">電子信箱</label>
-        <input type="text" v-model="signupData.email" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="hello@exsample.com">
+        <input type="email" v-model="signupData.email" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="hello@exsample.com">
        </div>
        <div class="flex flex-col mb-[16px]"> 
         <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold mb-[8px]">密碼</label>
-        <input type="text" v-model="signupData.password" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="請輸入密碼">
+        <input type="password" v-model="signupData.password" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="請輸入密碼">
        </div>
        <div class="flex flex-col mb-[40px]"> 
         <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold mb-[8px]">確認密碼</label>
-        <input type="text" v-model="checkPassword" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="請再輸入一次密碼">
+        <input type="password" v-model="checkPassword" class="placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" placeholder="請再輸入一次密碼">
        </div>
        <router-link :to="{name: 'Signup', params: {step: 2}}" class="mb-[56px] inline-block py-[16px] text-[#909090] bg-[#ECECEC] rounded-[8px] text-[16px] line-height-[24px] font-bold w-full text-center hover:bg-[#BF9D7D] hover:text-[#FFFFFF]">下一步</router-link>
       </form>
-      <p class="text-[#FFFFFF]">已經有會員了嗎？<a class="mt-[8px] text-[#BF9D7D] underline" href="">立即登入</a></p> 
+      <p class="text-[#FFFFFF]">已經有會員了嗎？<router-link :to="{name: 'Login'}" class="mt-[8px] text-[#BF9D7D] underline">立即登入</router-link></p> 
      </div>    
     </div>
    </template> 
@@ -69,13 +69,19 @@
         <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold mb-[8px]">生日</label>
         <div class="flex">
          <div class="w-1/3 pr-[8px]">         
-          <select v-model="birthYear" class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" name="" id=""></select>
+          <select v-model="birthYear" class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" name="" id="">
+           <option :value="year" :key="year" v-for="(year, yindex)  in years">{{ year }}</option>
+          </select>
          </div> 
          <div class="w-1/3 pr-[8px]">         
-          <select v-model="birthMonth" class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" name="" id=""></select>
+          <select v-model="birthMonth" class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" name="" id="">
+           <option :value="month" v-for="month in months">{{ month }}</option>
+          </select>
          </div> 
          <div class="w-1/3">         
-          <select v-model="birthDay" class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" name="" id=""></select>
+          <select v-model="birthDay" class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" name="" id="">
+           <option :value="day" v-for="day in lastDayOfMonth">{{ day }}</option>
+          </select>
          </div> 
         </div>
        </div>
@@ -102,10 +108,10 @@
         </div> 
        </div>
        <div class="flex mb-[40px]">
-        <input type="checkbox" class="w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url('/src/assets/img/ic_check.svg')] before:block before:w-full before:h-full checked:bg-[#BF9D7D]">
-        <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold">我已閱讀並同意本網站個資使用規範</label>
+        <input id="agree" type="checkbox" class="w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url('/src/assets/img/ic_check.svg')] before:block before:w-full before:h-full checked:bg-[#BF9D7D]">
+        <label for="agree" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold">我已閱讀並同意本網站個資使用規範</label>
        </div>
-       <span class="mb-[56px] inline-block py-[16px] text-[#909090] bg-[#ECECEC] rounded-[8px] text-[16px] line-height-[24px] font-bold w-full text-center hover:bg-[#BF9D7D] hover:text-[#FFFFFF]">完成註冊</span>
+       <span @click.prevent="signup" class="mb-[56px] inline-block py-[16px] text-[#909090] bg-[#ECECEC] rounded-[8px] text-[16px] line-height-[24px] font-bold w-full text-center hover:bg-[#BF9D7D] hover:text-[#FFFFFF]">完成註冊</span>
       </form>
       <p class="text-[#FFFFFF]">已經有會員了嗎？<router-link :to="{name: 'Login'}" class="mt-[8px] text-[#BF9D7D] underline">立即登入</router-link></p> 
      </div>    
@@ -119,18 +125,17 @@
 </style>
 <script setup lang="ts">
 import Header from "../components/Header.vue";
-import { ref, reactive, computed } from "vue"
+import { ref, computed, onMounted } from "vue"
 import { useRoute, useRouter } from 'vue-router';
 import { Signup } from "../types/signup"
 import taiwanCityData from "../api/taiwanCityData.json"
 const route = useRoute();
 const cityName = ref("")
-// const areaList = ref([])
 const checkPassword = ref<string>("")
-const birthYear = ref("")
-const birthMonth = ref("")
-const birthDay = ref("")
-const signupData:Signup = reactive({
+const years = ref([])
+const months = ref([1,2,3,4,5,6,7,8,9,10,11,12])
+const currentDate = ref(new Date());
+const signupData = ref<Signup>({
  name: "",
  email: "",
  password: "",
@@ -141,10 +146,39 @@ const signupData:Signup = reactive({
   detail: ""
  }
 })
-
+const currentYear = computed(()=>{
+ return currentDate.value.getFullYear()
+})
+const birthYear = ref(currentYear.value)
+const birthMonth = ref(1)
+const birthDay = ref(1)
+const lastDayOfMonth = computed(()=>{
+ return new Date(birthYear.value, birthMonth.value, 0).getDate()
+})
+signupData.value.birthday = `${birthYear.value}/${birthMonth.value}/${birthDay.value}`
+const generateYearRange = () => {
+ const startYear = currentYear.value - 100;
+ const endYear = currentYear.value;
+ for (let year = startYear; year <= endYear; year++) {
+   years.value.push(year);
+ }
+}
 const areaList = computed(() => {
  let city = taiwanCityData.find((item) => item.CityName === cityName.value)
  return city?.AreaList
 })
-
+const signup = async() => {
+ let response = await fetch('https://freyja-e4gc.onrender.com/api/v1/user/signup', {
+   method: 'POST',
+   headers: {
+     'Content-Type': 'application/json;charset=utf-8'
+   },
+   body: JSON.stringify(signupData.value)
+ });
+ let result = await response.json();
+ alert(result.message);
+}
+onMounted(()=>{
+ generateYearRange()
+})
 </script>
