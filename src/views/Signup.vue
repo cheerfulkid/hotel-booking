@@ -6,8 +6,8 @@
    <div class="w-full xl:w-[50%] hidden xl:block">
     <img src="../assets/img/pc/register.png" alt="">    
    </div>   
-   <template v-if="parseInt(route.params.step)!=2">
-    <div class="w-full before:top-[32px] before:bg-no-repeat before:h-[67px] before:bg-contain xl:w-[50%] relative before:absolute before:w-full xl:before:h-[170px] before:bg-[url('/src/assets/img/pc/line3.png')] xl:before:bg-cover before:block before:left-0 xl:before:top-[72px] bg-no-repeat">
+   <template v-if="route.params.step!='2'">
+    <div :class="`w-full before:top-[32px] before:bg-no-repeat before:h-[67px] before:bg-contain xl:w-[50%] relative before:absolute before:w-full xl:before:h-[170px] before:bg-[url(${line3})] xl:before:bg-cover before:block before:left-0 xl:before:top-[72px] bg-no-repeat`">
      <div class="max-w-[416px] mx-[20px] xl:mx-auto pt-[92px] xl:pt-[159px]">
       <span class="text-[16px] text-[#BF9D7D] line-height-[24px] font-bold relative">享樂酒店，誠摯歡迎</span>
       <h3 class="pt-[8px] pb-[32px] text-[#FFFFFF] text-[48px] font-bold line-height-[57.6px] relative">立即註冊</h3>
@@ -43,7 +43,7 @@
     </div>
    </template> 
    <template v-else>
-    <div class="w-full before:top-[32px] before:bg-no-repeat before:h-[67px] before:bg-contain xl:w-[50%] relative before:absolute before:w-full xl:before:h-[170px] before:bg-[url('/src/assets/img/pc/line3.png')] xl:before:bg-cover before:block before:left-0 xl:before:top-[72px] bg-no-repeat">
+    <div :class="`w-full before:top-[32px] before:bg-no-repeat before:h-[67px] before:bg-contain xl:w-[50%] relative before:absolute before:w-full xl:before:h-[170px] before:bg-[url(${line3})] xl:before:bg-cover before:block before:left-0 xl:before:top-[72px] bg-no-repeat`">
      <div class="max-w-[416px] mx-[20px] xl:mx-auto pt-[92px] xl:pt-[159px]">      
       <h3 class="pt-[8px] pb-[16px] text-[#FFFFFF] text-[48px] font-bold line-height-[57.6px] relative">立即註冊</h3>
       <div class="step flex justify-between relative after:top-[50%] after:left-[50%] after:translate-y-[-50%] after:translate-x-[-50%]  after:absolute after:bg-[#ECECEC] after:block after:h-[2px] after:w-[188px]">
@@ -72,7 +72,7 @@
         <div class="flex">
          <div class="w-1/3 pr-[8px]">         
           <select v-model="birthYear" class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" name="" id="">
-           <option :value="year" :key="year" v-for="(year, yindex)  in years">{{ year }}</option>
+           <option :value="year" :key="year" v-for="(year)  in years">{{ year }}</option>
           </select>
          </div> 
          <div class="w-1/3 pr-[8px]">         
@@ -93,13 +93,13 @@
          <div class="w-1/2 pr-[8px]">         
           <select class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" v-model="cityName" name="" id="">
            <option value="">請選擇</option>
-           <option v-for="(city, cindex) in taiwanCityData" :value="city.CityName">{{ city.CityName }}</option>
+           <option v-for="(city) in taiwanCityData" :value="city.CityName">{{ city.CityName }}</option>
           </select>
          </div> 
          <div class="w-1/2">         
           <select class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" v-model="signupData.address.zipcode" name="" id="">
            <option value="">請選擇</option>
-           <option v-for="(area, aindex) in areaList" :value="area.ZipCode">{{ area.AreaName }}</option>
+           <option v-for="(area) in areaList" :value="area.ZipCode">{{ area.AreaName }}</option>
           </select>
          </div>                   
         </div>
@@ -109,10 +109,10 @@
          </div>
         </div> 
        </div>
-       <div class="flex mb-[40px]">
-        <input id="agree" type="checkbox" class="w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url('/src/assets/img/ic_check.svg')] before:block before:w-full before:h-full checked:bg-[#BF9D7D]">
+       <!-- <div class="flex mb-[40px]">
+        <input id="agree" type="checkbox" :class="`w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url()] before:block before:w-full before:h-full checked:bg-[#BF9D7D]`">
         <label for="agree" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold">我已閱讀並同意本網站個資使用規範</label>
-       </div>
+       </div> -->
        <span @click.prevent="signup" class="mb-[56px] flex items-center justify-center inline-block py-[16px] text-[#909090] bg-[#ECECEC] rounded-[8px] text-[16px] line-height-[24px] font-bold w-full text-center hover:bg-[#BF9D7D] hover:text-[#FFFFFF]">
         <button v-if="loading" type="button" class="bg-indigo-500" disabled>
           <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -135,15 +135,20 @@
 </style>
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue"
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import { Signup } from "../types/signup"
 import Header from "../components/Header.vue";
 import taiwanCityData from "../api/taiwanCityData.json"
+import line3 from '../assets/img/pc/line3.png'
+// import ic_check from '../assets/img/ic_check.svg?url'
+
+
+
 const route = useRoute();
 const loading = ref(false)
 const cityName = ref("")
 const checkPassword = ref<string>("")
-const years = ref([])
+const years = ref<number[]>([])
 const months = ref([1,2,3,4,5,6,7,8,9,10,11,12])
 const currentDate = ref(new Date());
 const signupData = ref<Signup>({

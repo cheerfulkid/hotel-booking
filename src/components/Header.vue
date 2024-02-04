@@ -17,13 +17,13 @@
       </div>
       <router-link v-if="user" :to="{name:'Login'}">會員登入</router-link>
       <div v-else class="flex items-center p-[16px] mr-[16px]">
-        <img class="mr-[8px]" src="../assets/img/ic_Profile.svg" alt="">
+        <!-- <img class="mr-[8px]" src="../assets/img/ic_Profile.svg" alt=""> -->
         <span class="text-[#FFFFFF]">Jessica</span>
       </div>
       <router-link class="block rounded-[8px] px-[32px] py-[16px] font-bold text-[#FFFFFF] bg-[#BF9D7D]" to="./">立即訂房</router-link>    
     </nav>
     <span class="cursor-pointer xl:hidden">
-      <img src="../assets/img/ic_menu.svg" alt="">
+      <!-- <img src="../assets/img/ic_menu.svg" alt=""> -->
     </span>      
   </header>
 </template>
@@ -32,8 +32,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import { useUserStore } from '../stores/user'
-import { useRoute, useRouter } from 'vue-router';
-import { storeToRefs } from 'pinia'
+import { useRoute } from 'vue-router';
 const dropdownOpen = ref(false)
 const user = useUserStore()
 const route = useRoute()
