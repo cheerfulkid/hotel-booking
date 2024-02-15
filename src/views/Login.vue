@@ -3,11 +3,10 @@
   <Header></Header>
  <main>
   <div class="flex h-full">
-   <div class="w-full xl:w-[50%] hidden xl:block">
-    <img src="../assets/img/pc/register.png" alt="">
+   <div :class="`w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url(${register})] bg-cover bg-center`">
    </div>
-   <div :class="`w-full before:top-[32px] before:bg-no-repeat before:h-[67px] before:bg-contain xl:w-[50%] relative before:absolute before:w-full xl:before:h-[170px] before:bg-[url(${line3})] xl:before:bg-cover before:block before:left-0 xl:before:top-[72px] bg-no-repeat`">
-    <div class="max-w-[416px] mx-[20px] xl:mx-auto pt-[92px] xl:pt-[159px]">
+   <div :class="`w-full before:top-[32px] before:bg-no-repeat before:bg-contain md:w-[50%] relative before:absolute before:w-full before:h-[170px] before:bg-[url(${smLine3})] md:before:bg-[url(${line3})] md:before:bg-cover before:block before:left-0 md:before:top-[72px] bg-no-repeat md:px-[20px]`">
+    <div class="max-w-full md:max-w-[416px] mx-[20px] md:mx-auto pt-[92px] md:pt-[159px]">
      <span class="text-[16px] text-[#BF9D7D] line-height-[24px] font-bold relative">享樂酒店，誠摯歡迎</span>
      <h3 class="pt-[8px] pb-[40px] text-[#FFFFFF] text-[48px] font-bold line-height-[57.6px] relative">立即開始旅程</h3>
      <form>
@@ -36,7 +35,7 @@
         <span v-else>會員登入</span>
       </a>
      </form>
-     <p class="text-[#FFFFFF]">沒有會員嗎？<router-link :to="{name:'Signup',params:{step:1}}" class="mt-[8px] text-[#BF9D7D] underline">前往註冊</router-link></p> 
+     <p class="text-[#FFFFFF] mb-[94px]">沒有會員嗎？<router-link :to="{name:'Signup',params:{step:1}}" class="mt-[8px] text-[#BF9D7D] underline">前往註冊</router-link></p> 
     </div>    
    </div>
   </div>
@@ -51,6 +50,8 @@ import { ref } from "vue";
 import type { Login } from "../types/login"
 import Header from "../components/Header.vue";
 import line3 from '../assets/img/pc/line3.png';
+import smLine3 from '../assets/img/mobile/line.png';
+import register from '../assets/img/pc/register.png';
 // import ic_check from '../assets/img/ic_check.svg?url';
 // import SvgIcon from "../components/SvgIcon.vue";
 

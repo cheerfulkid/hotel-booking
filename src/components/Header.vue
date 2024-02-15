@@ -1,7 +1,7 @@
 <template>
   <header class="flex justify-between items-center py-2 px-5">
-    <div class="xl:my-[24px] xl:ml-[80px] ">
-      <img class="max-w-[110px] xs:max-w-[110px] xl:max-w-[196px]" src="../assets/img/pc/logo.png" alt="享樂酒店">
+    <div class="md:my-[24px] md:ml-[80px] ">
+      <img class="max-w-[110px] xs:max-w-[110px] md:max-w-[196px]" src="../assets/img/pc/logo.png" alt="享樂酒店">
     </div>
     <nav v-if="route.name!='Login' && route.name !='Signup'" class="flex">
       <div class="cursor-pointer relative">
@@ -22,7 +22,7 @@
       </div>
       <router-link class="block rounded-[8px] px-[32px] py-[16px] font-bold text-[#FFFFFF] bg-[#BF9D7D]" to="./">立即訂房</router-link>    
     </nav>
-    <span class="cursor-pointer xl:hidden">
+    <span class="cursor-pointer md:hidden">
       <!-- <img src="../assets/img/ic_menu.svg" alt=""> -->
     </span>      
   </header>
