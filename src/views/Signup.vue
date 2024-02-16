@@ -9,7 +9,7 @@
      <div class="max-w-full md:max-w-[416px] mx-[20px] md:mx-auto pt-[92px] md:pt-[159px]">
       <span class="text-[16px] text-[#BF9D7D] line-height-[24px] font-bold relative">享樂酒店，誠摯歡迎</span>
       <h3 class="pt-[8px] pb-[32px] text-[#FFFFFF] text-[48px] font-bold line-height-[57.6px] relative">立即註冊</h3>
-      <div class="step flex justify-between relative after:top-[50%] after:left-[50%] after:translate-y-[-50%] after:translate-x-[-50%]  after:absolute after:bg-[#909090] after:block after:h-[2px] after:w-[188px]">
+      <div class="step flex justify-between relative after:top-[50%] after:left-[50%] after:translate-y-[-50%] after:translate-x-[-50%]  after:absolute after:bg-[#909090] after:block after:h-[2px] after:w-full after:max-w-[30%]">
        
         <router-link class="flex flex-col items-center" :to="{name:'Signup',params:{step:1}}">
           <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]">1</span>
@@ -44,7 +44,7 @@
     <div :class="`w-full before:top-[32px] before:bg-no-repeat before:bg-contain md:w-[50%] relative before:absolute before:w-full before:h-[170px] before:bg-[url(${smLine3})] md:before:bg-[url(${line3})] md:before:bg-cover before:block before:left-0 md:before:top-[72px] bg-no-repeat md:px-[20px]`">
      <div class="max-w-full md:max-w-[416px] mx-[20px] md:mx-auto pt-[92px] md:pt-[159px]">      
       <h3 class="pt-[8px] pb-[16px] text-[#FFFFFF] text-[48px] font-bold line-height-[57.6px] relative">立即註冊</h3>
-      <div class="step flex justify-between relative after:top-[50%] after:left-[50%] after:translate-y-[-50%] after:translate-x-[-50%]  after:absolute after:bg-[#ECECEC] after:block after:h-[2px] after:w-[188px]">
+      <div class="step flex justify-between relative after:top-[50%] after:left-[50%] after:translate-y-[-50%] after:translate-x-[-50%]  after:absolute after:bg-[#ECECEC] after:block after:h-[2px] after:w-full after:max-w-[30%]">
        
         <router-link class="flex flex-col items-center" :to="{name:'Signup',params:{step:1}}">
           <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]">1</span>
