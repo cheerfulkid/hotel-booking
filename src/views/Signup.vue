@@ -2,7 +2,7 @@
  <div class="bg-[#140F0A] min-h-[100%]">
  <Header></Header>
  <main>
-  <div class="flex h-full">
+  <div class="flex h-full pt-[136px]">
     <div :class="`w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url(${register})] bg-cover bg-center`"></div>   
    <template v-if="route.params.step!='2'">
     <div :class="`w-full before:top-[32px] before:bg-no-repeat before:bg-contain md:w-[50%] relative before:absolute before:w-full before:h-[170px] before:bg-[url(${smLine3})] md:before:bg-[url(${line3})] md:before:bg-cover before:block before:left-0 md:before:top-[72px] bg-no-repeat md:px-[20px]`">
