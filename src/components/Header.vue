@@ -1,5 +1,5 @@
 <template>
-  <header class=" py-2 px-5 absolute w-full z-20">
+  <header class="px-5 absolute w-full">
     <div class="flex w-full justify-between items-center md:max-w-[1760px] mx-auto">
       <div class="md:my-[24px]">
         <img class="max-w-[110px] xs:max-w-[110px] md:max-w-[196px]" src="../assets/img/pc/logo.png" alt="享樂酒店">

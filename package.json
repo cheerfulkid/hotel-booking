@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+    "@splidejs/splide-extension-grid": "^0.4.1",
     "@splidejs/vue-splide": "^0.6.12",
     "gh-pages": "^6.1.1",
     "pinia": "^2.1.7",
