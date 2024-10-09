@@ -2,7 +2,7 @@
  <div class="bg-[#140F0A] min-h-[100%]">
  <Header></Header>
  <main>
-  <div class="flex h-full pt-[136px]">
+  <div class="flex h-full pt-[120px]">
     <div :class="`w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url(${register})] bg-cover bg-center`"></div>   
    <template v-if="route.params.step!='2'">
     <div :class="`w-full before:top-[32px] before:bg-no-repeat before:bg-contain md:w-[50%] relative before:absolute before:w-full before:h-[170px] before:bg-[url(${smLine3})] md:before:bg-[url(${line3})] md:before:bg-cover before:block before:left-0 md:before:top-[72px] bg-no-repeat md:px-[20px]`">
@@ -68,37 +68,25 @@
        <div class="flex flex-col mb-[16px]"> 
         <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold mb-[8px]">生日</label>
         <div class="flex">
-         <div class="w-1/3 pr-[8px]">         
-          <select v-model="birthYear" class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" name="" id="">
-           <option :value="year" :key="year" v-for="(year)  in years">{{ year }}</option>
-          </select>
+         <div class="w-1/3 pr-[8px]">
+          <InputSelectBind :data="years" propertyValue="" property="" v-model:name="birthYear"></InputSelectBind>         
          </div> 
-         <div class="w-1/3 pr-[8px]">         
-          <select v-model="birthMonth" class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" name="" id="">
-           <option :value="month" v-for="month in months">{{ month }}</option>
-          </select>
+         <div class="w-1/3 pr-[8px]">     
+          <InputSelectBind :data="months" propertyValue="" property="" v-model:name="birthMonth"></InputSelectBind>    
          </div> 
-         <div class="w-1/3">         
-          <select v-model="birthDay" class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" name="" id="">
-           <option :value="day" v-for="day in lastDayOfMonth">{{ day }}</option>
-          </select>
+         <div class="w-1/3">
+          <InputSelectBind :data="lastDayOfMonth" propertyValue="" property="" v-model:name="birthDay"></InputSelectBind>         
          </div> 
         </div>
        </div>
        <div class="flex flex-col mb-[16px]"> 
         <label for="" class="text-[#FFFFFF] text-[16px] line-height-[24px] font-bold mb-[8px]">地址</label>
         <div class="flex">
-         <div class="w-1/2 pr-[8px]">         
-          <select class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" v-model="cityName" name="" id="">
-           <option value="">請選擇</option>
-           <option v-for="(city) in taiwanCityData" :value="city.CityName">{{ city.CityName }}</option>
-          </select>
+         <div class="w-1/2 pr-[8px]">
+          <InputSelectBind :data="taiwanCityData" propertyValue="CityName" property="CityName" v-model:name="cityName"></InputSelectBind>      
          </div> 
-         <div class="w-1/2">         
-          <select class="w-full placeholder:text-[16px] placeholder:text-[#909090] p-[16px] rounded-[8px]" v-model="signupData.address.zipcode" name="" id="">
-           <option value="">請選擇</option>
-           <option v-for="(area) in areaList" :value="area.ZipCode">{{ area.AreaName }}</option>
-          </select>
+         <div class="w-1/2">
+          <InputSelectBind :data="areaList" propertyValue="ZipCode" property="AreaName" v-model:name="signupData.address.zipcode"></InputSelectBind>          
          </div>                   
         </div>
         <div class="flex mt-[16px]">
@@ -140,6 +128,7 @@ import taiwanCityData from "../api/taiwanCityData.json"
 import line3 from '../assets/img/pc/line3.png'
 import smLine3 from '../assets/img/mobile/line.png';
 import register from '../assets/img/pc/register.png';
+import InputSelectBind from '../components/InputSelectBind.vue';
 // import ic_check from '../assets/img/ic_check.svg?url'
 
 

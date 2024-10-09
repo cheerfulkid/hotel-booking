@@ -2,8 +2,7 @@
  <div class="min-h-[100%]">
   <Header></Header>
   <main>
-    <section class="h-[120px] bg-[#000000] w-full"></section>
-    <section class="relative bg-[#F7F2EE] pt-[80px] pb-[80px]">
+    <section class="relative bg-[#F7F2EE] pt-[200px] pb-[80px]">
      <div class="max-w-[1760px] mx-auto overflow-hidden rounded-xl">
       <Splide :options="options" :extensions="extensions" aria-label="享樂酒店">
        <SplideSlide>
@@ -30,12 +29,12 @@
        <h3 class="text-[48px] mb-[16px]">尊爵雙人房</h3>
        <p class="mb-[80px]">享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。</p>       
        <div class="mb-[80px]">
-        <h6 class="mb-[24px] text-[24px] before:inline-block inline-block flex items-center before:h-[24px] before:w-[4px] before:bg-[#BF9D7D] before:rounded before:mr-[16px]">房型基本資訊</h6>
+        <h6 class="mb-[24px] text-[24px] before:inline-block inline-block flex items-center before:h-[24px] before:w-[4px] before:bg-[#BF9D7D] before:rounded before:mr-[12px]">房型基本資訊</h6>
         <div class="w-[97px] h-[97px] inline-block px-[16px] py-[20px] mr-[16px] bg-[#FFFFFF] rounded-lg">
          <svg class="w-[24px] h-[24px] mb-[12px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="fill-[#BF9D7D]" d="M2 6.75C2 6.02065 2.28973 5.32118 2.80546 4.80546C3.32118 4.28973 4.02065 4 4.75 4H19.25C19.9793 4 20.6788 4.28973 21.1945 4.80546C21.7103 5.32118 22 6.02065 22 6.75V17.25C22 17.6111 21.9289 17.9687 21.7907 18.3024C21.6525 18.636 21.4499 18.9392 21.1945 19.1945C20.9392 19.4499 20.636 19.6525 20.3024 19.7907C19.9687 19.9289 19.6111 20 19.25 20H4.75C4.38886 20 4.03127 19.9289 3.69762 19.7907C3.36398 19.6525 3.06082 19.4499 2.80546 19.1945C2.5501 18.9392 2.34753 18.636 2.20933 18.3024C2.07113 17.9687 2 17.6111 2 17.25V6.75ZM16.78 7.22C16.6395 7.07931 16.4488 7.00017 16.25 7H13.75C13.5511 7 13.3603 7.07902 13.2197 7.21967C13.079 7.36032 13 7.55109 13 7.75C13 7.94891 13.079 8.13968 13.2197 8.28033C13.3603 8.42098 13.5511 8.5 13.75 8.5H14.44L12.72 10.219C12.6463 10.2877 12.5872 10.3705 12.5462 10.4625C12.5052 10.5545 12.4832 10.6538 12.4814 10.7545C12.4796 10.8552 12.4982 10.9552 12.5359 11.0486C12.5736 11.142 12.6297 11.2268 12.701 11.298C12.7722 11.3693 12.857 11.4254 12.9504 11.4631C13.0438 11.5008 13.1438 11.5194 13.2445 11.5176C13.3452 11.5158 13.4445 11.4938 13.5365 11.4528C13.6285 11.4118 13.7113 11.3527 13.78 11.279L15.5 9.56V10.25C15.5 10.4489 15.579 10.6397 15.7197 10.7803C15.8603 10.921 16.0511 11 16.25 11C16.4489 11 16.6397 10.921 16.7803 10.7803C16.921 10.6397 17 10.4489 17 10.25V7.75C16.9998 7.55115 16.9207 7.36052 16.78 7.22ZM7.75 17H10.251C10.4499 17 10.6407 16.921 10.7813 16.7803C10.922 16.6397 11.001 16.4489 11.001 16.25C11.001 16.0511 10.922 15.8603 10.7813 15.7197C10.6407 15.579 10.4499 15.5 10.251 15.5H9.561L11.281 13.78C11.4176 13.6385 11.4931 13.449 11.4913 13.2523C11.4895 13.0557 11.4105 12.8676 11.2714 12.7286C11.1322 12.5896 10.9441 12.5109 10.7475 12.5092C10.5508 12.5076 10.3614 12.5833 10.22 12.72L8.5 14.438V13.748C8.5 13.5491 8.42098 13.3583 8.28033 13.2177C8.13968 13.077 7.94891 12.998 7.75 12.998C7.55109 12.998 7.36032 13.077 7.21967 13.2177C7.07902 13.3583 7 13.5491 7 13.748V16.248C7 16.4469 7.07902 16.6377 7.21967 16.7783C7.36032 16.919 7.55109 16.998 7.75 16.998V17Z" fill="black"/>
          </svg>
-         <p>24 坪</p>
+         <p class="text-[#4B4B4B]">24 坪</p>
         </div>
         <div class="w-[97px] h-[97px] inline-block px-[16px] py-[20px] mr-[16px] bg-[#FFFFFF] rounded-lg">
          <svg class="w-[24px] h-[24px] mb-[12px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +47,7 @@
            </clipPath>
           </defs>
          </svg>
-         <p>1 張大床</p>
+         <p class="text-[#4B4B4B]">1 張大床</p>
         </div>
         <div class="w-[97px] h-[97px] inline-block px-[16px] py-[20px] mr-[16px] bg-[#FFFFFF] rounded-lg">
          <svg class="w-[24px] h-[24px] mb-[12px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,11 +60,11 @@
            </clipPath>
           </defs>
          </svg>
-         <p>2-4 人</p>
+         <p class="text-[#4B4B4B]">2-4 人</p>
         </div>
        </div>
        <div class="mb-[80px]">
-        <h6 class="mb-[24px] text-[24px] before:inline-block inline-block flex items-center before:h-[24px] before:w-[4px] before:bg-[#BF9D7D] before:rounded before:mr-[16px]">房間格局</h6>
+        <h6 class="mb-[24px] text-[24px] before:inline-block inline-block flex items-center before:h-[24px] before:w-[4px] before:bg-[#BF9D7D] before:rounded before:mr-[12px]">房間格局</h6>
         <div class="w-full justify-start flex flex-wrap gap-y-[8px] px-[24px] py-[24px] items-center bg-[#FFFFFF] rounded-lg">
          <div class="flex items-center mr-[40px]">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,7 +77,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>市景</p>
+          <p class="text-[#4B4B4B]">市景</p>
          </div>
          <div class="flex items-center mr-[40px]">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,7 +90,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>獨立衛浴</p>
+          <p class="text-[#4B4B4B]">獨立衛浴</p>
          </div>
          <div class="flex items-center mr-[40px]">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,7 +103,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>客廳</p>
+          <p class="text-[#4B4B4B]">客廳</p>
          </div>
          <div class="flex items-center mr-[40px]">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +116,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>書房</p>
+          <p class="text-[#4B4B4B]">書房</p>
          </div>
          <div class="flex items-center mr-[40px]">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -130,12 +129,12 @@
             </clipPath>
            </defs>
           </svg>
-          <p>樓層電梯</p>
+          <p class="text-[#4B4B4B]">樓層電梯</p>
          </div>         
         </div>
        </div>
        <div class="mb-[80px]">
-        <h6 class="mb-[24px] text-[24px] before:inline-block inline-block flex items-center before:h-[24px] before:w-[4px] before:bg-[#BF9D7D] before:rounded before:mr-[16px]">房內設備</h6>
+        <h6 class="mb-[24px] text-[24px] before:inline-block inline-block flex items-center before:h-[24px] before:w-[4px] before:bg-[#BF9D7D] before:rounded before:mr-[12px]">房內設備</h6>
         <div class="w-full grid grid-cols-5 gap-[8px] auto-cols-auto px-[24px] py-[24px] items-center bg-[#FFFFFF] rounded-lg">
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -148,7 +147,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>平面電視</p>
+          <p class="text-[#4B4B4B]">平面電視</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -161,7 +160,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>吹風機</p>
+          <p class="text-[#4B4B4B]">吹風機</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -174,7 +173,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>冰箱</p>
+          <p class="text-[#4B4B4B]">冰箱</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -187,7 +186,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>熱水壺</p>
+          <p class="text-[#4B4B4B]">熱水壺</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -200,7 +199,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>檯燈</p>
+          <p class="text-[#4B4B4B]">檯燈</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -213,7 +212,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>衣櫃</p>
+          <p class="text-[#4B4B4B]">衣櫃</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -226,7 +225,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>除濕機</p>
+          <p class="text-[#4B4B4B]">除濕機</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -239,7 +238,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>浴缸</p>
+          <p class="text-[#4B4B4B]">浴缸</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -252,7 +251,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>書桌</p>
+          <p class="text-[#4B4B4B]">書桌</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -265,12 +264,12 @@
             </clipPath>
            </defs>
           </svg>
-          <p>音響</p>
+          <p class="text-[#4B4B4B]">音響</p>
          </div>         
         </div>
        </div>
        <div class="mb-[80px]">
-        <h6 class="mb-[24px] text-[24px] before:inline-block inline-block flex items-center before:h-[24px] before:w-[4px] before:bg-[#BF9D7D] before:rounded before:mr-[16px]">備品提供</h6>
+        <h6 class="mb-[24px] text-[24px] before:inline-block inline-block flex items-center before:h-[24px] before:w-[4px] before:bg-[#BF9D7D] before:rounded before:mr-[12px]">備品提供</h6>
         <div class="w-full grid grid-cols-5 gap-[8px] auto-cols-auto px-[24px] py-[24px] items-center bg-[#FFFFFF] rounded-lg">
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -283,7 +282,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>衛生紙</p>
+          <p class="text-[#4B4B4B]">衛生紙</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -296,7 +295,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>拖鞋</p>
+          <p class="text-[#4B4B4B]">拖鞋</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -309,7 +308,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>沐浴用品</p>
+          <p class="text-[#4B4B4B]">沐浴用品</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -322,7 +321,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>清潔用品</p>
+          <p class="text-[#4B4B4B]">清潔用品</p>
          </div>
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -335,7 +334,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>刮鬍刀</p>
+          <p class="text-[#4B4B4B]">刮鬍刀</p>
          </div>   
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -348,7 +347,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>吊衣架</p>
+          <p class="text-[#4B4B4B]">吊衣架</p>
          </div>   
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -361,7 +360,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>浴巾</p>
+          <p class="text-[#4B4B4B]">浴巾</p>
          </div>   
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -374,7 +373,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>刷牙用品</p>
+          <p class="text-[#4B4B4B]">刷牙用品</p>
          </div>   
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -387,7 +386,7 @@
             </clipPath>
            </defs>
           </svg>
-          <p>罐裝水</p>
+          <p class="text-[#4B4B4B]">罐裝水</p>
          </div>   
          <div class="flex items-center">
           <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -400,13 +399,13 @@
             </clipPath>
            </defs>
           </svg>
-          <p>梳子</p>
+          <p class="text-[#4B4B4B]">梳子</p>
          </div>         
         </div>
        </div>
        <div class="mb-[80px]">
-        <h6 class="mb-[24px] text-[24px] before:inline-block inline-block flex items-center before:h-[24px] before:w-[4px] before:bg-[#BF9D7D] before:rounded before:mr-[16px]">訂房須知</h6>
-        <ol class="list-decimal ml-[12px]">
+        <h6 class="mb-[24px] text-[24px] before:inline-block inline-block flex items-center before:h-[24px] before:w-[4px] before:bg-[#BF9D7D] before:rounded before:mr-[12px]">訂房須知</h6>
+        <ol class="list-decimal ml-[12px] text-[#4B4B4B]">
          <li>入住時間為下午3點，退房時間為上午12點。</li>
          <li>如需延遲退房，請提前與櫃檯人員聯繫，視當日房況可能會產生額外費用。</li>
          <li>請勿在房間內抽煙，若有抽煙需求，可以使用設在酒店各樓層的專用吸煙區。</li>
@@ -420,7 +419,7 @@
         </ol>
        </div>        
       </div>
-      <aside class="p-[40px] bg-[#FFFFFF] rounded-xl max-w-[478px] sticky top-[40px]">
+      <aside class="p-[40px] bg-[#FFFFFF] rounded-xl max-w-[478px] sticky top-[120px]">
        <h6 class="text-[24px] mb-[56px] pb-[16px] border-b border-[#ECECEC]">預訂房型</h6>
        <h3 class="text-[40px] mb-[8px]">尊爵雙人房</h3>
        <p class="mb-[40px]">享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。</p>
@@ -610,7 +609,7 @@
         </div>
        </div>
        <p class="text-[24px] text-[#BF9D7D] mb-[40px]">NT$ 10,000</p>
-       <router-link :to="{name:'Book'}" class="bg-[#BF9D7D] text-[#FFFFFF] h-[56px] rounded-lg block p-[16px] justify-center flex items-center">立即預訂</router-link>
+       <ClickButton :to="{ name: 'Book' }">立即預訂</ClickButton>
       </aside>
      </div>
     </section>
@@ -642,6 +641,7 @@ import { ref, reactive } from "vue";
 // import type { Login } from "../types/login"
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
+import ClickButton from '../components/ClickButton.vue';
 import room2_1 from '../assets/img/pc/room2-1.png';
 import room2_2 from '../assets/img/pc/room2-2.png';
 import room2_3 from '../assets/img/pc/room2-3.png';
