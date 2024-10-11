@@ -1,7 +1,7 @@
 <template>
   <router-link
     :to="to"
-    :class="['bg-[#BF9D7D] font-bold text-[#FFFFFF] h-[56px] rounded-lg block p-[16px] justify-center flex items-center', customClass]"
+    :class="['font-bold text-[#FFFFFF] h-[56px] rounded-lg block p-[16px] justify-center flex items-center', customClass]"
   >
     <slot>按鈕</slot>
   </router-link>

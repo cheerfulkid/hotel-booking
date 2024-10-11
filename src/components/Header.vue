@@ -1,10 +1,13 @@
 <template>
   <header class="px-5 fixed w-full z-30" :class="{'bg-[#000000]':route.name==='Book' || route.name==='HotelDetail' || route.name==='Login' || route.name==='Signup'}">
-    <div class="flex w-full justify-between items-center md:max-w-[1760px] mx-auto">
+    <div class="flex w-full justify-between items-center md:max-w-[1760px] h-[72px] md:h-[120px] mx-auto">
       <div class="md:my-[24px]">
         <img class="max-w-[110px] xs:max-w-[110px] md:max-w-[196px]" src="../assets/img/pc/logo.png" alt="享樂酒店">
       </div>
-      <nav v-if="route.name!='Login' && route.name !='Signup'" class="flex">
+      <button class="block md:hidden" @click="menuOpen=true">
+        <img :src="`${ic_menu}`" alt="">
+      </button>
+      <nav v-if="route.name!='Login' && route.name !='Signup'" class="hidden md:flex">
         <div class="cursor-pointer relative">
           <span @click="dropdownOpen=!dropdownOpen" class="block p-[16px] mr-[16px] text-[#FFFFFF]">客房旅宿</span>
           <ul v-if="dropdownOpen" class="absolute z-10 w-[260px] -left-[25px] top-[68px] list-none rounded-[20px] bg-[#FFFFFF] overflow-hidden">
@@ -22,12 +25,35 @@
           <span class="text-[#FFFFFF]">Jessica</span>
         </div>
         <router-link class="block rounded-[8px] px-[32px] py-[16px] font-bold text-[#FFFFFF] bg-[#BF9D7D]" to="./">立即訂房</router-link>    
-      </nav>
-      <span class="cursor-pointer md:hidden">
-        <!-- <img src="../assets/img/ic_menu.svg" alt=""> -->
-      </span> 
-    </div>         
+      </nav>      
+    </div>
+    <div v-if="menuOpen" class="w-full h-full bg-[#000000] fixed z-30 top-0 left-0 px-[20px]">
+      <button @click="menuOpen=false" class="absolute top-[28px] right-[28px] w-[64px] h-[64px] flex items-center justify-center">
+        <svg class="w-[28px] h-[28px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_14_2300)">
+            <path class="fill-[#FFFFFF]" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="black"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_14_2300">
+              <rect width="24" height="24" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+      <div class="flex flex-col justify-center w-full h-full">
+        <ClickButton customClass="hover:bg-[#BF9D7D]" :to="{ name: 'Book' }">
+          客房旅宿
+        </ClickButton>
+        <ClickButton customClass="hover:bg-[#BF9D7D]" :to="{ name: 'Book' }">
+          會員登入
+        </ClickButton>
+        <ClickButton customClass="hover:bg-[#BF9D7D]" :to="{ name: 'Book' }">
+          立即訂房
+        </ClickButton>
+      </div>    
+    </div>        
   </header>
+
 </template>
 <style scoped>
 </style>
@@ -35,7 +61,11 @@
 import { ref } from "vue"
 import { useUserStore } from '../stores/user'
 import { useRoute } from 'vue-router';
+import ic_menu from '../assets/img/svg/ic_menu.svg';
+import ic_close from '../assets/img/svg/ic_close.svg';
+import ClickButton from '../components/ClickButton.vue';
 const dropdownOpen = ref(false)
+const menuOpen = ref(false)
 const user = useUserStore()
 const route = useRoute()
 

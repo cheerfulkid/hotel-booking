@@ -10,7 +10,7 @@
     </clipPath>
    </defs>
   </svg>
-  <p class="text-[#4B4B4B]">
+  <p class="text-[#4B4B4B] font-bold">
    <slot></slot> 張大床
   </p>
  </div> 

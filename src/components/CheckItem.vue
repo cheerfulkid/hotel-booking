@@ -10,16 +10,19 @@
     </clipPath>
    </defs>
   </svg>
-  <p class="text-[#4B4B4B]">
+  <p :class="['text-[#4B4B4B]', customClass]">
    <slot></slot>
   </p>
  </div>
 </template>
 
 <script setup>
-// import { defineProps } from 'vue';
+import { defineProps } from 'vue';
 
-// const props = defineProps({
-  
-// });
+const props = defineProps({
+  customClass: {
+   type: String,
+   default: ""
+  },
+});
 </script>

@@ -609,7 +609,7 @@
         </div>
        </div>
        <p class="text-[24px] text-[#BF9D7D] mb-[40px]">NT$ 10,000</p>
-       <ClickButton :to="{ name: 'Book' }">立即預訂</ClickButton>
+       <ClickButton customClass="bg-[#BF9D7D]" :to="{ name: 'Book' }">立即預訂</ClickButton>
       </aside>
      </div>
     </section>
