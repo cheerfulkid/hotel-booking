@@ -222,7 +222,8 @@
           </div>
         </div>        
       </div>  
-      <img :src="line2" alt="">    
+      <img class="block md:hidden mt-[40px] md:mt-[120px]" :src="mobile_line2" alt="">
+      <img class="hidden md:block mt-[40px] md:mt-[120px]" :src="line2" alt="">    
     </section>    
   </main>
   <Footer></Footer>
@@ -260,6 +261,7 @@ import dot from '../assets/img/pc/dot.png';
 import about from '../assets/img/pc/about.png';
 import room from '../assets/img/pc/room1.png';
 import line from '../assets/img/pc/line.png';
+import mobile_line2 from '../assets/img/mobile/line.png';
 import line2 from '../assets/img/pc/line2.png';
 import bg from '../assets/img/pc/bg.png';
 import food1 from '../assets/img/pc/food1.png';

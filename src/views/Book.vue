@@ -2,7 +2,7 @@
  <div class="min-h-[100%]">
   <Header></Header>
   <main>
-   <section class="bg-[#F7F2EE] pt-[112px] md:pt-[240px] pb-[40px] md:pb-[120px">
+   <section class="bg-[#F7F2EE] pt-[112px] md:pt-[240px] pb-[40px] md:pb-[120px]">
     <div class="max-w-[1296px] mx-auto md:flex items-start px-[12px]">
      <div class="w-full max-w-[746px] md:pr-[16px] lg:pr-[72px]">
       <div class="flex items-center mb-[40px]">
@@ -23,14 +23,14 @@
       <h6 class="md:text-[1.75rem] lg:text-[1.75rem] font-bold mb-[32px] md:mb-[40px]">訂房資訊</h6>
       <div class="flex items-center justify-between">
        <div>  
-        <DecoTitle customClass="mb-[8px]">選擇房型</DecoTitle>
+        <DecoTitle customClass="mb-[8px] before:bg-[#BF9D7D]">選擇房型</DecoTitle>
         <p class="mb-[24px]">尊爵雙人房</p>
        </div>
        <router-link class="underline underline-offset-1 font-bold">編輯</router-link>
       </div>
       <div class="flex items-center justify-between">
        <div>
-        <DecoTitle customClass="mb-[8px]">訂房日期</DecoTitle>        
+        <DecoTitle customClass="mb-[8px] before:bg-[#BF9D7D]">訂房日期</DecoTitle>        
         <p class="mb-[8px]">入住：12 月 4 日星期二</p>
         <p class="mb-[24px]">退房：12 月 6 日星期三</p>
        </div>       
@@ -38,7 +38,7 @@
       </div>
       <div class="flex items-center justify-between">
        <div>
-        <DecoTitle customClass="mb-[8px]">房客人數</DecoTitle>
+        <DecoTitle customClass="mb-[8px] before:bg-[#BF9D7D]">房客人數</DecoTitle>
         <p>2 人</p>
        </div>
        <router-link class="underline underline-offset-1 font-bold">編輯</router-link>       
@@ -78,11 +78,11 @@
        <DivideLine customClass="bg-[#909090] my-[40px] md:my-[47px]"></DivideLine>       
        <h5 class="md:text-[2rem] lg:text-[2rem] font-bold mb-[32px] md:mb-[40px]">房間資訊</h5>
        <div class="mb-[24px]">
-        <DecoTitle customClass="mb-[24px] md:text-[24px] lg:text-[24px]">房型基本資訊</DecoTitle>
+        <DecoTitle customClass="mb-[24px] md:text-[24px] lg:text-[24px] before:bg-[#BF9D7D]">房型基本資訊</DecoTitle>
         <BasicInfo roomSize="24" bedCount="1" peopleCount="2-4"></BasicInfo>
        </div>
        <div class="mb-[24px]">
-        <DecoTitle customClass="mb-[24px] md:text-[24px] lg:text-[24px] ">房間格局</DecoTitle>
+        <DecoTitle customClass="mb-[24px] md:text-[24px] lg:text-[24px] before:bg-[#BF9D7D]">房間格局</DecoTitle>
         <div class="w-full grid grid-cols-3 xl:grid-cols-5 gap-[8px] auto-cols-auto px-[24px] py-[24px] items-center bg-[#FFFFFF] rounded-lg">
          <CheckItem>市景</CheckItem>
          <CheckItem>獨立衛浴</CheckItem>
@@ -92,7 +92,7 @@
         </div>
        </div>
        <div class="mb-[24px]">
-        <DecoTitle customClass="mb-[24px] md:text-[24px] lg:text-[24px]">房內設備</DecoTitle>
+        <DecoTitle customClass="mb-[24px] md:text-[24px] lg:text-[24px] before:bg-[#BF9D7D]">房內設備</DecoTitle>
         <div class="w-full grid grid-cols-2 xl:grid-cols-5 gap-[8px] auto-cols-auto px-[24px] py-[24px] items-center bg-[#FFFFFF] rounded-lg">
          <CheckItem customClass="text-[0.875rem] md:text-[1rem]">平面電視</CheckItem>
          <CheckItem customClass="text-[0.875rem] md:text-[1rem]">吹風機</CheckItem>
@@ -107,7 +107,7 @@
         </div>
        </div>
        <div class="mb-[24px]">
-        <DecoTitle customClass="mb-[24px] md:text-[24px] lg:text-[24px]">備品提供</DecoTitle>
+        <DecoTitle customClass="mb-[24px] md:text-[24px] lg:text-[24px] before:bg-[#BF9D7D]">備品提供</DecoTitle>
         <div class="w-full grid grid-cols-2 xl:grid-cols-5 gap-[8px] auto-cols-auto px-[24px] py-[24px] items-center bg-[#FFFFFF] rounded-lg">
          <CheckItem customClass="text-[0.875rem] md:text-[1rem]">衛生紙</CheckItem>
          <CheckItem customClass="text-[0.875rem] md:text-[1rem]">拖鞋</CheckItem>
@@ -124,7 +124,7 @@
       </form>
      </div>     
      <aside class="p-[40px] bg-[#FFFFFF] rounded-xl w-full md:max-w-[478px] sticky top-[120px]">
-      <div class="max-w-[398px] mb-[40px]">
+      <div class="max-w-full md:max-w-[398px] mb-[40px]">
        <img class="rounded-lg" :src="`${room2_1}`" alt="">
       </div>     
       <h6 class="md:text-[1.75rem] lg:text-[1.75rem] font-bold mb-[24px]">價格詳情</h6>
@@ -145,7 +145,7 @@
        <span class="font-bold">總價</span>
        <span class="font-bold">NT$ 19,000</span>
       </div>
-      <ClickButton customClass="bg-[#BF9D7D]" :to="{ name: 'Book' }">
+      <ClickButton @click="checkOrder" customClass="bg-[#BF9D7D]" :to="{ name: 'Book' }">
         確認訂房
       </ClickButton>      
      </aside>
@@ -153,17 +153,20 @@
    </section>
   </main>
   <Footer></Footer>
+  <LoadingOrder v-if="orderLoading"></LoadingOrder>
  </div> 
 </template>
 <style scoped>
 </style>
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import { useRouter, useRoute } from 'vue-router'
 // import type { Login } from "../types/login"
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import room2_1 from '../assets/img/pc/room2-1.png';
 import ic_close from '../assets/img/svg/ic_close.svg';
+import LoadingOrder from '../components/LoadingOrder.vue';
 import ClickButton from '../components/ClickButton.vue';
 import InputText from '../components/InputText.vue';
 import CheckItem from '../components/CheckItem.vue';
@@ -172,7 +175,10 @@ import DecoTitle from '../components/DecoTitle.vue';
 import DivideLine from '../components/DivideLine.vue';
 import InputSelectBind from '../components/InputSelectBind.vue';
 import taiwanCityData from "../api/taiwanCityData.json"
+const router = useRouter()
+const route = useRoute()
 const cityName = ref("")
+const orderLoading = ref(false)
 const bookData = ref({
  name: "",
  phone: "",
@@ -185,6 +191,15 @@ const bookData = ref({
 const areaList = computed(() => {
  let city = taiwanCityData.find((item) => item.CityName === cityName.value)
  return city?.AreaList
+})
+const checkOrder = (() => {
+  orderLoading.value = true
+  setTimeout(() => {
+    router.push({
+      name: 'Success'
+    })
+  }, 1500);
+ 
 })
 // const loading = ref(false)
 // const loginData = ref<Login>({

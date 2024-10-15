@@ -1,5 +1,5 @@
 <template>
-  <header class="px-5 fixed w-full z-30" :class="{'bg-[#000000]':route.name==='Book' || route.name==='HotelDetail' || route.name==='Login' || route.name==='Signup'}">
+  <header class="px-5 fixed w-full z-30" :class="{'bg-[#140F0A]':route.name==='Book' || route.name==='Success' || route.name==='HotelDetail' || route.name==='Login' || route.name==='Signup'}">
     <div class="flex w-full justify-between items-center md:max-w-[1760px] h-[72px] md:h-[120px] mx-auto">
       <div class="md:my-[24px]">
         <img class="max-w-[110px] xs:max-w-[110px] md:max-w-[196px]" src="../assets/img/pc/logo.png" alt="享樂酒店">
