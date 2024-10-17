@@ -3,6 +3,9 @@ import Home from '../views/Home.vue'
 import Book from '../views/Book.vue'
 import BookDetail from '../views/BookDetail.vue'
 import Success from '../views/Success.vue'
+import MyAccount from '../views/MyAccount.vue'
+import Profile from '../views/Profile.vue'
+import Order from '../views/Order.vue'
 import HotelDetail from '../views/HotelDetail.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
@@ -14,6 +17,19 @@ const routes = [
   { path: '/hoteldetail', name: 'HotelDetail', component: HotelDetail },
   { path: '/login', name: 'Login', component: Login },
   { path: '/success', name: 'Success', component: Success },
+  { path: '/myaccount', name: 'MyAccount', component: MyAccount, children: [
+    {
+      path: 'profile',
+      name: 'Profile',
+      component: Profile
+    },
+    {
+      path: 'order',
+      name: 'Order',
+      component: Order
+    }
+  ] 
+  },
   { path: '/signup/:step?', name: 'Signup', component: Signup }
 ]
 

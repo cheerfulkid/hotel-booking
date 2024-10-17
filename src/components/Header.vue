@@ -1,5 +1,5 @@
 <template>
-  <header class="px-5 fixed w-full z-30" :class="{'bg-[#140F0A]':route.name==='Book' || route.name==='Success' || route.name==='HotelDetail' || route.name==='Login' || route.name==='Signup'}">
+  <header class="px-5 fixed w-full z-30" :class="{'bg-[#140F0A]':route.name==='Book' || route.name==='Success' || route.name==='Profile' || route.name==='Order' || route.name==='HotelDetail' || route.name==='Login' || route.name==='Signup'}">
     <div class="flex w-full justify-between items-center md:max-w-[1760px] h-[72px] md:h-[120px] mx-auto">
       <div class="md:my-[24px]">
         <img class="max-w-[110px] xs:max-w-[110px] md:max-w-[196px]" src="../assets/img/pc/logo.png" alt="享樂酒店">
@@ -12,7 +12,7 @@
           <span @click="dropdownOpen=!dropdownOpen" class="block p-[16px] mr-[16px] text-[#FFFFFF]">客房旅宿</span>
           <ul v-if="dropdownOpen" class="absolute z-10 w-[260px] -left-[25px] top-[68px] list-none rounded-[20px] bg-[#FFFFFF] overflow-hidden">
             <li class="mt-[12px]">
-              <router-link class="block text-[16px] font-bold py-[16px] px-[24px] hover:bg-[#F7F2EE] hover:text-[#BF9D7D] text-[#4B4B4B]" to="./">我的帳戶</router-link>
+              <router-link class="block text-[16px] font-bold py-[16px] px-[24px] hover:bg-[#F7F2EE] hover:text-[#BF9D7D] text-[#4B4B4B]" :to="{name:'Profile'}">我的帳戶</router-link>
             </li>
             <li class="mb-[12px]">
               <span class="block cursor-pointer text-[16px] font-bold py-[16px] px-[24px] hover:bg-[#F7F2EE] hover:text-[#BF9D7D] text-[#4B4B4B]">登出</span>
@@ -41,13 +41,13 @@
         </svg>
       </button>
       <div class="flex flex-col justify-center w-full h-full">
-        <ClickButton customClass="hover:bg-[#BF9D7D]" :to="{ name: 'Book' }">
+        <ClickButton customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }">
           客房旅宿
         </ClickButton>
-        <ClickButton customClass="hover:bg-[#BF9D7D]" :to="{ name: 'Book' }">
+        <ClickButton customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }">
           會員登入
         </ClickButton>
-        <ClickButton customClass="hover:bg-[#BF9D7D]" :to="{ name: 'Book' }">
+        <ClickButton customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }">
           立即訂房
         </ClickButton>
       </div>    

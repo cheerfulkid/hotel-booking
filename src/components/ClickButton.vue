@@ -1,10 +1,15 @@
 <template>
-  <router-link
+  <router-link v-if="isLink==='true'"
     :to="to"
-    :class="['font-bold text-[#FFFFFF] h-[56px] rounded-lg block p-[16px] justify-center flex items-center', customClass]"
+    :class="['font-bold  h-[56px] rounded-lg block p-[16px] justify-center flex items-center', customClass]"
   >
     <slot>按鈕</slot>
   </router-link>
+  <button v-else   
+    :class="['w-full font-bold  h-[56px] rounded-lg block p-[16px] justify-center flex items-center', customClass]"
+  >
+    <slot>按鈕</slot>
+  </button>
 </template>
 
 <script setup>
@@ -14,6 +19,10 @@ const props = defineProps({
   to: {
     type: Object,
     required: true
+  },
+  isLink: {
+    type: String,
+    default: 'true'
   },
   customClass: {
     type: String,

@@ -2,7 +2,7 @@
  <div class="min-h-[100%]">
   <Header></Header>
   <main>
-   <section class="bg-[#F7F2EE] pt-[112px] md:pt-[240px] pb-[40px] md:pb-[120px]">
+   <section class="bg-[#F7F2EE] pt-[112px] md:pt-[240px] pb-[40px]">
     <div class="max-w-[1296px] mx-auto md:flex items-start px-[12px]">
      <div class="w-full max-w-[746px] md:pr-[16px] lg:pr-[72px]">
       <div class="flex items-center mb-[40px]">
@@ -63,14 +63,14 @@
        </div>
        <div class="mb-[24px]">
         <label class="font-bold mb-[8px] block" for="">地址</label>
-         <div class="flex">
+        <div class="flex">
           <div class="w-1/2 pr-[8px]">
-           <InputSelectBind customClass="border-[1px] border-[#ECECEC]" :data="taiwanCityData" propertyValue="CityName" property="CityName" v-model:name="cityName"></InputSelectBind>      
+            <InputSelectBind customClass="border-[1px] border-[#ECECEC]" :data="taiwanCityData" propertyValue="CityName" property="CityName" v-model:name="cityName"></InputSelectBind>      
           </div> 
           <div class="w-1/2">
-           <InputSelectBind customClass="border-[1px] border-[#ECECEC]" :data="areaList" propertyValue="ZipCode" property="AreaName" v-model:name="bookData.address.zipcode"></InputSelectBind>          
+            <InputSelectBind customClass="border-[1px] border-[#ECECEC]" :data="areaList" propertyValue="ZipCode" property="AreaName" v-model:name="bookData.address.zipcode"></InputSelectBind>          
           </div>
-         </div>        
+        </div>        
         <!-- <InputText placeholder="請選擇縣市" customClass="max-w-[369px] mr-[8px]"></InputText>
         <InputText placeholder="請選擇區域" customClass="max-w-[369px]"></InputText> -->
         <InputText placeholder="請輸入詳細地址" customClass="mt-[16px]"></InputText>
@@ -145,7 +145,7 @@
        <span class="font-bold">總價</span>
        <span class="font-bold">NT$ 19,000</span>
       </div>
-      <ClickButton @click="checkOrder" customClass="bg-[#BF9D7D]" :to="{ name: 'Book' }">
+      <ClickButton @click="checkOrder" customClass="bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }">
         確認訂房
       </ClickButton>      
      </aside>
