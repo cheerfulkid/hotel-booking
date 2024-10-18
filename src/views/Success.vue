@@ -31,9 +31,7 @@
      <aside class="p-[16px] md:p-[40px] bg-[#FFFFFF] rounded-xl w-full md:max-w-[478px] sticky top-[120px]">
       <p class="mb-[8px] text-[0.875rem] md:text-[1rem] text-[#4B4B4B]">預訂參考編號： HH2302183151222</p>
       <p class="text-[1rem] md:text-[1.5rem] font-bold mb-[24px] md:mb-[40px]">即將來的行程</p>
-      <div class="max-w-full md:max-w-[398px] mb-[24px] md:mb-[40px]">
-       <img class="rounded-lg" :src="`${room2_1}`" alt="">
-      </div>  
+      <img class="w-full max-w-full md:max-w-[398px] h-[240px] object-cover object-left-bottom mb-[24px] md:mb-[40px] rounded-lg" :src="`${room2_1}`" alt="">
       <p class="text-[#4B4B4B] text-[0.875rem] md:text-[1.25rem] flex items-center mb-[24px] font-bold">尊爵雙人房，1 晚<span class="bg-[#909090] w-[1px] h-full inline-block mx-[16px]"></span>住宿人數：2 位</p>
       <DecoTitle customClass="mb-[8px] before:bg-[#BF9D7D] text-[0.875rem] md:text-[1rem]">入住：6 月 10 日星期二，15:00 可入住</DecoTitle>
       <DecoTitle customClass="before:bg-[#909090] mb-[24px] text-[0.875rem] md:text-[1rem]">退房：6 月 11 日星期三，12:00 前退房</DecoTitle>

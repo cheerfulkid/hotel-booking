@@ -1,5 +1,5 @@
 <template>
-  <div class="md:flex">
+  <div class="md:flex md:items-start">
     <div class="w-full max-w-full md:max-w-[527px] md:mr-[40px] bg-[#FFFFFF] mb-[24px] md:mb-0 rounded-lg p-[24px] md:p-[40px]">
       <template v-if="!editPassword">
         <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">修改密碼</h6>

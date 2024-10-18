@@ -12,11 +12,11 @@
      </div>         
     </div>
    </section>
-   <section class="pt-[40px] md:pt-[80px]">
-    <div class="max-w-[1296px] mx-auto px-[12px]">
+   <section class="pt-[40px] md:pt-[80px] px-[12px]">
+    <div class="max-w-[1296px] mx-auto">
      <nav class="mb-[40px] md:mb-[80px] flex items-center">
-      <router-link class="w-[113px] h-[56px] flex items-center justify-center text-[#BF9D7D] font-bold after:inline-block after:bg-[#BF9D7D] after:w-[32px] after:h-[4px] after:rounded-full flex flex-col after:mt-[8px]" :to="{ name: 'Profile' }">個人資料</router-link>
-      <router-link class="w-[113px] h-[56px] flex items-center justify-center text-[#FFFFFF] font-bold after:inline-block after:w-[32px] after:h-[4px] after:mt-[8px] flex flex-col" :to="{ name: 'Order' }">我的訂單</router-link>
+      <router-link class="w-[113px] h-[56px] flex items-center justify-center font-bold after:inline-block after:w-[32px] after:h-[4px] flex flex-col after:mt-[8px]" :class="{'text-[#FFFFFF]':route.name!='Profile', ['text-[#BF9D7D] after:bg-[#BF9D7D] after:rounded-full']: route.name==='Profile' }" :to="{ name: 'Profile' }">個人資料</router-link>
+      <router-link class="w-[113px] h-[56px] flex items-center justify-center font-bold after:inline-block after:w-[32px] after:h-[4px] flex flex-col after:mt-[8px]" :class="{'text-[#FFFFFF]':route.name!='Order', ['text-[#BF9D7D] after:bg-[#BF9D7D] after:rounded-full']: route.name==='Order' }" :to="{ name: 'Order' }">我的訂單</router-link>
      </nav>
      <router-view></router-view>
     </div>
@@ -39,5 +39,6 @@ import hero from '../assets/img/pc/hero.png';
 import mobile_line2 from '../assets/img/mobile/line.png';
 import line2 from '../assets/img/pc/line2.png';
 import user1 from '../assets/img/pc/user1.png';
+const route = useRoute()
 
 </script>
