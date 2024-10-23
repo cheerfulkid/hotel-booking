@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Book from '../views/Book.vue'
-import BookDetail from '../views/BookDetail.vue'
+import AllHotel from '../views/AllHotel.vue'
 import Success from '../views/Success.vue'
 import MyAccount from '../views/MyAccount.vue'
 import Profile from '../views/Profile.vue'
@@ -13,7 +13,7 @@ import Signup from '../views/Signup.vue'
 const routes = [
   { path: '/home', name: 'Home', component: Home },
   { path: '/book', name: 'Book', component: Book },
-  { path: '/bookdetail', name: 'BookDetail', component: BookDetail },
+  { path: '/allhotel', name: 'AllHotel', component: AllHotel },
   { path: '/hoteldetail', name: 'HotelDetail', component: HotelDetail },
   { path: '/login', name: 'Login', component: Login },
   { path: '/success', name: 'Success', component: Success },

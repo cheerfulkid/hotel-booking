@@ -15,7 +15,7 @@
       <DivideLine customClass="bg-[#ECECEC] my-[40px] md:my-[80px]"></DivideLine>
       <h6 class="text-[1rem] md:text-[1.5rem] font-bold mb-[24px] md:mb-[40px] text-[#FFFFFF]">立即查看您的訂單紀錄</h6>
       <div class="max-w-full lg:max-w-[218px]">
-       <ClickButton customClass="bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'BookDetail' }">
+       <ClickButton customClass="bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Order' }">
         前往我的訂單
        </ClickButton>
       </div>

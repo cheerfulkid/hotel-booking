@@ -37,12 +37,12 @@
    </div>
    <div class="flex">
     <div class="w-[50%] mr-[16px]">
-     <ClickButton @click="modalStore.openModal" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]" :to="{ name: 'BookDetail' }">
+     <ClickButton @click="modalStore.openModal" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
       取消預訂
      </ClickButton>
     </div>
     <div class="w-[50%]">
-     <ClickButton customClass="bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'BookDetail' }">
+     <ClickButton customClass="bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'HotelDetail' }">
       查看詳情
      </ClickButton>
     </div>
@@ -88,7 +88,7 @@
      <p class="font-bold text-[#000000] text-[0.875rem] md:text-[1rem]">NT$ 10,000</p>     
     </div>
    </div>
-   <ClickButton customClass="mt-[40px] border-[1px] border-[#BF9D7D] text-[#BF9D7D] flex items-center justify-center" :to="{ name: 'BookDetail' }">
+   <ClickButton customClass="mt-[40px] border-[1px] border-[#BF9D7D] text-[#BF9D7D] flex items-center justify-center" :to="{ name: 'AllHotel' }">
     查看更多
     <svg class="mr-[4px] w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
      <g clip-path="url(#clip0_14_2286)">
@@ -107,12 +107,12 @@
   <p class="text-[#4B4B4B] h-[224px] flex items-center text-[1.25rem] font-bold">確定要取消此房型的預訂嗎？</p>  
   <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
   <div class="w-[50%] mr-[16px]">
-    <ClickButton @click="modalStore.closeModal" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]" :to="{ name: 'BookDetail' }">
+    <ClickButton @click="modalStore.closeModal" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
     關閉視窗
     </ClickButton>
   </div>
   <div class="w-[50%]">
-    <ClickButton @click="makeCancel" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'BookDetail' }">
+    <ClickButton @click="makeCancel" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]">
     確定取消
     </ClickButton>
   </div>

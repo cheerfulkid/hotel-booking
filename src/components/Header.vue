@@ -1,9 +1,9 @@
 <template>
   <header class="px-5 fixed w-full z-30" :class="{'bg-[#140F0A]':route.name==='Book' || route.name==='Success' || route.name==='Profile' || route.name==='Order' || route.name==='HotelDetail' || route.name==='Login' || route.name==='Signup'}">
     <div class="flex w-full justify-between items-center md:max-w-[1760px] h-[72px] md:h-[120px] mx-auto">
-      <div class="md:my-[24px]">
+      <router-link class="md:my-[24px]":to="{name:'Home'}">
         <img class="max-w-[110px] xs:max-w-[110px] md:max-w-[196px]" src="../assets/img/pc/logo.png" alt="享樂酒店">
-      </div>
+      </router-link>
       <button class="block md:hidden" @click="menuOpen=true">
         <img :src="`${ic_menu}`" alt="">
       </button>
@@ -24,7 +24,7 @@
           <!-- <img class="mr-[8px]" src="../assets/img/ic_Profile.svg" alt=""> -->
           <span class="text-[#FFFFFF]">Jessica</span>
         </div>
-        <router-link class="block rounded-[8px] px-[32px] py-[16px] font-bold text-[#FFFFFF] bg-[#BF9D7D]" to="./">立即訂房</router-link>    
+        <router-link class="block rounded-[8px] px-[32px] py-[16px] font-bold text-[#FFFFFF] bg-[#BF9D7D]":to="{ name: 'AllHotel' }">立即訂房</router-link>    
       </nav>      
     </div>
     <div v-if="menuOpen" class="w-full h-full bg-[#000000] fixed z-30 top-0 left-0 px-[20px]">

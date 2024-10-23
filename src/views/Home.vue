@@ -111,7 +111,7 @@
           <h3 class="text-[#BF9D7D] text-[48px]  mb-[80px]  flex items-center after:block after:ml-[24px] after:h-[2px] after:w-[167px] after:bg-gradient-to-r after:from-[#BE9C7C] after:to-[#FFFFFF]">佳餚<br>美饌</h3>
         </div>
         <div class="max-w-[1512px] ml-auto">
-          <Splide :options="options2" aria-label="享樂酒店">
+          <Splide :options="options2" :extensions="extensions" aria-label="享樂酒店">
             <SplideSlide>
               <div class="max-w-[416px] relative">
                 <img class="rounded" :src="`${food1}`" alt="Sample 1">
@@ -249,7 +249,7 @@
 }
 </style>
 <script setup lang="ts">
-import { reactive } from "vue";
+import { ref, reactive } from "vue";
 // import type { Login } from "../types/login"
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
@@ -271,8 +271,9 @@ import food4 from '../assets/img/pc/food4.png';
 import food5 from '../assets/img/pc/food5.png';
 import map from '../assets/img/pc/map.png';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import '@splidejs/splide/css/core';
-
+const extensions = ref({ AutoScroll });
 const options = reactive({
   rewind: true,
   type: 'loop',
