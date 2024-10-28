@@ -229,21 +229,21 @@
   <Footer></Footer>
  </div> 
 </template>
-<style>
-.pagination-wrapper {
+<style scoped>
+:deep(.pagination-wrapper) {
  position: absolute;
  width: 100%;
  bottom: 32px;
  z-index: 30;
 }
-.pagination-page {
+:deep(.pagination-page) {
  width: 32px;
  height: 4px;
  border-radius: 20px;
  background: #FFFFFF !important;
  margin:0 4px;
 }
-.pagination-page.is-active {
+:deep(.pagination-page.is-active) {
  background: #BF9D7D !important;
  width: 60px;
 }
@@ -279,8 +279,8 @@ const options = reactive({
   type: 'loop',
   arrows: false,
   classes: {
-      pagination: 'splide__pagination pagination-wrapper',
-      page: 'splide__pagination__page pagination-page',
+    pagination: 'splide__pagination pagination-wrapper',
+    page: 'splide__pagination__page pagination-page',
   },
 });
 
@@ -292,10 +292,10 @@ const options2 = reactive({
   type: 'loop',
   arrows: false,
   pagination: false,
-  classes: {
-      pagination: 'splide__pagination pagination-wrapper',
-      page: 'splide__pagination__page pagination-page',
-  },
+  // classes: {
+  //   pagination: 'splide__pagination pagination-wrapper',
+  //   page: 'splide__pagination__page pagination-page',
+  // },
   autoScroll: {
     speed: 1
   }

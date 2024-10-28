@@ -211,25 +211,25 @@
   <Footer></Footer>
  </div>
 </template>
-<style>
-.pagination-wrapper {
+<style scoped>
+:deep(.pagination-wrapper) {
  position: absolute;
  width: 100%;
  bottom: 32px;
  z-index: 30;
 }
-.pagination-page {
+:deep(.pagination-page) {
  width: 32px;
  height: 4px;
  border-radius: 20px;
  background: #FFFFFF !important;
  margin:0 4px;
 }
-.pagination-page.is-active {
+:deep(.pagination-page.is-active) {
  background: #BF9D7D !important;
  width: 60px;
 }
-.custom-arrows {
+:deep(.custom-arrows) {
   position: absolute;
   width: 100%;
   display: flex;
@@ -239,7 +239,7 @@
   z-index: 10;
   padding: 24px;
 }
-.custom-arrow {
+:deep(.custom-arrow) {
   width: 56px;
   height: 56px;
   background: #FFFFFF;
@@ -248,10 +248,10 @@
   display: flex;
   justify-content: center;
 }
-.custom-arrow svg {
+:deep(.custom-arrow svg) {
   width: 20px;
 }
-.custom-prev {
+:deep(.custom-prev) {
   transform: rotate(180deg);
 }
 </style>

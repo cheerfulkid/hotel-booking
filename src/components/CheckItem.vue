@@ -10,7 +10,7 @@
     </clipPath>
    </defs>
   </svg>
-  <p :class="['text-[#4B4B4B]', customClass]">
+  <p :class="['text-[#4B4B4B] font-bold', customClass]">
    <slot></slot>
   </p>
  </div>

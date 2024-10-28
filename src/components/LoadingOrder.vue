@@ -1,5 +1,5 @@
 <template> 
- <div class="flex items-center justify-center w-full h-full fixed left-0 top-0 z-40 bg-black/40 backdrop-blur-sm">
+ <div class="flex p-[12px] items-center justify-center w-full h-full fixed left-0 top-0 z-40 bg-black/40 backdrop-blur-sm">
   <div class="w-full max-w-[1020px] h-[800px] bg-[#FFFFFF] rounded-lg flex flex-col items-center justify-center">
    <div class="mb-[60px] w-[68px]">
     <img :src="`${loading}`" alt="">    

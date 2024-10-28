@@ -18,7 +18,7 @@ import { defineProps } from 'vue';
 const props = defineProps({
   to: {
     type: Object,
-    required: true
+    required: false
   },
   isLink: {
     type: String,

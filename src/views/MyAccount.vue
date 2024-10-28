@@ -19,10 +19,10 @@
       <router-link class="w-[113px] h-[56px] flex items-center justify-center font-bold after:inline-block after:w-[32px] after:h-[4px] flex flex-col after:mt-[8px]" :class="{'text-[#FFFFFF]':route.name!='Order', ['text-[#BF9D7D] after:bg-[#BF9D7D] after:rounded-full']: route.name==='Order' }" :to="{ name: 'Order' }">我的訂單</router-link>
      </nav>
      <router-view></router-view>
-    </div>
-    <img class="block md:hidden mt-[40px] md:mt-[120px]" :src="mobile_line2" alt="">
-    <img class="hidden md:block mt-[40px] md:mt-[120px]" :src="line2" alt="">
-   </section>    
+    </div>    
+   </section>
+   <img class="block md:hidden mt-[40px] md:mt-[120px]" :src="mobile_line2" alt="">
+   <img class="hidden md:block mt-[40px] md:mt-[120px]" :src="line2" alt="">    
   </main>
   <Footer></Footer>
  </div> 
