@@ -13,12 +13,12 @@
        
         <router-link class="flex flex-col items-center" :to="{name:'Signup',params:{step:1}}">
           <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]">1</span>
-          <p class="text-white">輸入信箱及密碼</p>
+          <p class="text-white font-bold">輸入信箱及密碼</p>
         </router-link>
        
         <router-link class="flex flex-col items-center" :to="{name:'Signup',params:{step:2}}">
           <span class="rounded-full w-[32px] h-[32px] border-[1px]  block text-[#909090] flex items-center justify-center mb-[4px]">2</span>
-          <p class="text-[#909090]">填寫基本資料</p>
+          <p class="text-[#909090] font-bold">填寫基本資料</p>
         </router-link>
       </div>    
       <form class="mt-[56px]">
@@ -36,7 +36,7 @@
        </div>
        <router-link :to="{name: 'Signup', params: {step: 2}}" class="mb-[56px] inline-block py-[16px] text-[#909090] bg-[#ECECEC] rounded-[8px] text-[1rem] line-height-[24px] font-bold w-full text-center hover:bg-[#BF9D7D] hover:text-[#FFFFFF]">下一步</router-link>
       </form>
-      <p class="text-[#FFFFFF] mb-[94px]">已經有會員了嗎？<router-link :to="{name: 'Login'}" class="mt-[8px] text-[#BF9D7D] underline">立即登入</router-link></p> 
+      <p class="text-[#FFFFFF] mb-[94px]">已經有會員了嗎？<router-link :to="{name: 'Login'}" class="mt-[8px] text-[#BF9D7D] underline font-bold">立即登入</router-link></p> 
      </div>    
     </div>
    </template> 
@@ -48,12 +48,12 @@
        
         <router-link class="flex flex-col items-center" :to="{name:'Signup',params:{step:1}}">
           <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]">1</span>
-          <p class="text-white">輸入信箱及密碼</p>
+          <p class="text-white font-bold">輸入信箱及密碼</p>
         </router-link>
        
        <div class="flex flex-col items-center">
         <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]">2</span>
-        <p class="text-white">填寫基本資料</p>
+        <p class="text-white font-bold">填寫基本資料</p>
        </div>
       </div>
       <form class="mt-[56px]">
@@ -95,10 +95,10 @@
          </div>
         </div> 
        </div>
-       <!-- <div class="flex mb-[40px]">
-        <input id="agree" type="checkbox" :class="`w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url()] before:block before:w-full before:h-full checked:bg-[#BF9D7D]`">
+       <div class="flex mb-[40px]">
+        <input id="agree" type="checkbox" :class="`w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url(${ic_check})] before:block before:w-full before:h-full checked:bg-[#BF9D7D]`">
         <label for="agree" class="text-[#FFFFFF] text-[1rem] line-height-[24px] font-bold">我已閱讀並同意本網站個資使用規範</label>
-       </div> -->
+       </div>
        <span @click.prevent="signup" class="mb-[56px] flex items-center justify-center inline-block py-[16px] text-[#909090] bg-[#ECECEC] rounded-[8px] text-[1rem] line-height-[24px] font-bold w-full text-center hover:bg-[#BF9D7D] hover:text-[#FFFFFF]">
         <button v-if="loading" type="button" class="bg-indigo-500" disabled>
           <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -109,7 +109,7 @@
         <span v-else>完成註冊</span>
        </span>
       </form>
-      <p class="text-[#FFFFFF] mb-[94px]">已經有會員了嗎？<router-link :to="{name: 'Login'}" class="mt-[8px] text-[#BF9D7D] underline">立即登入</router-link></p> 
+      <p class="text-[#FFFFFF] mb-[94px]">已經有會員了嗎？<router-link :to="{name: 'Login'}" class="mt-[8px] text-[#BF9D7D] underline font-bold">立即登入</router-link></p> 
      </div>    
     </div>
    </template>  
@@ -129,7 +129,7 @@ import line3 from '../assets/img/pc/line3.png'
 import smLine3 from '../assets/img/mobile/line.png';
 import register from '../assets/img/pc/register.png';
 import InputSelectBind from '../components/InputSelectBind.vue';
-// import ic_check from '../assets/img/ic_check.svg?url'
+import ic_check from '../assets/img/svg/ic_check.svg';
 
 
 
