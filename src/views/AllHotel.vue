@@ -23,14 +23,14 @@
         </Splide>
       </div>
       <div class="w-full px-[12px] absolute top-0 z-20 h-full">
-      <div class="flex flex-col md:flex-row mx-auto w-full relative max-w-[335px] md:max-w-[780px] h-full justify-center md:items-center md:justify-between">
-        <div class="w-full md:min-w-[500px] md:mr-[80px]">
-        <h3 class="leading-9 text-[1.75rem] md:text-[2.5rem] text-center md:text-left font-bold text-[#BF9D7D] relative after:block after:h-[83px] after:w-[2px] after:bg-gradient-to-b after:from-[#BE9C7C] flex flex-col md:flex-none items-center md:items-start after:to-[#FFFFFF] after:mt-[20px] md:after:hidden md:before:absolute md:before:w-full md:before:bg-gradient-to-r md:before:from-[#BF9D7D] md:before:to-[#FFFFFF] md:before:bottom-0 md:before:h-[2px] pb-[40px]">享樂酒店<br><span class="text-[1rem] md:text-[1.5rem]">Enjoyment Luxury Hotel</span></h3>
+        <div class="flex flex-col md:flex-row mx-auto w-full relative max-w-[335px] md:max-w-[780px] h-full justify-center md:items-center md:justify-between">
+          <div class="w-full md:min-w-[500px] md:mr-[80px]">
+            <h3 class="leading-9 text-[1.75rem] md:text-[2.5rem] text-center md:text-left font-bold text-[#BF9D7D] relative after:block after:h-[83px] after:w-[2px] after:bg-gradient-to-b after:from-[#BE9C7C] flex flex-col md:flex-none items-center md:items-start after:to-[#FFFFFF] after:mt-[20px] md:after:hidden md:before:absolute md:before:w-full md:before:bg-gradient-to-r md:before:from-[#BF9D7D] md:before:to-[#FFFFFF] md:before:bottom-0 md:before:h-[2px] pb-[40px]">享樂酒店<br><span class="text-[1rem] md:text-[1.5rem]">Enjoyment Luxury Hotel</span></h3>
+          </div>
+          <div class="w-full">
+            <h2 class="relative text-center md:text-left z-10 font-bold text-[2rem] md:text-[3rem] text-[#FFFFFF]">客房旅宿</h2>        
+          </div>  
         </div>
-        <div class="w-full">
-        <h2 class="relative text-center md:text-left z-10 font-bold text-[2rem] md:text-[3rem] text-[#FFFFFF]">客房旅宿</h2>        
-        </div>  
-      </div>
       </div>    
     </section>
     <section class="md:pt-[120px] py-[42px] md:pb-[168px] bg-[#F7F2EE] px-[12px]">
@@ -44,16 +44,16 @@
               <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_1}`" alt="Sample 1">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room2_2}`" alt="Sample 2">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_2}`" alt="Sample 2">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room2_3}`" alt="Sample 3">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_3}`" alt="Sample 3">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room2_4}`" alt="Sample 4">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_4}`" alt="Sample 4">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room2_5}`" alt="Sample 5">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_5}`" alt="Sample 5">
             </SplideSlide>
           </Splide>
         </div>        
@@ -86,16 +86,16 @@
               <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_1}`" alt="Sample 1">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room3_2}`" alt="Sample 2">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_2}`" alt="Sample 2">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room3_3}`" alt="Sample 3">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_3}`" alt="Sample 3">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room3_4}`" alt="Sample 4">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_4}`" alt="Sample 4">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room3_5}`" alt="Sample 5">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_5}`" alt="Sample 5">
             </SplideSlide>
           </Splide>
         </div>        
@@ -128,16 +128,16 @@
               <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_1}`" alt="Sample 1">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room4_2}`" alt="Sample 2">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_2}`" alt="Sample 2">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room4_3}`" alt="Sample 3">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_3}`" alt="Sample 3">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room4_4}`" alt="Sample 4">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_4}`" alt="Sample 4">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room4_5}`" alt="Sample 5">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_5}`" alt="Sample 5">
             </SplideSlide>
           </Splide>
         </div>        
@@ -170,16 +170,16 @@
               <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_1}`" alt="Sample 1">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room5_2}`" alt="Sample 2">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_2}`" alt="Sample 2">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room5_3}`" alt="Sample 3">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_3}`" alt="Sample 3">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room5_4}`" alt="Sample 4">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_4}`" alt="Sample 4">
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[200px] lg:h-[457px] object-contain" :src="`${room5_5}`" alt="Sample 5">
+              <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_5}`" alt="Sample 5">
             </SplideSlide>
           </Splide>
         </div>        
