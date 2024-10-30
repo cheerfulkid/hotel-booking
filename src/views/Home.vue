@@ -133,7 +133,7 @@
       <img class="object-cover h-[990px] absolute top-[60px] left-[50px] custom-show" :src="line" alt="">
       <div class="w-full">
         <div class="max-w-[1296px] mx-auto">
-          <h3 class="text-[#BF9D7D] text-[48px] mb-[40px] md:mb-[80px] flex items-center after:block after:ml-[24px] after:h-[2px] after:w-[167px] after:bg-gradient-to-r after:from-[#BE9C7C] after:to-[#FFFFFF] font-bold">佳餚<br>美饌</h3>
+          <h3 class="text-[#BF9D7D] text-[3rem] mb-[40px] md:mb-[80px] flex items-center after:block after:ml-[24px] after:h-[2px] after:w-[167px] after:bg-gradient-to-r after:from-[#BE9C7C] after:to-[#FFFFFF] font-bold">佳餚<br>美饌</h3>
         </div>
         <div class="max-w-[1512px] ml-auto">
           <Splide :options="options3" :extensions="extensions" aria-label="享樂酒店">
@@ -142,7 +142,7 @@
                 <img class="rounded h-full object-cover" :src="`${food1}`" alt="Sample 1">
                 <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
                   <div class="flex items-center justify-between mb-[24px]">
-                    <h6 class="text-[#FFFFFF] text-[24px] font-bold">海霸</h6>
+                    <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">海霸</h6>
                     <span class="text-[#FFFFFF] font-bold"><span class="mr-[16px]">SUN-MON</span><span>11:00 - 20:30</span></span>            
                   </div>
                   <p class=" text-[#FFFFFF]">以新鮮海產料理聞名，我們的專業廚師選用高雄當地的海鮮，每一道菜都充滿海洋的鮮美與清甜。無論是烤魚、蒸蝦還是煮蛤蜊，都能讓您品嚐到最新鮮的海洋風味。</p>
@@ -154,7 +154,7 @@
                 <img class="rounded h-full object-cover" :src="`${food2}`" alt="Sample 2">
                 <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
                   <div class="flex items-center justify-between mb-[24px]">
-                    <h6 class="text-[#FFFFFF] text-[24px] font-bold">日食</h6>
+                    <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">日食</h6>
                     <span class="text-[#FFFFFF] font-bold"><span class="mr-[16px]">SUN-MON</span><span>17:00 - 22:00</span></span>            
                   </div>
                   <p class=" text-[#FFFFFF]">為您提供優質的牛排，每一塊肉都來自頂級的牛肉，經過專業廚師的巧手烹調，口感豐滿、風味絕佳。搭配我們的特製醬料，讓您的味蕾享受一場美味的盛宴。</p>
@@ -166,7 +166,7 @@
                 <img class="rounded h-full object-cover" :src="`${food3}`" alt="Sample 3">
                 <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
                   <div class="flex items-center justify-between mb-[24px]">
-                    <h6 class="text-[#FFFFFF] text-[24px] font-bold">山臻</h6>
+                    <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">山臻</h6>
                     <span class="text-[#FFFFFF] font-bold"><span class="mr-[16px]">SUN-MON</span><span>11:30 - 20:30</span></span>            
                   </div>
                   <p class=" text-[#FFFFFF]">帶您進入一次辣味與鮮香兼具的川菜美食之旅。我們的廚師掌握正宗的川菜烹調技巧，從麻辣鍋到口水雞，每一道菜都有其獨特的風味，讓您回味無窮。</p>
@@ -178,7 +178,7 @@
                 <img class="rounded h-full object-cover" :src="`${food4}`" alt="Sample 4">
                 <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
                   <div class="flex items-center justify-between mb-[24px]">
-                    <h6 class="text-[#FFFFFF] text-[24px] font-bold">月永</h6>
+                    <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">月永</h6>
                     <span class="text-[#FFFFFF] font-bold"><span class="mr-[16px]">SUN-MON</span><span>11:00 - 20:00</span></span>            
                   </div>
                   <p class=" text-[#FFFFFF]">從鮮美的海鮮、經典的牛排，到各國的特色美食，我們都一應俱全。在這裡，您可以品嚐到世界各地的美食，每一道菜都由專業廚師用心製作，讓您在享受美食的同時，也能感受到我們的熱情與用心。</p>
@@ -190,7 +190,7 @@
                 <img class="rounded h-full object-cover" :src="`${food5}`" alt="Sample 5">
                 <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
                   <div class="flex items-center justify-between mb-[24px]">
-                    <h6 class="text-[#FFFFFF] text-[24px] font-bold">天潮</h6>
+                    <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">天潮</h6>
                     <span class="text-[#FFFFFF] font-bold"><span class="mr-[16px]">SUN-MON</span><span>14:00 - 19:30</span></span>            
                   </div>
                   <p class=" text-[#FFFFFF]">我們提供各種精緻甜點與糕點，無論您喜歡的是巧克力蛋糕、法式馬卡龍，還是台灣傳統的糕點，都能在這裡找到。讓我們的甜點帶您進入一場繽紛的甜蜜旅程。</p>

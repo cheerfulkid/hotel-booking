@@ -10,17 +10,17 @@
    <div class="flex mb-[40px]">
      <!-- 住宿時間 -->
      <div class="w-[220px] mr-[40px]">
-       <p class="text-[24px] mb-[8px]">1 晚</p>
+       <p class="text-[1.5rem] mb-[8px]">1 晚</p>
        <p>2023/ 12 / 03 - 2023/ 12 / 04</p>
      </div>
      <!-- 入住與退房按鈕 -->
      <div class="relative w-[398px] grid grid-flow-col gap-[8px] mb-[16px] justify-stretch items-center">
        <button class="p-[16px] border rounded-lg text-left">
-         <p class="text-[12px]">入住</p>
+         <p class="text-[0.75rem]">入住</p>
          <p>2023 / 12 / 03</p>
        </button>
        <button class="p-[16px] border rounded-lg text-left">
-         <p class="text-[12px]">退房</p>
+         <p class="text-[0.75rem]">退房</p>
          <p>2023 / 12 / 04</p>
        </button>
      </div>
@@ -43,7 +43,7 @@
            </defs>
          </svg>
         </button>               
-        <p class="text-[20px] text-center w-full">2023 年 11 月</p>
+        <p class="text-[1.25rem] text-center w-full">2023 年 11 月</p>
        </div>
        <!-- 日期區 -->
        <div class="w-full grid grid-cols-7 gap-y-[4px] auto-cols-auto justify-stretch items-center">
@@ -97,7 +97,7 @@
      <div class="w-full">
        <!-- 月份與右箭頭 -->
        <div class="flex mb-[8px] justify-between items-center">
-         <p class="text-[20px] text-center w-full">2023 年 12 月</p>
+         <p class="text-[1.25rem] text-center w-full">2023 年 12 月</p>
          <button>
           <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
            <g clip-path="url(#clip0_14_2310)">

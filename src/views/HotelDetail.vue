@@ -90,29 +90,29 @@
        </div>        
       </div>
       <aside class="relative hidden lg:block p-[40px] bg-[#FFFFFF] rounded-xl max-w-[478px] sticky top-[120px]">
-       <h6 class="text-[24px] mb-[56px] pb-[16px] border-b border-[#ECECEC]">預訂房型</h6>
-       <h3 class="text-[40px] mb-[8px]">尊爵雙人房</h3>
+       <h6 class="text-[1.5rem] mb-[56px] pb-[16px] border-b border-[#ECECEC]">預訂房型</h6>
+       <h3 class="text-[2.5rem] mb-[8px]">尊爵雙人房</h3>
        <p class="mb-[40px]">享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。</p>
        <div class="relative grid grid-flow-col gap-[8px] mb-[16px] justify-stretch items-center">
         <button class="p-[16px] border rounded-lg text-left" @click="calendarStore.openCalendar()">
-         <p class="text-[12px]">入住</p>
+         <p class="text-[0.75rem]">入住</p>
          <p>2023 / 12 / 03</p>
         </button>
         <button class="p-[16px] border rounded-lg text-left" @click="calendarStore.openCalendar()">
-         <p class="text-[12px]">退房</p>
+         <p class="text-[0.75rem]">退房</p>
          <p>2023 / 12 / 04</p>
         </button>
         <Calendar></Calendar>
        </div>
        <div class="flex justify-between items-center mb-[40px]">
-        <p class="text-[24px]">人數</p>
+        <p class="text-[1.5rem]">人數</p>
         <div class="flex items-center">
          <button class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
           <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
            <path d="M19 13H5V11H19V13Z" fill="black"/>
           </svg>
          </button>
-         <span class="text-[20px] mx-[16px]">2</span>
+         <span class="text-[1.25rem] mx-[16px]">2</span>
          <button class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
           <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
            <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="black"/>
@@ -120,7 +120,7 @@
          </button>
         </div>
        </div>
-       <p class="text-[24px] text-[#BF9D7D] mb-[40px]">NT$ 10,000</p>
+       <p class="text-[1.5rem] text-[#BF9D7D] mb-[40px]">NT$ 10,000</p>
        <ClickButton customClass="bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }">立即預訂</ClickButton>
       </aside>
      </div>

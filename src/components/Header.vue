@@ -12,10 +12,10 @@
           <span @click="dropdownOpen=!dropdownOpen" class="block p-[16px] mr-[16px] text-[#FFFFFF]">客房旅宿</span>
           <ul v-if="dropdownOpen" class="absolute z-10 w-[260px] -left-[25px] top-[68px] list-none rounded-[20px] bg-[#FFFFFF] overflow-hidden">
             <li class="mt-[12px]">
-              <router-link class="block text-[16px] font-bold py-[16px] px-[24px] hover:bg-[#F7F2EE] hover:text-[#BF9D7D] text-[#4B4B4B]" :to="{name:'Profile'}">我的帳戶</router-link>
+              <router-link class="block text-[1rem] font-bold py-[16px] px-[24px] hover:bg-[#F7F2EE] hover:text-[#BF9D7D] text-[#4B4B4B]" :to="{name:'Profile'}">我的帳戶</router-link>
             </li>
             <li class="mb-[12px]">
-              <span class="block cursor-pointer text-[16px] font-bold py-[16px] px-[24px] hover:bg-[#F7F2EE] hover:text-[#BF9D7D] text-[#4B4B4B]">登出</span>
+              <span class="block cursor-pointer text-[1rem] font-bold py-[16px] px-[24px] hover:bg-[#F7F2EE] hover:text-[#BF9D7D] text-[#4B4B4B]">登出</span>
             </li>  
           </ul>
         </div>
