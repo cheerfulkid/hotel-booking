@@ -66,7 +66,7 @@
      </aside>
     </div>
     <img class="block md:hidden mt-[40px] md:mt-[120px]" :src="mobile_line2" alt="">
-    <img class="hidden md:block mt-[40px] md:mt-[120px]" :src="line2" alt="">
+    <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" :src="line2" alt="">
    </section>
   </main>
   <Footer></Footer>
