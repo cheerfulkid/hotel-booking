@@ -1,5 +1,5 @@
 <template>
- <select :class="['w-full h-[56px] p-[16px] rounded-lg', customClass]" :value="name" @input="$emit('update:name', $event.target.value)" name="" id="">
+ <select :class="['text-[0.875rem] md:text-[1rem] w-full h-[56px] p-[16px] rounded-lg', customClass]" :value="name" @input="$emit('update:name', $event.target.value)" name="" id="">
   <option value="">請選擇</option>
   <option v-for="item in data" :key="item" :value="propertyValue ? item[propertyValue] : item">{{ property ? item[property] : item }}</option>
  </select>
