@@ -78,7 +78,7 @@
     <section :class="`pt-[28%] md:py-[120px] bg-[#140F0A] relative bg-no-repeat bg-none md:bg-[url(${bg})] bg-contain bg-[center_450px]`">
       <img class="absolute left-[100px] top-[200px] hidden md:block object-cover h-[187px]" :src="line2" alt="">
       <div class="flex justify-end block md:hidden ml-[80px] mb-[20px]">
-        <img class="object-cover h-[84px]" :src="mobile_line2" alt="">
+        <img class="object-scale-down" :src="mobile_line2" alt="">
       </div>      
       <div class="max-w-[1608px] flex flex-col md:flex-row items-end">        
         <div class="px-[12px] md:px-0 w-full max-w-full xl:max-w-[900px] xl:mr-[80px] mb-[24px] xl:mb-0">
@@ -133,7 +133,7 @@
       <img class="object-cover h-[990px] absolute top-[60px] left-[50px] custom-show" :src="line" alt="">
       <div class="w-full">
         <div class="max-w-[1296px] mx-auto">
-          <h3 class="text-[#BF9D7D] text-[3rem] mb-[40px] md:mb-[80px] flex items-center after:block after:ml-[24px] after:h-[2px] after:w-[167px] after:bg-gradient-to-r after:from-[#BE9C7C] after:to-[#FFFFFF] font-bold">佳餚<br>美饌</h3>
+          <h3 class="text-[#BF9D7D] text-[2rem] md:text-[3rem] mb-[40px] md:mb-[80px] flex items-center after:block after:ml-[24px] after:h-[2px] after:w-[167px] after:bg-gradient-to-r after:from-[#BE9C7C] after:to-[#FFFFFF] font-bold">佳餚<br>美饌</h3>
         </div>
         <div class="max-w-[1512px] ml-auto">
           <Splide :options="options3" :extensions="extensions" aria-label="享樂酒店">
@@ -246,8 +246,8 @@
             <p class="tracking-[2px] text-[#FFFFFF] text-[0.875rem] md:text-[1rem] ">承億酒店提供禮賓專車接送服務，但因目的地遠近會有不同的收費，請撥打電話將由專人為您服務洽詢專線：(07)123-4567</p>
           </div>
         </div>        
-      </div>          
-      <img class="block md:hidden mt-[40px] md:mt-[120px]" :src="mobile_line2" alt="">
+      </div>
+      <img class="block md:hidden mt-[40px] md:mt-[120px] object-scale-down" :src="mobile_line2" alt="">
       <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" :src="line2" alt="">
     </section>        
   </main>
