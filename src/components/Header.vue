@@ -1,5 +1,5 @@
 <template>
-  <header class="px-5 fixed w-full z-30" :class="{'bg-[#140F0A]':route.name==='Book' || route.name==='Success' || route.name==='Profile' || route.name==='Order' || route.name==='HotelDetail' || route.name==='Login' || route.name==='Signup'}">
+  <header class="px-5 fixed w-full z-50 transition-all duration-300" :class="{'bg-[#140F0A]':route.name==='Book' || route.name==='Success' || route.name==='Profile' || route.name==='Order' || route.name==='HotelDetail' || route.name==='Login' || route.name==='Signup' || isScrolled}">
     <div class="flex w-full justify-between items-center md:max-w-[1760px] h-[72px] md:h-[120px] mx-auto">
       <router-link class="md:my-[24px]":to="{name:'Home'}">
         <img class="max-w-[110px] xs:max-w-[110px] md:max-w-[196px]" src="../assets/img/pc/logo.png" alt="享樂酒店">
@@ -58,7 +58,7 @@
 <style scoped>
 </style>
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref, onMounted, onUnmounted } from "vue"
 import { useUserStore } from '../stores/user'
 import { useRoute } from 'vue-router';
 import ic_menu from '../assets/img/svg/ic_menu.svg';
@@ -68,6 +68,18 @@ const dropdownOpen = ref(false)
 const menuOpen = ref(false)
 const user = useUserStore()
 const route = useRoute()
+const isScrolled = ref(false);
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 0;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 
 </script>
 

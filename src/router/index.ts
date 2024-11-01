@@ -35,7 +35,19 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // 使用 window.scrollTo 進行平滑滾動
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        resolve();
+      }, 0);
+    });
+  }
 })
 
 export default router

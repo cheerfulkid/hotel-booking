@@ -9,7 +9,7 @@
        <div class="w-[56px] h-[56px] bg-[#52DD7E] rounded-full flex items-center justify-center mr-[40px] mb-[16px] md:mb-0">
         <img class="w-[40px] h-[40px]" :src="`${ic_check}`" alt="">
        </div>
-       <h3 class="text-[2rem] md:text-[2rem] lg:text-[3rem] font-bold text-[#FFFFFF]">恭喜，Jessica！<br>您已預訂成功</h3>
+       <h3 class="text-[2rem] md:text-[2rem] lg:text-[3rem] font-bold text-[#FFFFFF]">恭喜，Grace！<br>您已預訂成功</h3>
       </div>
       <p class="text-[#FFFFFF]">我們已發送訂房資訊及詳細內容至你的電子信箱，入住時需向櫃檯人員出示訂房人證件。</p>
       <DivideLine customClass="bg-[#ECECEC] my-[40px] md:my-[80px]"></DivideLine>
@@ -22,11 +22,11 @@
       <DivideLine customClass="bg-[#ECECEC] my-[40px] md:my-[80px]"></DivideLine>
       <h6 class="text-[1.5rem] font-bold mb-[32px] md:mb-[40px] text-[#FFFFFF] ">訂房人資訊</h6>
       <p class="text-[#FFFFFF] mb-[8px] text-[#FFFFFF]">姓名</p>
-      <p class="text-[#FFFFFF] font-bold mb-[24px] text-[#FFFFFF]">Jessica Wang</p>
+      <p class="text-[#FFFFFF] font-bold mb-[24px] text-[#FFFFFF]">Grace Lin</p>
       <p class="text-[#FFFFFF] mb-[8px] text-[#FFFFFF]">手機號碼</p>
       <p class="text-[#FFFFFF] font-bold mb-[24px] text-[#FFFFFF]">+886 912 345 678</p>
       <p class="text-[#FFFFFF] mb-[8px] text-[#FFFFFF]">電子信箱</p>
-      <p class="text-[#FFFFFF] font-bold text-[#FFFFFF]">jessica@sample.com</p>
+      <p class="text-[#FFFFFF] font-bold text-[#FFFFFF]">grace@sample.com</p>
      </div>     
      <aside class="p-[16px] md:p-[40px] bg-[#FFFFFF] rounded-xl w-full md:max-w-[478px] sticky top-[120px]">
       <p class="mb-[8px] text-[0.875rem] md:text-[1rem] text-[#4B4B4B]">預訂參考編號： HH2302183151222</p>
