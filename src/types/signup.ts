@@ -1,13 +1,13 @@
 export type Address = {
- zipcode: string,
+ zipcode: string
  detail: string
 }
 
 export type Signup = {
- name: string,
- email: string,
- password: string,
- phone: string,
- birthday: string,
+ name: string
+ email: string
+ password: string
+ phone: string
+ birthday: string
  address: Address
 }

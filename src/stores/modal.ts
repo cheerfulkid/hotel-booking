@@ -1,4 +1,4 @@
-import { ref } from "vue"
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useModalStore = defineStore('modal', () => {
@@ -10,7 +10,7 @@ export const useModalStore = defineStore('modal', () => {
   isShow.value = false
  }
 
- return { 
+ return {
   isShow,
   openModal,
   closeModal

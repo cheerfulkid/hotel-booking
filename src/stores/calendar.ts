@@ -1,4 +1,4 @@
-import { ref } from "vue"
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCalendarStore = defineStore('modal', () => {
@@ -13,8 +13,7 @@ export const useCalendarStore = defineStore('modal', () => {
   closeCalendar()
  }
 
-
- return { 
+ return {
   isShow,
   openCalendar,
   closeCalendar,
