@@ -1,20 +1,10 @@
 <template>
  <div class="md:flex md:items-start">
-  <div
-   class="w-full max-w-full md:max-w-[527px] md:mr-[40px] bg-[#FFFFFF] mb-[24px] md:mb-0 rounded-lg p-[24px] md:p-[40px]"
-  >
+  <div class="w-full max-w-full md:max-w-[527px] md:mr-[40px] bg-[#FFFFFF] mb-[24px] md:mb-0 rounded-lg p-[24px] md:p-[40px]">
    <template v-if="!editPassword">
-    <h6
-     class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold"
-    >
-     修改密碼
-    </h6>
-    <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">
-     電子信箱
-    </p>
-    <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">
-     Grace@exsample.com
-    </p>
+    <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">修改密碼</h6>
+    <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">電子信箱</p>
+    <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">Grace@exsample.com</p>
     <div class="flex items-center justify-between">
      <div>
       <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">密碼</p>
@@ -40,43 +30,15 @@
     </div>
    </template>
    <template v-else>
-    <h6
-     class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold"
-    >
-     修改密碼
-    </h6>
-    <p
-     class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]"
-    >
-     電子信箱
-    </p>
-    <p class="mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">
-     Grace@exsample.com
-    </p>
-    <label
-     class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]"
-     >舊密碼</label
-    >
-    <InputText
-     class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]"
-     placeholder="請輸入舊密碼"
-    ></InputText>
-    <label
-     class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]"
-     >新密碼</label
-    >
-    <InputText
-     class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]"
-     placeholder="請輸入新密碼"
-    ></InputText>
-    <label
-     class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]"
-     >確認新密碼</label
-    >
-    <InputText
-     class="text-[0.875rem] md:text-[1rem] mb-[24px] md:mb-[40px]"
-     placeholder="請再輸入一次新密碼"
-    ></InputText>
+    <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">修改密碼</h6>
+    <p class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">電子信箱</p>
+    <p class="mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">Grace@exsample.com</p>
+    <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">舊密碼</label>
+    <InputText class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入舊密碼"></InputText>
+    <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">新密碼</label>
+    <InputText class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入新密碼"></InputText>
+    <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">確認新密碼</label>
+    <InputText class="text-[0.875rem] md:text-[1rem] mb-[24px] md:mb-[40px]" placeholder="請再輸入一次新密碼"></InputText>
     <div class="max-w-full md:max-w-[129px]">
      <ClickButton
       isLink="false"
@@ -89,33 +51,17 @@
     </div>
    </template>
   </div>
-  <div
-   class="w-full max-w-full md:max-w-[730px] bg-[#FFFFFF] rounded-lg p-[24px] md:p-[40px]"
-  >
+  <div class="w-full max-w-full md:max-w-[730px] bg-[#FFFFFF] rounded-lg p-[24px] md:p-[40px]">
    <template v-if="!editBasicInfo">
-    <h6
-     class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold"
-    >
-     基本資料
-    </h6>
+    <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">基本資料</h6>
     <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">姓名</p>
-    <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">
-     Grace YH
-    </p>
-    <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">
-     手機號碼
-    </p>
-    <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">
-     +886 912 345 678
-    </p>
+    <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">Grace YH</p>
+    <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">手機號碼</p>
+    <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">+886 912 345 678</p>
     <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">生日</p>
-    <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">
-     1991 年 7 月 4 日
-    </p>
+    <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">1991 年 7 月 4 日</p>
     <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">地址</p>
-    <p class="font-bold mb-[24px] md:mb-[40px] text-[0.875rem] md:text-[1rem]">
-     高雄市新興區六角路 123 號
-    </p>
+    <p class="font-bold mb-[24px] md:mb-[40px] text-[0.875rem] md:text-[1rem]">高雄市新興區六角路 123 號</p>
     <div class="max-w-[97px]">
      <ClickButton
       isLink="false"
@@ -128,31 +74,12 @@
     </div>
    </template>
    <template v-else>
-    <h6
-     class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold"
-    >
-     基本資料
-    </h6>
-    <label
-     class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]"
-     >姓名</label
-    >
-    <InputText
-     class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]"
-     placeholder="請輸入姓名"
-    ></InputText>
-    <label
-     class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]"
-     >手機號碼</label
-    >
-    <InputText
-     class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]"
-     placeholder="請輸入手機號碼"
-    ></InputText>
-    <label
-     class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]"
-     >生日</label
-    >
+    <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">基本資料</h6>
+    <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">姓名</label>
+    <InputText class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入姓名"></InputText>
+    <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">手機號碼</label>
+    <InputText class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入手機號碼"></InputText>
+    <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">生日</label>
     <div class="flex mb-[16px] md:mb-[24px]">
      <div class="w-1/3 pr-[8px]">
       <InputSelectBind
@@ -182,10 +109,7 @@
       ></InputSelectBind>
      </div>
     </div>
-    <label
-     class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]"
-     >地址</label
-    >
+    <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">地址</label>
     <div class="flex">
      <div class="w-1/2 pr-[8px]">
       <InputSelectBind

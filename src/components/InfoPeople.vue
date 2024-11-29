@@ -1,16 +1,6 @@
 <template>
- <div
-  :class="[
-   'w-[97px] h-[97px] inline-block px-[16px] py-[20px] bg-[#FFFFFF] rounded-lg',
-   customClass
-  ]"
- >
-  <svg
-   class="w-[24px] h-[24px] mb-[12px]"
-   viewBox="0 0 24 24"
-   fill="none"
-   xmlns="http://www.w3.org/2000/svg"
-  >
+ <div :class="['w-[97px] h-[97px] inline-block px-[16px] py-[20px] bg-[#FFFFFF] rounded-lg', customClass]">
+  <svg class="w-[24px] h-[24px] mb-[12px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
    <g clip-path="url(#clip0_40_4435)">
     <path
      class="fill-[#BF9D7D]"
@@ -24,9 +14,7 @@
     </clipPath>
    </defs>
   </svg>
-  <p class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] font-bold">
-   <slot></slot> 人
-  </p>
+  <p class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] font-bold"><slot></slot> 人</p>
  </div>
 </template>
 

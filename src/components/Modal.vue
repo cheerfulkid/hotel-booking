@@ -12,16 +12,8 @@
     <p class="text-[0.875rem] font-bold">
      <slot name="title"></slot>
     </p>
-    <button
-     @click="modalStore.closeModal"
-     class="w-[40px] h-[40px] flex items-center justify-center"
-    >
-     <svg
-      class="w-[24px] h-[24px]"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-     >
+    <button @click="modalStore.closeModal" class="w-[40px] h-[40px] flex items-center justify-center">
+     <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_14_2300)">
        <path
         class="fill-[#4B4B4B]"
@@ -41,12 +33,7 @@
     @click="modalStore.closeModal"
     class="hidden md:block w-[40px] h-[40px] flex items-center justify-center absolute right-0 top-0"
    >
-    <svg
-     class="w-[24px] h-[24px]"
-     viewBox="0 0 24 24"
-     fill="none"
-     xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
      <g clip-path="url(#clip0_14_2300)">
       <path
        class="fill-[#4B4B4B]"

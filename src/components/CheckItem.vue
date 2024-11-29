@@ -1,11 +1,6 @@
 <template>
  <div class="flex items-center">
-  <svg
-   class="w-[24px] h-[24px] mr-[8px]"
-   viewBox="0 0 24 24"
-   fill="none"
-   xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg class="w-[24px] h-[24px] mr-[8px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
    <g clip-path="url(#clip0_14_2332)">
     <path
      class="fill-[#BF9D7D]"

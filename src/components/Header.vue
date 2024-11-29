@@ -13,29 +13,16 @@
     isScrolled
   }"
  >
-  <div
-   class="flex w-full justify-between items-center md:max-w-[1760px] h-[72px] md:h-[120px] mx-auto"
-  >
+  <div class="flex w-full justify-between items-center md:max-w-[1760px] h-[72px] md:h-[120px] mx-auto">
    <router-link class="md:my-[24px]" :to="{ name: 'Home' }">
-    <img
-     class="max-w-[110px] xs:max-w-[110px] md:max-w-[196px]"
-     src="../assets/img/pc/logo.png"
-     alt="享樂酒店"
-    />
+    <img class="max-w-[110px] xs:max-w-[110px] md:max-w-[196px]" src="../assets/img/pc/logo.png" alt="享樂酒店" />
    </router-link>
    <button class="block md:hidden" @click="menuOpen = true">
     <img :src="`${ic_menu}`" alt="" />
    </button>
-   <nav
-    v-if="route.name != 'Login' && route.name != 'Signup'"
-    class="hidden md:flex"
-   >
+   <nav v-if="route.name != 'Login' && route.name != 'Signup'" class="hidden md:flex">
     <div class="cursor-pointer relative">
-     <span
-      @click="dropdownOpen = !dropdownOpen"
-      class="block p-[16px] mr-[16px] text-[#FFFFFF]"
-      >客房旅宿</span
-     >
+     <span @click="dropdownOpen = !dropdownOpen" class="block p-[16px] mr-[16px] text-[#FFFFFF]">客房旅宿</span>
      <ul
       v-if="dropdownOpen"
       class="absolute z-10 w-[260px] -left-[25px] top-[68px] list-none rounded-[20px] bg-[#FFFFFF] overflow-hidden"
@@ -55,37 +42,19 @@
       </li>
      </ul>
     </div>
-    <router-link
-     v-if="user"
-     :to="{ name: 'Login' }"
-     class="block p-[16px] mr-[16px] text-[#FFFFFF]"
-     >會員登入</router-link
-    >
+    <router-link v-if="user" :to="{ name: 'Login' }" class="block p-[16px] mr-[16px] text-[#FFFFFF]">會員登入</router-link>
     <div v-else class="flex items-center p-[16px] mr-[16px]">
      <!-- <img class="mr-[8px]" src="../assets/img/ic_Profile.svg" alt=""> -->
      <span class="text-[#FFFFFF]">Jessica</span>
     </div>
-    <router-link
-     class="block rounded-[8px] px-[32px] py-[16px] font-bold text-[#FFFFFF] bg-[#BF9D7D]"
-     :to="{ name: 'AllHotel' }"
+    <router-link class="block rounded-[8px] px-[32px] py-[16px] font-bold text-[#FFFFFF] bg-[#BF9D7D]" :to="{ name: 'AllHotel' }"
      >立即訂房</router-link
     >
    </nav>
   </div>
-  <div
-   v-if="menuOpen"
-   class="w-full h-full bg-[#000000] fixed z-30 top-0 left-0 px-[20px]"
-  >
-   <button
-    @click="menuOpen = false"
-    class="absolute top-[28px] right-[28px] w-[64px] h-[64px] flex items-center justify-center"
-   >
-    <svg
-     class="w-[28px] h-[28px]"
-     viewBox="0 0 24 24"
-     fill="none"
-     xmlns="http://www.w3.org/2000/svg"
-    >
+  <div v-if="menuOpen" class="w-full h-full bg-[#000000] fixed z-30 top-0 left-0 px-[20px]">
+   <button @click="menuOpen = false" class="absolute top-[28px] right-[28px] w-[64px] h-[64px] flex items-center justify-center">
+    <svg class="w-[28px] h-[28px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
      <g clip-path="url(#clip0_14_2300)">
       <path
        class="fill-[#FFFFFF]"
@@ -101,24 +70,9 @@
     </svg>
    </button>
    <div class="flex flex-col justify-center w-full h-full">
-    <ClickButton
-     customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]"
-     :to="{ name: 'Book' }"
-    >
-     客房旅宿
-    </ClickButton>
-    <ClickButton
-     customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]"
-     :to="{ name: 'Book' }"
-    >
-     會員登入
-    </ClickButton>
-    <ClickButton
-     customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]"
-     :to="{ name: 'Book' }"
-    >
-     立即訂房
-    </ClickButton>
+    <ClickButton customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }"> 客房旅宿 </ClickButton>
+    <ClickButton customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }"> 會員登入 </ClickButton>
+    <ClickButton customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }"> 立即訂房 </ClickButton>
    </div>
   </div>
  </header>

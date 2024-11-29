@@ -3,28 +3,13 @@
   <Header></Header>
   <main>
    <div class="flex h-full pt-[72px] md:pt-[120px] relative">
-    <img
-     class="hidden md:block absolute h-[187px] object-cover right-0 top-[191px]"
-     :src="line3"
-     alt=""
-    />
-    <div
-     :class="`z-10 w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url(${register})] bg-cover bg-center`"
-    ></div>
+    <img class="hidden md:block absolute h-[187px] object-cover right-0 top-[191px]" :src="line3" alt="" />
+    <div :class="`z-10 w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url(${register})] bg-cover bg-center`"></div>
     <template v-if="route.params.step != '2'">
-     <div
-      class="z-10 w-full md:w-[50%] relative bg-no-repeat md:px-[20px] pt-[32px] md:pt-[159px]"
-     >
-      <img
-       class="absolute top-[38px] block md:hidden object-scale-down mb-[6px]"
-       :src="customLine"
-       alt=""
-      />
+     <div class="z-10 w-full md:w-[50%] relative bg-no-repeat md:px-[20px] pt-[32px] md:pt-[159px]">
+      <img class="absolute top-[38px] block md:hidden object-scale-down mb-[6px]" :src="customLine" alt="" />
       <div class="z-10 max-w-full md:max-w-[416px] mx-[20px] md:mx-auto">
-       <span
-        class="text-[0.875rem] md:text-[1rem] text-[#BF9D7D] line-height-[24px] font-bold relative"
-        >享樂酒店，誠摯歡迎</span
-       >
+       <span class="text-[0.875rem] md:text-[1rem] text-[#BF9D7D] line-height-[24px] font-bold relative">享樂酒店，誠摯歡迎</span>
        <h3
         class="pt-[8px] pb-[16px] md:pb-[40px] text-[#FFFFFF] text-[2rem] md:text-[3rem] font-bold line-height-[57.6px] relative"
        >
@@ -33,37 +18,23 @@
        <div
         class="step flex justify-between relative after:top-[50%] after:left-[50%] after:translate-y-[-50%] after:translate-x-[-50%] after:absolute after:bg-[#909090] after:block after:h-[2px] after:w-full after:max-w-[30%]"
        >
-        <router-link
-         class="flex flex-col items-center"
-         :to="{ name: 'Signup', params: { step: 1 } }"
-        >
-         <span
-          class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]"
+        <router-link class="flex flex-col items-center" :to="{ name: 'Signup', params: { step: 1 } }">
+         <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]"
           >1</span
          >
-         <p class="text-[0.875rem] md:text-[1rem] text-white font-bold">
-          輸入信箱及密碼
-         </p>
+         <p class="text-[0.875rem] md:text-[1rem] text-white font-bold">輸入信箱及密碼</p>
         </router-link>
 
-        <router-link
-         class="flex flex-col items-center"
-         :to="{ name: 'Signup', params: { step: 2 } }"
-        >
-         <span
-          class="rounded-full w-[32px] h-[32px] border-[1px] block text-[#909090] flex items-center justify-center mb-[4px]"
+        <router-link class="flex flex-col items-center" :to="{ name: 'Signup', params: { step: 2 } }">
+         <span class="rounded-full w-[32px] h-[32px] border-[1px] block text-[#909090] flex items-center justify-center mb-[4px]"
           >2</span
          >
-         <p class="text-[0.875rem] md:text-[1rem] text-[#909090] font-bold">
-          填寫基本資料
-         </p>
+         <p class="text-[0.875rem] md:text-[1rem] text-[#909090] font-bold">填寫基本資料</p>
         </router-link>
        </div>
        <form class="mt-[40px] md:mt-[56px]">
         <div class="flex flex-col mb-[16px]">
-         <label
-          for=""
-          class="text-[0.875rem] md:text-[1rem] text-[#FFFFFF] text-[1rem] line-height-[24px] font-bold mb-[8px]"
+         <label for="" class="text-[0.875rem] md:text-[1rem] text-[#FFFFFF] text-[1rem] line-height-[24px] font-bold mb-[8px]"
           >電子信箱</label
          >
          <input
@@ -74,9 +45,7 @@
          />
         </div>
         <div class="flex flex-col mb-[16px]">
-         <label
-          for=""
-          class="text-[0.875rem] md:text-[1rem] text-[#FFFFFF] text-[1rem] line-height-[24px] font-bold mb-[8px]"
+         <label for="" class="text-[0.875rem] md:text-[1rem] text-[#FFFFFF] text-[1rem] line-height-[24px] font-bold mb-[8px]"
           >密碼</label
          >
          <input
@@ -87,9 +56,7 @@
          />
         </div>
         <div class="flex flex-col mb-[40px]">
-         <label
-          for=""
-          class="text-[0.875rem] md:text-[1rem] text-[#FFFFFF] text-[1rem] line-height-[24px] font-bold mb-[8px]"
+         <label for="" class="text-[0.875rem] md:text-[1rem] text-[#FFFFFF] text-[1rem] line-height-[24px] font-bold mb-[8px]"
           >確認密碼</label
          >
          <input
@@ -106,9 +73,7 @@
         >
        </form>
        <p class="text-[0.875rem] md:text-[1rem] text-[#FFFFFF] mb-[94px]">
-        已經有會員了嗎？<router-link
-         :to="{ name: 'Login' }"
-         class="mt-[8px] text-[#BF9D7D] underline font-bold"
+        已經有會員了嗎？<router-link :to="{ name: 'Login' }" class="mt-[8px] text-[#BF9D7D] underline font-bold"
          >立即登入</router-link
         >
        </p>
@@ -116,19 +81,10 @@
      </div>
     </template>
     <template v-else>
-     <div
-      class="z-10 w-full md:w-[50%] relative md:px-[20px] pt-[32px] md:pt-[159px]"
-     >
-      <img
-       class="absolute top-[38px] block md:hidden object-scale-down mb-[6px]"
-       :src="customLine"
-       alt=""
-      />
+     <div class="z-10 w-full md:w-[50%] relative md:px-[20px] pt-[32px] md:pt-[159px]">
+      <img class="absolute top-[38px] block md:hidden object-scale-down mb-[6px]" :src="customLine" alt="" />
       <div class="z-10 max-w-full md:max-w-[416px] mx-[20px] md:mx-auto">
-       <span
-        class="text-[0.875rem] md:text-[1rem] text-[#BF9D7D] line-height-[24px] font-bold relative"
-        >享樂酒店，誠摯歡迎</span
-       >
+       <span class="text-[0.875rem] md:text-[1rem] text-[#BF9D7D] line-height-[24px] font-bold relative">享樂酒店，誠摯歡迎</span>
        <h3
         class="pt-[8px] pb-[16px] md:pb-[40px] text-[#FFFFFF] text-[2rem] md:text-[3rem] font-bold line-height-[57.6px] relative"
        >
@@ -137,36 +93,23 @@
        <div
         class="step flex justify-between relative after:top-[50%] after:left-[50%] after:translate-y-[-50%] after:translate-x-[-50%] after:absolute after:bg-[#ECECEC] after:block after:h-[2px] after:w-full after:max-w-[30%]"
        >
-        <router-link
-         class="flex flex-col items-center"
-         :to="{ name: 'Signup', params: { step: 1 } }"
-        >
-         <span
-          class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]"
+        <router-link class="flex flex-col items-center" :to="{ name: 'Signup', params: { step: 1 } }">
+         <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]"
           >1</span
          >
-         <p class="text-[0.875rem] md:text-[1rem] text-white font-bold">
-          輸入信箱及密碼
-         </p>
+         <p class="text-[0.875rem] md:text-[1rem] text-white font-bold">輸入信箱及密碼</p>
         </router-link>
 
         <div class="flex flex-col items-center">
-         <span
-          class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]"
+         <span class="rounded-full w-[32px] h-[32px] bg-[#BF9D7D] block text-white flex items-center justify-center mb-[4px]"
           >2</span
          >
-         <p class="text-[0.875rem] md:text-[1rem] text-white font-bold">
-          填寫基本資料
-         </p>
+         <p class="text-[0.875rem] md:text-[1rem] text-white font-bold">填寫基本資料</p>
         </div>
        </div>
        <form class="mt-[40px] md:mt-[56px]">
         <div class="flex flex-col mb-[16px]">
-         <label
-          for=""
-          class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]"
-          >姓名</label
-         >
+         <label for="" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]">姓名</label>
          <input
           type="text"
           v-model="signupData.name"
@@ -175,9 +118,7 @@
          />
         </div>
         <div class="flex flex-col mb-[16px]">
-         <label
-          for=""
-          class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]"
+         <label for="" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]"
           >手機號碼</label
          >
          <input
@@ -188,44 +129,21 @@
          />
         </div>
         <div class="flex flex-col mb-[16px]">
-         <label
-          for=""
-          class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]"
-          >生日</label
-         >
+         <label for="" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]">生日</label>
          <div class="flex">
           <div class="w-1/3 pr-[8px]">
-           <InputSelectBind
-            :data="years"
-            propertyValue=""
-            property=""
-            v-model:name="birthYear"
-           ></InputSelectBind>
+           <InputSelectBind :data="years" propertyValue="" property="" v-model:name="birthYear"></InputSelectBind>
           </div>
           <div class="w-1/3 pr-[8px]">
-           <InputSelectBind
-            :data="months"
-            propertyValue=""
-            property=""
-            v-model:name="birthMonth"
-           ></InputSelectBind>
+           <InputSelectBind :data="months" propertyValue="" property="" v-model:name="birthMonth"></InputSelectBind>
           </div>
           <div class="w-1/3">
-           <InputSelectBind
-            :data="lastDayOfMonth"
-            propertyValue=""
-            property=""
-            v-model:name="birthDay"
-           ></InputSelectBind>
+           <InputSelectBind :data="lastDayOfMonth" propertyValue="" property="" v-model:name="birthDay"></InputSelectBind>
           </div>
          </div>
         </div>
         <div class="flex flex-col mb-[16px]">
-         <label
-          for=""
-          class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]"
-          >地址</label
-         >
+         <label for="" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]">地址</label>
          <div class="flex">
           <div class="w-1/2 pr-[8px]">
            <InputSelectBind
@@ -261,9 +179,7 @@
           type="checkbox"
           :class="`w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url(${ic_check})] before:block before:w-full before:h-full checked:bg-[#BF9D7D]`"
          />
-         <label
-          for="agree"
-          class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold"
+         <label for="agree" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold"
           >我已閱讀並同意本網站個資使用規範</label
          >
         </div>
@@ -278,14 +194,7 @@
            fill="none"
            viewBox="0 0 24 24"
           >
-           <circle
-            class="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            stroke-width="4"
-           ></circle>
+           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
            <path
             class="opacity-75"
             fill="currentColor"
@@ -297,9 +206,7 @@
         </span>
        </form>
        <p class="text-[0.875rem] md:text-[1rem] text-[#FFFFFF] mb-[94px]">
-        已經有會員了嗎？<router-link
-         :to="{ name: 'Login' }"
-         class="mt-[8px] text-[#BF9D7D] underline font-bold"
+        已經有會員了嗎？<router-link :to="{ name: 'Login' }" class="mt-[8px] text-[#BF9D7D] underline font-bold"
          >立即登入</router-link
         >
        </p>
@@ -366,16 +273,13 @@ const areaList = computed(() => {
 const signup = async () => {
  loading.value = true
  if (checkPassword.value === signupData.value.password) {
-  let response = await fetch(
-   'https://freyja-e4gc.onrender.com/api/v1/user/signup',
-   {
-    method: 'POST',
-    headers: {
-     'Content-Type': 'application/json;charset=utf-8'
-    },
-    body: JSON.stringify(signupData.value)
-   }
-  )
+  let response = await fetch('https://freyja-e4gc.onrender.com/api/v1/user/signup', {
+   method: 'POST',
+   headers: {
+    'Content-Type': 'application/json;charset=utf-8'
+   },
+   body: JSON.stringify(signupData.value)
+  })
   let result = await response.json()
   if (result.status === true) {
    alert('註冊成功！')

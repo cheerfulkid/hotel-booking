@@ -3,44 +3,22 @@
   <Header></Header>
   <main>
    <section class="relative">
-    <div
-     class="relative before:top-0 before:absolute before:z-10 before:inset-0 before:bg-black/50"
-    >
+    <div class="relative before:top-0 before:absolute before:z-10 before:inset-0 before:bg-black/50">
      <Splide :options="options" aria-label="享樂酒店">
       <SplideSlide>
-       <img
-        class="w-full h-[466px] md:h-[800px] md:object-cover"
-        :src="`${banner}`"
-        alt="Sample 1"
-       />
+       <img class="w-full h-[466px] md:h-[800px] md:object-cover" :src="`${banner}`" alt="Sample 1" />
       </SplideSlide>
       <SplideSlide>
-       <img
-        class="w-full h-[466px] md:h-[800px] md:object-cover"
-        :src="`${banner}`"
-        alt="Sample 2"
-       />
+       <img class="w-full h-[466px] md:h-[800px] md:object-cover" :src="`${banner}`" alt="Sample 2" />
       </SplideSlide>
       <SplideSlide>
-       <img
-        class="w-full h-[466px] md:h-[800px] md:object-cover"
-        :src="`${banner}`"
-        alt="Sample 3"
-       />
+       <img class="w-full h-[466px] md:h-[800px] md:object-cover" :src="`${banner}`" alt="Sample 3" />
       </SplideSlide>
       <SplideSlide>
-       <img
-        class="w-full h-[466px] md:h-[800px] md:object-cover"
-        :src="`${banner}`"
-        alt="Sample 4"
-       />
+       <img class="w-full h-[466px] md:h-[800px] md:object-cover" :src="`${banner}`" alt="Sample 4" />
       </SplideSlide>
       <SplideSlide>
-       <img
-        class="w-full h-[466px] md:h-[800px] md:object-cover"
-        :src="`${banner}`"
-        alt="Sample 5"
-       />
+       <img class="w-full h-[466px] md:h-[800px] md:object-cover" :src="`${banner}`" alt="Sample 5" />
       </SplideSlide>
      </Splide>
     </div>
@@ -52,114 +30,52 @@
        <h3
         class="leading-9 text-[1.75rem] md:text-[2.5rem] text-center md:text-left font-bold text-[#BF9D7D] relative after:block after:h-[83px] after:w-[2px] after:bg-gradient-to-b after:from-[#BE9C7C] flex flex-col md:flex-none items-center md:items-start after:to-[#FFFFFF] after:mt-[20px] md:after:hidden md:before:absolute md:before:w-full md:before:bg-gradient-to-r md:before:from-[#BF9D7D] md:before:to-[#FFFFFF] md:before:bottom-0 md:before:h-[2px] pb-[40px]"
        >
-        享樂酒店<br /><span class="text-[1rem] md:text-[1.5rem]"
-         >Enjoyment Luxury Hotel</span
-        >
+        享樂酒店<br /><span class="text-[1rem] md:text-[1.5rem]">Enjoyment Luxury Hotel</span>
        </h3>
       </div>
       <div class="w-full">
-       <h2
-        class="relative text-center md:text-left z-10 font-bold text-[2rem] md:text-[3rem] text-[#FFFFFF]"
-       >
-        客房旅宿
-       </h2>
+       <h2 class="relative text-center md:text-left z-10 font-bold text-[2rem] md:text-[3rem] text-[#FFFFFF]">客房旅宿</h2>
       </div>
      </div>
     </div>
    </section>
-   <section
-    class="md:pt-[120px] py-[42px] md:pb-[168px] bg-[#F7F2EE] px-[12px]"
-   >
+   <section class="md:pt-[120px] py-[42px] md:pb-[168px] bg-[#F7F2EE] px-[12px]">
     <div class="w-full max-w-[773px] lg:max-w-[1296px] mx-auto">
-     <p
-      class="text-[0.875rem] md:text-[1.25rem] text-[#4B4B4B] font-bold mb-[8px] md:mb-[16px]"
-     >
-      房型選擇
-     </p>
-     <h3
-      class="text-[#BF9D7D] text-[2rem] md:text-[3rem] font-bold mb-[40px] md:mb-[80px]"
-     >
-      各種房型，任您挑選
-     </h3>
-     <div
-      class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF] mb-[24px] md:mb-[48px]"
-     >
+     <p class="text-[0.875rem] md:text-[1.25rem] text-[#4B4B4B] font-bold mb-[8px] md:mb-[16px]">房型選擇</p>
+     <h3 class="text-[#BF9D7D] text-[2rem] md:text-[3rem] font-bold mb-[40px] md:mb-[80px]">各種房型，任您挑選</h3>
+     <div class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF] mb-[24px] md:mb-[48px]">
       <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
        <Splide :options="options2" aria-label="享樂酒店">
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room2_1}`"
-          alt="Sample 1"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_1}`" alt="Sample 1" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room2_2}`"
-          alt="Sample 2"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_2}`" alt="Sample 2" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room2_3}`"
-          alt="Sample 3"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_3}`" alt="Sample 3" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room2_4}`"
-          alt="Sample 4"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_4}`" alt="Sample 4" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room2_5}`"
-          alt="Sample 5"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_5}`" alt="Sample 5" />
         </SplideSlide>
        </Splide>
       </div>
       <div class="p-[16px] lg:p-[40px]">
-       <h4
-        class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]"
-       >
-        尊爵雙人房
-       </h4>
-       <p
-        class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]"
-       >
+       <h4 class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]">尊爵雙人房</h4>
+       <p class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]">
         享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。
        </p>
-       <BasicInfo
-        customClass="border-[#F1EAE4] border-[1px]"
-        roomSize="24"
-        bedCount="1"
-        peopleCount="2-4"
-       ></BasicInfo>
-       <hr
-        class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]"
-       />
+       <BasicInfo customClass="border-[#F1EAE4] border-[1px]" roomSize="24" bedCount="1" peopleCount="2-4"></BasicInfo>
+       <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
        <div class="h-[56px] flex items-center justify-between">
-        <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">
-         NT$ 10,000
-        </p>
+        <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
         <button>
-         <svg
-          class="w-[24px] h-[24px]"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-         >
+         <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_14_2275)">
-           <path
-            class="fill-[#BF9D7D]"
-            d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
-            fill="black"
-           />
+           <path class="fill-[#BF9D7D]" d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="black" />
           </g>
           <defs>
            <clipPath id="clip0_14_2275">
@@ -171,85 +87,39 @@
        </div>
       </div>
      </div>
-     <div
-      class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF] mb-[24px] md:mb-[48px]"
-     >
+     <div class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF] mb-[24px] md:mb-[48px]">
       <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
        <Splide :options="options2" aria-label="享樂酒店">
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room3_1}`"
-          alt="Sample 1"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_1}`" alt="Sample 1" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room3_2}`"
-          alt="Sample 2"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_2}`" alt="Sample 2" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room3_3}`"
-          alt="Sample 3"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_3}`" alt="Sample 3" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room3_4}`"
-          alt="Sample 4"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_4}`" alt="Sample 4" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room3_5}`"
-          alt="Sample 5"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_5}`" alt="Sample 5" />
         </SplideSlide>
        </Splide>
       </div>
       <div class="p-[16px] lg:p-[40px]">
-       <h4
-        class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]"
-       >
-        景觀雙人房
-       </h4>
-       <p
-        class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]"
-       >
+       <h4 class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]">景觀雙人房</h4>
+       <p class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]">
         景觀雙人房擁有絕美的高雄市景觀，讓您在舒適的環境中欣賞城市之美。
        </p>
-       <BasicInfo
-        customClass="border-[#F1EAE4] border-[1px]"
-        roomSize="28"
-        bedCount="1"
-        peopleCount="2-4"
-       ></BasicInfo>
-       <hr
-        class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]"
-       />
+       <BasicInfo customClass="border-[#F1EAE4] border-[1px]" roomSize="28" bedCount="1" peopleCount="2-4"></BasicInfo>
+       <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
        <div class="h-[56px] flex items-center justify-between">
-        <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">
-         NT$ 10,000
-        </p>
+        <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
         <button>
-         <svg
-          class="w-[24px] h-[24px]"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-         >
+         <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_14_2275)">
-           <path
-            class="fill-[#BF9D7D]"
-            d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
-            fill="black"
-           />
+           <path class="fill-[#BF9D7D]" d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="black" />
           </g>
           <defs>
            <clipPath id="clip0_14_2275">
@@ -261,85 +131,39 @@
        </div>
       </div>
      </div>
-     <div
-      class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF] mb-[24px] md:mb-[48px]"
-     >
+     <div class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF] mb-[24px] md:mb-[48px]">
       <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
        <Splide :options="options2" aria-label="享樂酒店">
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room4_1}`"
-          alt="Sample 1"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_1}`" alt="Sample 1" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room4_2}`"
-          alt="Sample 2"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_2}`" alt="Sample 2" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room4_3}`"
-          alt="Sample 3"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_3}`" alt="Sample 3" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room4_4}`"
-          alt="Sample 4"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_4}`" alt="Sample 4" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room4_5}`"
-          alt="Sample 5"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_5}`" alt="Sample 5" />
         </SplideSlide>
        </Splide>
       </div>
       <div class="p-[16px] lg:p-[40px]">
-       <h4
-        class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]"
-       >
-        豪華雅緻房
-       </h4>
-       <p
-        class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]"
-       >
+       <h4 class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]">豪華雅緻房</h4>
+       <p class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]">
         享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。
        </p>
-       <BasicInfo
-        customClass="border-[#F1EAE4] border-[1px]"
-        roomSize="36"
-        bedCount="2"
-        peopleCount="2-4"
-       ></BasicInfo>
-       <hr
-        class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]"
-       />
+       <BasicInfo customClass="border-[#F1EAE4] border-[1px]" roomSize="36" bedCount="2" peopleCount="2-4"></BasicInfo>
+       <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
        <div class="h-[56px] flex items-center justify-between">
-        <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">
-         NT$ 10,000
-        </p>
+        <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
         <button>
-         <svg
-          class="w-[24px] h-[24px]"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-         >
+         <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_14_2275)">
-           <path
-            class="fill-[#BF9D7D]"
-            d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
-            fill="black"
-           />
+           <path class="fill-[#BF9D7D]" d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="black" />
           </g>
           <defs>
            <clipPath id="clip0_14_2275">
@@ -355,79 +179,35 @@
       <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
        <Splide :options="options2" aria-label="享樂酒店">
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room5_1}`"
-          alt="Sample 1"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_1}`" alt="Sample 1" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room5_2}`"
-          alt="Sample 2"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_2}`" alt="Sample 2" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room5_3}`"
-          alt="Sample 3"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_3}`" alt="Sample 3" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room5_4}`"
-          alt="Sample 4"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_4}`" alt="Sample 4" />
         </SplideSlide>
         <SplideSlide>
-         <img
-          class="w-full h-[200px] lg:h-[457px] object-cover"
-          :src="`${room5_5}`"
-          alt="Sample 5"
-         />
+         <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_5}`" alt="Sample 5" />
         </SplideSlide>
        </Splide>
       </div>
       <div class="p-[16px] lg:p-[40px]">
-       <h4
-        class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]"
-       >
-        景觀尊榮家庭房
-       </h4>
-       <p
-        class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]"
-       >
+       <h4 class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]">景觀尊榮家庭房</h4>
+       <p class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]">
         景觀尊榮家庭房不僅有寬敞的空間，還有絕美的市景視野，是帶給家庭最尊榮的待遇。
        </p>
-       <BasicInfo
-        customClass="border-[#F1EAE4] border-[1px]"
-        roomSize="48"
-        bedCount="2"
-        peopleCount="2-4"
-       ></BasicInfo>
-       <hr
-        class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]"
-       />
+       <BasicInfo customClass="border-[#F1EAE4] border-[1px]" roomSize="48" bedCount="2" peopleCount="2-4"></BasicInfo>
+       <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
        <div class="h-[56px] flex items-center justify-between">
-        <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">
-         NT$ 10,000
-        </p>
+        <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
         <button>
-         <svg
-          class="w-[24px] h-[24px]"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-         >
+         <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_14_2275)">
-           <path
-            class="fill-[#BF9D7D]"
-            d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
-            fill="black"
-           />
+           <path class="fill-[#BF9D7D]" d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="black" />
           </g>
           <defs>
            <clipPath id="clip0_14_2275">

@@ -133,9 +133,7 @@
  {
   "CityName": "釣魚臺",
   "CityEngName": "Diauyutai",
-  "AreaList": [
-   { "ZipCode": "290", "AreaName": "釣魚臺", "AreaEngName": "Diaoyutai" }
-  ]
+  "AreaList": [{ "ZipCode": "290", "AreaName": "釣魚臺", "AreaEngName": "Diaoyutai" }]
  },
  {
   "CityName": "新竹市",

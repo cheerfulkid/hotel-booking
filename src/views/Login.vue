@@ -3,39 +3,18 @@
   <Header></Header>
   <main>
    <div class="flex h-full pt-[72px] md:pt-[120px] relative">
-    <img
-     class="hidden md:block absolute h-[187px] object-cover right-0 top-[191px]"
-     :src="line3"
-     alt=""
-    />
-    <div
-     :class="`z-10 w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url(${register})] bg-cover bg-center`"
-    ></div>
-    <div
-     class="z-10 w-full md:w-[50%] relative bg-no-repeat md:px-[20px] pt-[32px] md:pt-[159px]"
-    >
-     <img
-      class="block md:hidden object-scale-down mb-[6px]"
-      :src="customLine"
-      alt=""
-     />
+    <img class="hidden md:block absolute h-[187px] object-cover right-0 top-[191px]" :src="line3" alt="" />
+    <div :class="`z-10 w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url(${register})] bg-cover bg-center`"></div>
+    <div class="z-10 w-full md:w-[50%] relative bg-no-repeat md:px-[20px] pt-[32px] md:pt-[159px]">
+     <img class="block md:hidden object-scale-down mb-[6px]" :src="customLine" alt="" />
      <div class="max-w-full md:max-w-[416px] mx-[20px] md:mx-auto">
-      <span
-       class="text-[0.875rem] md:text-[1rem] text-[#BF9D7D] line-height-[24px] font-bold relative"
-       >享樂酒店，誠摯歡迎</span
-      >
-      <h3
-       class="pt-[8px] pb-[40px] text-[#FFFFFF] text-[2rem] md:text-[3rem] font-bold line-height-[57.6px] relative"
-      >
+      <span class="text-[0.875rem] md:text-[1rem] text-[#BF9D7D] line-height-[24px] font-bold relative">享樂酒店，誠摯歡迎</span>
+      <h3 class="pt-[8px] pb-[40px] text-[#FFFFFF] text-[2rem] md:text-[3rem] font-bold line-height-[57.6px] relative">
        立即開始旅程
       </h3>
       <form>
        <div class="flex flex-col mb-[16px]">
-        <label
-         for=""
-         class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]"
-         >電子信箱</label
-        >
+        <label for="" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]">電子信箱</label>
         <input
          type="email"
          v-model="loginData.email"
@@ -44,11 +23,7 @@
         />
        </div>
        <div class="flex flex-col mb-[16px]">
-        <label
-         for=""
-         class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]"
-         >密碼</label
-        >
+        <label for="" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold mb-[8px]">密碼</label>
         <input
          type="password"
          v-model="loginData.password"
@@ -63,17 +38,9 @@
           type="checkbox"
           :class="`w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url(${ic_check})] before:block before:w-full before:h-full checked:bg-[#BF9D7D]`"
          />
-         <label
-          for="remember"
-          class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold"
-          >記住帳號</label
-         >
+         <label for="remember" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold">記住帳號</label>
         </div>
-        <a
-         href=""
-         class="text-[#BF9D7D] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold underline"
-         >忘記密碼？</a
-        >
+        <a href="" class="text-[#BF9D7D] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold underline">忘記密碼？</a>
        </div>
        <a
         href=""
@@ -87,14 +54,7 @@
           fill="none"
           viewBox="0 0 24 24"
          >
-          <circle
-           class="opacity-25"
-           cx="12"
-           cy="12"
-           r="10"
-           stroke="currentColor"
-           stroke-width="4"
-          ></circle>
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
           <path
            class="opacity-75"
            fill="currentColor"
@@ -106,9 +66,7 @@
        </a>
       </form>
       <p class="text-[0.875rem] md:text-[1rem] text-[#FFFFFF] mb-[94px]">
-       沒有會員嗎？<router-link
-        :to="{ name: 'Signup', params: { step: 1 } }"
-        class="mt-[8px] text-[#BF9D7D] underline font-bold"
+       沒有會員嗎？<router-link :to="{ name: 'Signup', params: { step: 1 } }" class="mt-[8px] text-[#BF9D7D] underline font-bold"
         >前往註冊</router-link
        >
       </p>
@@ -138,16 +96,13 @@ const loginData = ref<Login>({
 })
 const login = async () => {
  loading.value = true
- let response = await fetch(
-  'https://freyja-e4gc.onrender.com/api/v1/user/login',
-  {
-   method: 'POST',
-   headers: {
-    'Content-Type': 'application/json;charset=utf-8'
-   },
-   body: JSON.stringify(loginData.value)
-  }
- )
+ let response = await fetch('https://freyja-e4gc.onrender.com/api/v1/user/login', {
+  method: 'POST',
+  headers: {
+   'Content-Type': 'application/json;charset=utf-8'
+  },
+  body: JSON.stringify(loginData.value)
+ })
  let result = await response.json()
  if (result.status === true) {
   alert('登入成功！')

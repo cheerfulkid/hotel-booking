@@ -3,44 +3,22 @@
   <Header></Header>
   <main class="overflow-hidden">
    <section class="relative">
-    <div
-     class="relative before:top-0 before:absolute before:z-10 before:inset-0 before:bg-black/50"
-    >
+    <div class="relative before:top-0 before:absolute before:z-10 before:inset-0 before:bg-black/50">
      <Splide :options="options" aria-label="享樂酒店">
       <SplideSlide>
-       <img
-        class="w-full h-[812px] md:h-[1080px] object-cover"
-        :src="`${banner}`"
-        alt="Sample 1"
-       />
+       <img class="w-full h-[812px] md:h-[1080px] object-cover" :src="`${banner}`" alt="Sample 1" />
       </SplideSlide>
       <SplideSlide>
-       <img
-        class="w-full h-[812px] md:h-[1080px] object-cover"
-        :src="`${banner}`"
-        alt="Sample 2"
-       />
+       <img class="w-full h-[812px] md:h-[1080px] object-cover" :src="`${banner}`" alt="Sample 2" />
       </SplideSlide>
       <SplideSlide>
-       <img
-        class="w-full h-[812px] md:h-[1080px] object-cover"
-        :src="`${banner}`"
-        alt="Sample 3"
-       />
+       <img class="w-full h-[812px] md:h-[1080px] object-cover" :src="`${banner}`" alt="Sample 3" />
       </SplideSlide>
       <SplideSlide>
-       <img
-        class="w-full h-[812px] md:h-[1080px] object-cover"
-        :src="`${banner}`"
-        alt="Sample 4"
-       />
+       <img class="w-full h-[812px] md:h-[1080px] object-cover" :src="`${banner}`" alt="Sample 4" />
       </SplideSlide>
       <SplideSlide>
-       <img
-        class="w-full h-[812px] md:h-[1080px] object-cover"
-        :src="`${banner}`"
-        alt="Sample 5"
-       />
+       <img class="w-full h-[812px] md:h-[1080px] object-cover" :src="`${banner}`" alt="Sample 5" />
       </SplideSlide>
      </Splide>
     </div>
@@ -52,9 +30,7 @@
        <h3
         class="leading-9 text-[1.75rem] md:text-[2.5rem] text-center md:text-left font-bold text-[#BF9D7D] relative after:block after:h-[83px] after:w-[2px] after:bg-gradient-to-b after:from-[#BE9C7C] flex flex-col md:flex-none items-center md:items-start after:to-[#FFFFFF] after:mt-[20px] md:after:hidden md:before:absolute md:before:w-full md:before:bg-gradient-to-r md:before:from-[#BF9D7D] md:before:to-[#FFFFFF] md:before:bottom-0 md:before:h-[2px] pb-[40px]"
        >
-        享樂酒店<br /><span class="text-[1rem] md:text-[1.5rem]"
-         >Enjoyment Luxury Hotel</span
-        >
+        享樂酒店<br /><span class="text-[1rem] md:text-[1.5rem]">Enjoyment Luxury Hotel</span>
        </h3>
       </div>
       <!-- <div class="w-full">
@@ -63,9 +39,7 @@
       <div
        class="w-full md:max-w-[772px] relative top-[40px] lg:top-0 before:absolute before:w-full before:max-w-[291px] md:before:max-w-[924px] before:h-[420px] md:before:h-[350px] 2xl:before:h-[678px] left-[-20px] md:left-[-48px] before:left-[48px] before:top-[-60px] md:before:top-[-50px] 2xl:before:top-[-96px] before:rounded-[40px] md:before:rounded-[60px] before:bg-white/10 before:backdrop-blur-sm before:border-t-2 before:border-r-2 before:border-white"
       >
-       <h2
-        class="ml-[10px] md:ml-0 mb-[24px] relative z-10 text-[3rem] 2xl:text-[6.25rem] text-[#FFFFFF] font-bold"
-       >
+       <h2 class="ml-[10px] md:ml-0 mb-[24px] relative z-10 text-[3rem] 2xl:text-[6.25rem] text-[#FFFFFF] font-bold">
         高雄<br />豪華住宿之選
        </h2>
        <p
@@ -85,9 +59,7 @@
      </div>
     </div>
    </section>
-   <section
-    class="px-[12px] pt-[80px] pb-[80px] md:pt-[256px] md:pb-[120px] bg-[#F7F2EE]"
-   >
+   <section class="px-[12px] pt-[80px] pb-[80px] md:pt-[256px] md:pb-[120px] bg-[#F7F2EE]">
     <div
      :class="`w-full md:max-w-[1296px] mx-auto flex flex-col xl:flex-row items-start justify-between  relative before:z-[40] before:absolute before:z-10 before:left-0 before:bottom-[-140px] md:before:left-[-112px] md:before:bottom-[-200px] before:w-[100px] before:h-[100px] 2xl:before:w-[200px] 2xl:before:h-[200px] before:bg-contain before:bg-[url(${dot})] after:absolute after:right-0 after:top-[-40px] md:after:right-[-68px] md:after:top-[-10px] after:w-[100px] after:h-[100px] 2xl:after:w-[200px] 2xl:after:h-[200px] after:bg-contain after:bg-[url(${dot})]`"
     >
@@ -98,45 +70,27 @@
      </h3>
      <div>
       <div class="flex flex-col md:flex-row items-center mb-[40px]">
-       <img
-        class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0"
-        :src="news1"
-        alt=""
-       />
+       <img class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0" :src="news1" alt="" />
        <div class="w-full md:max-w-[602px] md:pl-[24px]">
-        <h5 class="text-[1.75rem] md:text-[2rem] mb-[24px] font-bold">
-         秋季旅遊，豪華享受方案
-        </h5>
+        <h5 class="text-[1.75rem] md:text-[2rem] mb-[24px] font-bold">秋季旅遊，豪華享受方案</h5>
         <p class="text-[0.875rem] md:text-[1rem]">
          秋天就是要來場豪華的旅遊！我們為您準備了一系列的秋季特別方案，包括舒適的住宿、美食饗宴，以及精彩的活動。不論您是想來一趟浪漫之旅，還是想和家人共度美好時光，都能在這裡找到最適合的方案。
         </p>
        </div>
       </div>
       <div class="flex flex-col md:flex-row items-center mb-[40px]">
-       <img
-        class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0"
-        :src="news2"
-        alt=""
-       />
+       <img class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0" :src="news2" alt="" />
        <div class="w-full md:max-w-[602px] md:pl-[24px]">
-        <h5 class="text-[1.75rem] md:text-[2rem] mb-[24px] font-bold">
-         輕鬆住房專案
-        </h5>
+        <h5 class="text-[1.75rem] md:text-[2rem] mb-[24px] font-bold">輕鬆住房專案</h5>
         <p class="text-[0.875rem] md:text-[1rem]">
          我們知道，有時候您只是需要一個舒適的地方放鬆心情。因此，我們推出了「輕鬆住房專案」，讓您無壓力地享受住宿。不管是短期的休息，還是長期的住宿，我們都會以最貼心的服務，讓您感到賓至如歸。
         </p>
        </div>
       </div>
       <div class="flex flex-col md:flex-row items-center">
-       <img
-        class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0"
-        :src="news3"
-        alt=""
-       />
+       <img class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0" :src="news3" alt="" />
        <div class="w-full md:max-w-[602px] md:pl-[24px]">
-        <h5 class="text-[1.75rem] md:text-[2rem] mb-[24px] font-bold">
-         耶誕快樂，住房送禮
-        </h5>
+        <h5 class="text-[1.75rem] md:text-[2rem] mb-[24px] font-bold">耶誕快樂，住房送禮</h5>
         <p class="text-[0.875rem] md:text-[1rem]">
          聖誕節來臨，我們為您準備了特別的禮物！在聖誕期間訂房，不僅有特別優惠，還會送上我們精心準備的聖誕禮物。讓我們一起慶祝這個溫馨的節日吧！
         </p>
@@ -156,19 +110,13 @@
      >
       <span>關於<br />我們</span>
      </h3>
-     <p
-      class="mb-[40px] text-[#FFFFFF] mb-[40px] text-[#FFFFFF] text-[0.875rem] md:text-[1rem]"
-     >
+     <p class="mb-[40px] text-[#FFFFFF] mb-[40px] text-[#FFFFFF] text-[0.875rem] md:text-[1rem]">
       享樂酒店，位於美麗島高雄的心臟地帶，是這座城市的璀璨瑰寶與傲人地標。<br />我們的存在，不僅僅是為了提供奢華的住宿體驗，更是為了將高雄的美麗與活力，獻給每一位蒞臨的旅客。
      </p>
-     <p
-      class="mb-[40px] text-[#FFFFFF] mb-[40px] text-[#FFFFFF] text-[0.875rem] md:text-[1rem]"
-     >
+     <p class="mb-[40px] text-[#FFFFFF] mb-[40px] text-[#FFFFFF] text-[0.875rem] md:text-[1rem]">
       我們的酒店，擁有時尚典雅的裝潢，每一個細節都充滿著藝術與設計的精緻。<br />我們的員工，都以熱情的服務與專業的態度，讓每一位客人都能感受到賓至如歸的溫暖。
      </p>
-     <p
-      class="mb-[40px] text-[#FFFFFF] mb-[40px] text-[#FFFFFF] text-[0.875rem] md:text-[1rem]"
-     >
+     <p class="mb-[40px] text-[#FFFFFF] mb-[40px] text-[#FFFFFF] text-[0.875rem] md:text-[1rem]">
       在這裡，您可以遙望窗外，欣賞高雄的城市景色，感受這座城市的繁華與活力；您也可以舒適地坐在我們的餐廳，品嚐精緻的佳餚，體驗無與倫比的味覺盛宴。
      </p>
      <p class="text-[#FFFFFF] text-[#FFFFFF] text-[0.875rem] md:text-[1rem]">
@@ -179,53 +127,27 @@
    <section
     :class="`pt-[28%] md:py-[120px] bg-[#140F0A] relative bg-no-repeat bg-none md:bg-[url(${bg})] bg-contain bg-[center_450px]`"
    >
-    <img
-     class="absolute left-[100px] top-[200px] hidden md:block object-cover h-[187px]"
-     :src="line2"
-     alt=""
-    />
+    <img class="absolute left-[100px] top-[200px] hidden md:block object-cover h-[187px]" :src="line2" alt="" />
     <div class="flex justify-end block md:hidden ml-[80px] mb-[20px]">
      <img class="object-scale-down" :src="mobile_line2" alt="" />
     </div>
     <div class="max-w-[1608px] flex flex-col md:flex-row items-end">
-     <div
-      class="px-[12px] md:px-0 w-full max-w-full xl:max-w-[900px] xl:mr-[80px] mb-[24px] xl:mb-0"
-     >
+     <div class="px-[12px] md:px-0 w-full max-w-full xl:max-w-[900px] xl:mr-[80px] mb-[24px] xl:mb-0">
       <Splide ref="splide" :options="options2" aria-label="房型">
        <SplideSlide>
-        <img
-         class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover"
-         :src="`${room}`"
-         alt="Sample 1"
-        />
+        <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" :src="`${room}`" alt="Sample 1" />
        </SplideSlide>
        <SplideSlide>
-        <img
-         class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover"
-         :src="`${room}`"
-         alt="Sample 2"
-        />
+        <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" :src="`${room}`" alt="Sample 2" />
        </SplideSlide>
        <SplideSlide>
-        <img
-         class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover"
-         :src="`${room}`"
-         alt="Sample 3"
-        />
+        <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" :src="`${room}`" alt="Sample 3" />
        </SplideSlide>
        <SplideSlide>
-        <img
-         class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover"
-         :src="`${room}`"
-         alt="Sample 4"
-        />
+        <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" :src="`${room}`" alt="Sample 4" />
        </SplideSlide>
        <SplideSlide>
-        <img
-         class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover"
-         :src="`${room}`"
-         alt="Sample 5"
-        />
+        <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" :src="`${room}`" alt="Sample 5" />
        </SplideSlide>
       </Splide>
      </div>
@@ -233,21 +155,11 @@
       :class="`w-full xl:max-w-[1060px] mb-[80px] md:mb-0 h-full bg-no-repeat bg-[url(${mobile_bg2})] md:bg-none bg-contain bg-[right_top]`"
      >
       <div class="px-[12px] w-full xl:max-w-[628px]">
-       <h4
-        class="text-[#FFFFFF] text-[1.75rem] md:text-[2.5rem] mb-[16px] font-bold"
-       >
-        尊爵雙人房
-       </h4>
-       <p
-        class="text-[#FFFFFF] mb-[24px] md:mb-[40px] text-[0.875rem] md:text-[1rem]"
-       >
+       <h4 class="text-[#FFFFFF] text-[1.75rem] md:text-[2.5rem] mb-[16px] font-bold">尊爵雙人房</h4>
+       <p class="text-[#FFFFFF] mb-[24px] md:mb-[40px] text-[0.875rem] md:text-[1rem]">
         享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。
        </p>
-       <h5
-        class="text-[#FFFFFF] text-[1.5rem] md:text-[2rem] mb-[30px] md:mb-[40px] font-bold font-bold"
-       >
-        NT$ 10,000
-       </h5>
+       <h5 class="text-[#FFFFFF] text-[1.5rem] md:text-[2rem] mb-[30px] md:mb-[40px] font-bold font-bold">NT$ 10,000</h5>
        <router-link
         :to="{ name: 'Book' }"
         class="relative z-10 p-[20px] md:p-[40px] text-[1rem] font-bold md:text-[1.5rem] bg-[#FFFFFF] block w-full rounded-lg hover:bg-[#BF9D7D] hover:text-[#FFFFFF] group mb-[24px] md:mb-[40px]"
@@ -257,16 +169,8 @@
          ></span></span
        ></router-link>
        <div class="flex justify-end">
-        <button
-         @click="goPrev()"
-         class="w-[50px] h-[50px] inline-flex items-center justify-center"
-        >
-         <svg
-          class="w-[24px] h-[24px]"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-         >
+        <button @click="goPrev()" class="w-[50px] h-[50px] inline-flex items-center justify-center">
+         <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
            class="fill-[#BF9D7D]"
            d="M12 20L13.41 18.59L7.83 13L20 13L20 11L7.83 11L13.41 5.41L12 4L4 12L12 20Z"
@@ -274,22 +178,10 @@
           />
          </svg>
         </button>
-        <button
-         @click="goNext()"
-         class="w-[50px] h-[50px] inline-flex items-center justify-center"
-        >
-         <svg
-          class="w-[24px] h-[24px]"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-         >
+        <button @click="goNext()" class="w-[50px] h-[50px] inline-flex items-center justify-center">
+         <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_14_2275)">
-           <path
-            class="fill-[#BF9D7D]"
-            d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
-            fill="black"
-           />
+           <path class="fill-[#BF9D7D]" d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="black" />
           </g>
           <defs>
            <clipPath id="clip0_14_2275">
@@ -306,11 +198,7 @@
    <section
     class="px-[12px] overflow-hidden bg-[#F7F2EE] flex py-[80px] md:py-[120px] relative after:absolute after:z-20 after:right-[80px] after:top-[-40px] after:w-[200px] after:h-[200px] after:bg-contain"
    >
-    <img
-     class="object-cover h-[990px] absolute top-[60px] left-[50px] custom-show"
-     :src="line"
-     alt=""
-    />
+    <img class="object-cover h-[990px] absolute top-[60px] left-[50px] custom-show" :src="line" alt="" />
     <div class="w-full">
      <div class="max-w-[1296px] mx-auto">
       <h3
@@ -320,27 +208,14 @@
       </h3>
      </div>
      <div class="max-w-[1512px] ml-auto">
-      <Splide
-       :options="options3"
-       :extensions="extensions"
-       aria-label="享樂酒店"
-      >
+      <Splide :options="options3" :extensions="extensions" aria-label="享樂酒店">
        <SplideSlide>
         <div class="w-full h-full max-w-[300px] md:max-w-[416px] relative">
-         <img
-          class="rounded h-full object-cover"
-          :src="`${food1}`"
-          alt="Sample 1"
-         />
-         <div
-          class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm"
-         >
+         <img class="rounded h-full object-cover" :src="`${food1}`" alt="Sample 1" />
+         <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
           <div class="flex items-center justify-between mb-[24px]">
            <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">海霸</h6>
-           <span class="text-[#FFFFFF] font-bold"
-            ><span class="mr-[16px]">SUN-MON</span
-            ><span>11:00 - 20:30</span></span
-           >
+           <span class="text-[#FFFFFF] font-bold"><span class="mr-[16px]">SUN-MON</span><span>11:00 - 20:30</span></span>
           </div>
           <p class="text-[#FFFFFF]">
            以新鮮海產料理聞名，我們的專業廚師選用高雄當地的海鮮，每一道菜都充滿海洋的鮮美與清甜。無論是烤魚、蒸蝦還是煮蛤蜊，都能讓您品嚐到最新鮮的海洋風味。
@@ -350,20 +225,11 @@
        </SplideSlide>
        <SplideSlide>
         <div class="w-full h-full max-w-[300px] md:max-w-[416px] relative">
-         <img
-          class="rounded h-full object-cover"
-          :src="`${food2}`"
-          alt="Sample 2"
-         />
-         <div
-          class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm"
-         >
+         <img class="rounded h-full object-cover" :src="`${food2}`" alt="Sample 2" />
+         <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
           <div class="flex items-center justify-between mb-[24px]">
            <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">日食</h6>
-           <span class="text-[#FFFFFF] font-bold"
-            ><span class="mr-[16px]">SUN-MON</span
-            ><span>17:00 - 22:00</span></span
-           >
+           <span class="text-[#FFFFFF] font-bold"><span class="mr-[16px]">SUN-MON</span><span>17:00 - 22:00</span></span>
           </div>
           <p class="text-[#FFFFFF]">
            為您提供優質的牛排，每一塊肉都來自頂級的牛肉，經過專業廚師的巧手烹調，口感豐滿、風味絕佳。搭配我們的特製醬料，讓您的味蕾享受一場美味的盛宴。
@@ -373,20 +239,11 @@
        </SplideSlide>
        <SplideSlide>
         <div class="w-full h-full max-w-[300px] md:max-w-[416px] relative">
-         <img
-          class="rounded h-full object-cover"
-          :src="`${food3}`"
-          alt="Sample 3"
-         />
-         <div
-          class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm"
-         >
+         <img class="rounded h-full object-cover" :src="`${food3}`" alt="Sample 3" />
+         <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
           <div class="flex items-center justify-between mb-[24px]">
            <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">山臻</h6>
-           <span class="text-[#FFFFFF] font-bold"
-            ><span class="mr-[16px]">SUN-MON</span
-            ><span>11:30 - 20:30</span></span
-           >
+           <span class="text-[#FFFFFF] font-bold"><span class="mr-[16px]">SUN-MON</span><span>11:30 - 20:30</span></span>
           </div>
           <p class="text-[#FFFFFF]">
            帶您進入一次辣味與鮮香兼具的川菜美食之旅。我們的廚師掌握正宗的川菜烹調技巧，從麻辣鍋到口水雞，每一道菜都有其獨特的風味，讓您回味無窮。
@@ -396,20 +253,11 @@
        </SplideSlide>
        <SplideSlide>
         <div class="w-full h-full max-w-[300px] md:max-w-[416px] relative">
-         <img
-          class="rounded h-full object-cover"
-          :src="`${food4}`"
-          alt="Sample 4"
-         />
-         <div
-          class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm"
-         >
+         <img class="rounded h-full object-cover" :src="`${food4}`" alt="Sample 4" />
+         <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
           <div class="flex items-center justify-between mb-[24px]">
            <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">月永</h6>
-           <span class="text-[#FFFFFF] font-bold"
-            ><span class="mr-[16px]">SUN-MON</span
-            ><span>11:00 - 20:00</span></span
-           >
+           <span class="text-[#FFFFFF] font-bold"><span class="mr-[16px]">SUN-MON</span><span>11:00 - 20:00</span></span>
           </div>
           <p class="text-[#FFFFFF]">
            從鮮美的海鮮、經典的牛排，到各國的特色美食，我們都一應俱全。在這裡，您可以品嚐到世界各地的美食，每一道菜都由專業廚師用心製作，讓您在享受美食的同時，也能感受到我們的熱情與用心。
@@ -419,20 +267,11 @@
        </SplideSlide>
        <SplideSlide>
         <div class="w-full h-full max-w-[300px] md:max-w-[416px] relative">
-         <img
-          class="rounded h-full object-cover"
-          :src="`${food5}`"
-          alt="Sample 5"
-         />
-         <div
-          class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm"
-         >
+         <img class="rounded h-full object-cover" :src="`${food5}`" alt="Sample 5" />
+         <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
           <div class="flex items-center justify-between mb-[24px]">
            <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">天潮</h6>
-           <span class="text-[#FFFFFF] font-bold"
-            ><span class="mr-[16px]">SUN-MON</span
-            ><span>14:00 - 19:30</span></span
-           >
+           <span class="text-[#FFFFFF] font-bold"><span class="mr-[16px]">SUN-MON</span><span>14:00 - 19:30</span></span>
           </div>
           <p class="text-[#FFFFFF]">
            我們提供各種精緻甜點與糕點，無論您喜歡的是巧克力蛋糕、法式馬卡龍，還是台灣傳統的糕點，都能在這裡找到。讓我們的甜點帶您進入一場繽紛的甜蜜旅程。
@@ -451,9 +290,7 @@
      >
       交通<br />方式
      </h3>
-     <p class="text-[#FFFFFF] mb-[16px] font-bold">
-      台灣高雄市新興區六角路123號
-     </p>
+     <p class="text-[#FFFFFF] mb-[16px] font-bold">台灣高雄市新興區六角路123號</p>
      <div class="w-full h-[360px] mb-[24px] md:mb-[40px]">
       <!-- <img :src="`${map}`" alt="地址：台灣高雄市新興區六角路123號"> -->
       <iframe
@@ -467,12 +304,7 @@
      </div>
      <div class="flex flex-col md:flex-row mb-[80px]">
       <div class="mr-[24px] mb-[24px] md:mb-0">
-       <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-[40px] md:w-[80px]"
-        viewBox="0 0 24 24"
-        fill="none"
-       >
+       <svg xmlns="http://www.w3.org/2000/svg" class="w-[40px] md:w-[80px]" viewBox="0 0 24 24" fill="none">
         <g clip-path="url(#clip0_29_1895)">
          <path
           class="fill-[#BF9D7D]"
@@ -486,22 +318,13 @@
          </clipPath>
         </defs>
        </svg>
-       <h6
-        class="mt-[16px] mb-[8px] text-[1rem] md:text-[1.5rem] text-[#FFFFFF] font-bold"
-       >
-        自行開車
-       </h6>
+       <h6 class="mt-[16px] mb-[8px] text-[1rem] md:text-[1.5rem] text-[#FFFFFF] font-bold">自行開車</h6>
        <p class="tracking-[2px] text-[#FFFFFF] text-[0.875rem] md:text-[1rem]">
         如果您選擇自行開車，可以透過國道一號下高雄交流道，往市區方向行駛，並依路標指示即可抵達「享樂酒店」。飯店內設有停車場，讓您停車方便。
        </p>
       </div>
       <div class="mr-[24px] mb-[24px] md:mb-0">
-       <svg
-        viewBox="0 0 24 24"
-        class="w-[40px] md:w-[80px]"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-       >
+       <svg viewBox="0 0 24 24" class="w-[40px] md:w-[80px]" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_31_1909)">
          <path
           class="fill-[#BF9D7D]"
@@ -515,49 +338,28 @@
          </clipPath>
         </defs>
        </svg>
-       <h6
-        class="mt-[16px] mb-[8px] text-[1rem] md:text-[1.5rem] text-[#FFFFFF] font-bold"
-       >
-        高鐵/火車
-       </h6>
+       <h6 class="mt-[16px] mb-[8px] text-[1rem] md:text-[1.5rem] text-[#FFFFFF] font-bold">高鐵/火車</h6>
        <p class="tracking-[2px] text-[#FFFFFF] text-[0.875rem] md:text-[1rem]">
         如果您是搭乘高鐵或火車，可於左營站下車，外頭有計程車站，搭乘計程車約20分鐘即可抵達。或者您也可以轉乘捷運紅線至中央公園站下車，步行約10分鐘便可抵達。
        </p>
       </div>
       <div>
-       <svg
-        class="w-[40px] md:w-[80px]"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-       >
+       <svg class="w-[40px] md:w-[80px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
          class="fill-[#BF9D7D]"
          d="M16 6L19 10H21C22.11 10 23 10.89 23 12V15H21C21 15.7956 20.6839 16.5587 20.1213 17.1213C19.5587 17.6839 18.7956 18 18 18C17.2044 18 16.4413 17.6839 15.8787 17.1213C15.3161 16.5587 15 15.7956 15 15H9C9 15.7956 8.68393 16.5587 8.12132 17.1213C7.55871 17.6839 6.79565 18 6 18C5.20435 18 4.44129 17.6839 3.87868 17.1213C3.31607 16.5587 3 15.7956 3 15H1V12C1 10.89 1.89 10 3 10L6 6H16ZM10.5 7.5H6.75L4.86 10H10.5V7.5ZM12 7.5V10H17.14L15.25 7.5H12ZM6 13.5C5.60218 13.5 5.22064 13.658 4.93934 13.9393C4.65804 14.2206 4.5 14.6022 4.5 15C4.5 15.3978 4.65804 15.7794 4.93934 16.0607C5.22064 16.342 5.60218 16.5 6 16.5C6.39782 16.5 6.77936 16.342 7.06066 16.0607C7.34196 15.7794 7.5 15.3978 7.5 15C7.5 14.6022 7.34196 14.2206 7.06066 13.9393C6.77936 13.658 6.39782 13.5 6 13.5ZM18 13.5C17.6022 13.5 17.2206 13.658 16.9393 13.9393C16.658 14.2206 16.5 14.6022 16.5 15C16.5 15.3978 16.658 15.7794 16.9393 16.0607C17.2206 16.342 17.6022 16.5 18 16.5C18.3978 16.5 18.7794 16.342 19.0607 16.0607C19.342 15.7794 19.5 15.3978 19.5 15C19.5 14.6022 19.342 14.2206 19.0607 13.9393C18.7794 13.658 18.3978 13.5 18 13.5Z"
          fill="black"
         />
        </svg>
-       <h6
-        class="mt-[16px] mb-[8px] text-[1rem] md:text-[1.5rem] text-[#FFFFFF] font-bold"
-       >
-        禮賓車服務
-       </h6>
+       <h6 class="mt-[16px] mb-[8px] text-[1rem] md:text-[1.5rem] text-[#FFFFFF] font-bold">禮賓車服務</h6>
        <p class="tracking-[2px] text-[#FFFFFF] text-[0.875rem] md:text-[1rem]">
         承億酒店提供禮賓專車接送服務，但因目的地遠近會有不同的收費，請撥打電話將由專人為您服務洽詢專線：(07)123-4567
        </p>
       </div>
      </div>
     </div>
-    <img
-     class="block md:hidden mt-[40px] md:mt-[120px] object-scale-down"
-     :src="mobile_line2"
-     alt=""
-    />
-    <img
-     class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]"
-     :src="line2"
-     alt=""
-    />
+    <img class="block md:hidden mt-[40px] md:mt-[120px] object-scale-down" :src="mobile_line2" alt="" />
+    <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" :src="line2" alt="" />
    </section>
   </main>
   <Footer></Footer>
