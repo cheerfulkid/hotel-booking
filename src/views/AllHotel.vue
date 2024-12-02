@@ -72,6 +72,7 @@
        <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
        <div class="h-[56px] flex items-center justify-between">
         <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
+        <router-link :to="{ name: 'HotelDetail'}">
         <button>
          <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_14_2275)">
@@ -84,6 +85,7 @@
           </defs>
          </svg>
         </button>
+        </router-link>
        </div>
       </div>
      </div>
@@ -116,6 +118,7 @@
        <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
        <div class="h-[56px] flex items-center justify-between">
         <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
+        <router-link :to="{ name: 'HotelDetail'}">
         <button>
          <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_14_2275)">
@@ -128,6 +131,7 @@
           </defs>
          </svg>
         </button>
+      </router-link>
        </div>
       </div>
      </div>
@@ -160,6 +164,7 @@
        <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
        <div class="h-[56px] flex items-center justify-between">
         <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
+        <router-link :to="{ name: 'HotelDetail'}">
         <button>
          <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_14_2275)">
@@ -172,6 +177,7 @@
           </defs>
          </svg>
         </button>
+      </router-link>
        </div>
       </div>
      </div>
@@ -204,6 +210,7 @@
        <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
        <div class="h-[56px] flex items-center justify-between">
         <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
+        <router-link :to="{ name: 'HotelDetail'}">
         <button>
          <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_14_2275)">
@@ -216,6 +223,7 @@
           </defs>
          </svg>
         </button>
+      </router-link>
        </div>
       </div>
      </div>

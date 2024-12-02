@@ -6,7 +6,7 @@
     <div class="max-w-[1296px] mx-auto md:flex items-start px-[12px]">
      <div class="w-full max-w-[746px] md:pr-[16px] lg:pr-[72px]">
       <div class="flex items-center mb-[40px]">
-       <button>
+       <button class="mr-[8px]">
         <svg class="w-[24px] h-[24px] md:w-[40px] md:h-[40px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
          <g clip-path="url(#clip0_14_2307)">
           <path d="M15.41 16.59L10.83 12L15.41 7.41L14 6L8 12L14 18L15.41 16.59Z" fill="black" />
@@ -163,7 +163,7 @@
        <span class="font-bold">總價</span>
        <span class="font-bold">NT$ 19,000</span>
       </div>
-      <ClickButton @click="checkOrder" customClass="bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }"> 確認訂房 </ClickButton>
+      <ClickButton @click="checkOrder" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 確認訂房 </ClickButton>
      </aside>
     </div>
    </section>

@@ -48,7 +48,7 @@
         我們致力於為您提供無與倫比的奢華體驗與優質服務
        </p>
        <router-link
-        :to="{ name: 'Book' }"
+        :to="{ name: 'AllHotel' }"
         class="ml-[10px] relative z-10 h-[64px] 2xl:h-[116px] flex items-center px-[40px] 2xl:text-[1.5rem] bg-[#FFFFFF] block w-full rounded-lg hover:bg-[#BF9D7D] hover:text-[#FFFFFF] group"
         ><span class="flex justify-end items-center w-full font-bold"
          >立即訂房<span
