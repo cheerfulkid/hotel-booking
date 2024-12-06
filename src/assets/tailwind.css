@@ -3,9 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
- body {
-  font-family: 'Noto Serif TC', serif; /* 設定全局字體 */
-  @apply font-medium;
-  @apply leading-[1.2];
- }
+  body {
+    font-family: 'Noto Serif TC', serif; /* 設定全局字體 */
+    @apply font-medium;
+    @apply leading-[1.2];
+  }
 }

@@ -1,7 +1,7 @@
 <template>
- <InfoSize :customClass="customClass">{{ roomSize }}</InfoSize>
- <InfoBed :customClass="customClass">{{ bedCount }}</InfoBed>
- <InfoPeople :customClass="customClass">{{ peopleCount }}</InfoPeople>
+  <InfoSize :customClass="customClass">{{ roomSize }}</InfoSize>
+  <InfoBed :customClass="customClass">{{ bedCount }}</InfoBed>
+  <InfoPeople :customClass="customClass">{{ peopleCount }}</InfoPeople>
 </template>
 
 <script setup>
@@ -12,22 +12,22 @@ import { defineProps } from 'vue'
 import { useRoute } from 'vue-router'
 
 const props = defineProps({
- roomSize: {
-  type: String,
-  required: true
- },
- bedCount: {
-  type: String,
-  required: true
- },
- peopleCount: {
-  type: String,
-  required: true
- },
- customClass: {
-  type: String,
-  required: false
- }
+  roomSize: {
+    type: String,
+    required: true
+  },
+  bedCount: {
+    type: String,
+    required: true
+  },
+  peopleCount: {
+    type: String,
+    required: true
+  },
+  customClass: {
+    type: String,
+    required: false
+  }
 })
 
 const route = useRoute()

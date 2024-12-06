@@ -1,57 +1,41 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Book from '../views/Book.vue'
-import AllHotel from '../views/AllHotel.vue'
-import Success from '../views/Success.vue'
-import MyAccount from '../views/MyAccount.vue'
-import Profile from '../views/Profile.vue'
-import Order from '../views/Order.vue'
-import HotelDetail from '../views/HotelDetail.vue'
-import Login from '../views/Login.vue'
-import Signup from '../views/Signup.vue'
+import { useUserStore } from '@/stores/user'
+import routes from './routes'
 
-const routes = [
- { path: '/home', name: 'Home', component: Home },
- { path: '/book', name: 'Book', component: Book },
- { path: '/allhotel', name: 'AllHotel', component: AllHotel },
- { path: '/hoteldetail', name: 'HotelDetail', component: HotelDetail },
- { path: '/login', name: 'Login', component: Login },
- { path: '/success', name: 'Success', component: Success },
- {
-  path: '/myaccount',
-  name: 'MyAccount',
-  component: MyAccount,
-  children: [
-   {
-    path: 'profile',
-    name: 'Profile',
-    component: Profile
-   },
-   {
-    path: 'order',
-    name: 'Order',
-    component: Order
-   }
-  ]
- },
- { path: '/signup/:step?', name: 'Signup', component: Signup }
-]
-
+// 初始化 Vue Router 實例
 const router = createRouter({
- history: createWebHashHistory(import.meta.env.BASE_URL),
- routes,
- scrollBehavior(to, from, savedPosition) {
-  // 使用 window.scrollTo 進行平滑滾動
-  return new Promise((resolve) => {
-   setTimeout(() => {
-    window.scrollTo({
-     top: 0,
-     behavior: 'smooth'
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // 使用 window.scrollTo 進行平滑滾動
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+        resolve()
+      }, 0)
     })
-    resolve()
-   }, 0)
-  })
- }
+  }
+})
+
+// 全域前置守衛 - 驗證登入和權限
+router.beforeEach(async (to, from, next) => {
+  const userStore = useUserStore()
+
+  if (to.meta.requiresAuth) {
+    const isValid = await userStore.checkLogin()
+    if (!isValid) {
+      alert('登入狀態已過期，請重新登入')
+      userStore.logout()
+      next('/login')
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
 })
 
 export default router
