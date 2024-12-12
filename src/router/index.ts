@@ -23,7 +23,6 @@ const router = createRouter({
 // 全域前置守衛 - 驗證登入和權限
 router.beforeEach(async (to, from, next) => {
   const userStore = useUserStore()
-
   if (to.meta.requiresAuth) {
     const isValid = await userStore.checkLogin()
     if (!isValid) {

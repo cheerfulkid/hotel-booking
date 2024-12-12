@@ -124,7 +124,6 @@
                 <p class="text-[0.75rem]">退房</p>
                 <p>2023 / 12 / 04</p>
               </button>
-              <Calendar></Calendar>
             </div>
             <div class="flex justify-between items-center mb-[40px]">
               <p class="text-[1.5rem]">人數</p>
@@ -157,6 +156,9 @@
         <ClickButton @click="checkOrder" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 查看可訂日期 </ClickButton>
       </div>
     </div>
+    <Calendar></Calendar>
+    <Loading></Loading>
+    <BackgroundMask></BackgroundMask>
     <Footer></Footer>
   </div>
 </template>
@@ -193,6 +195,8 @@ import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 import ClickButton from '../components/ClickButton.vue'
 import Calendar from '../components/Calendar.vue'
+import BackgroundMask from "@/components/BackgroundMask.vue";
+import Loading from "@/components/Loading.vue";
 import BasicInfo from '../components/BasicInfo.vue'
 import DecoTitle from '../components/DecoTitle.vue'
 import CheckItem from '../components/CheckItem.vue'
@@ -202,10 +206,12 @@ import room2_3 from '../assets/img/pc/room2-3.png'
 import room2_4 from '../assets/img/pc/room2-4.png'
 import room2_5 from '../assets/img/pc/room2-5.png'
 import { useCalendarStore } from '../stores/calendar'
+import { useMaskStore } from '../stores/mask'
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import { Grid } from '@splidejs/splide-extension-grid'
 import '@splidejs/splide/css/core'
 const calendarStore = useCalendarStore()
+const maskStore = useMaskStore()
 const extensions = ref({ Grid })
 const clickedDate = ref(false)
 

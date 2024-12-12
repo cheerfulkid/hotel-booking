@@ -1,6 +1,6 @@
 <template>
   <header
-    class="px-5 fixed w-full z-50 transition-all duration-300"
+    class="px-5 fixed w-full z-40 transition-all duration-300"
     :class="{
       'bg-[#140F0A]':
         route.name === 'Book' ||
