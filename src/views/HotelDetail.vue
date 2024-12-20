@@ -142,7 +142,7 @@
               </div>
             </div>
             <p class="text-[1.5rem] text-[#BF9D7D] mb-[40px]">NT$ 10,000</p>
-            <ClickButton customClass="bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }">立即預訂</ClickButton>
+            <ClickButton @click="makeOrder()" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]">立即預訂</ClickButton>
           </aside>
         </div>
       </section>
@@ -156,6 +156,35 @@
         <ClickButton @click="checkOrder" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 查看可訂日期 </ClickButton>
       </div>
     </div>
+    <Modal>
+      <template #title> 預訂狀態 </template>
+      <template #content>        
+        <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+          {{ errorStatus }} <template v-if="errorStatus">：</template> {{ msg }}
+        </p>
+        <template v-if="modalStep===1">
+          <svg class="checkmark success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_success" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" stroke-linecap="round"/></svg>
+          <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+            <div class="w-full mr-[16px]">
+              <ClickButton @click="modalStore.closeModal();router.push({name: 'Book'})" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+                關閉視窗
+              </ClickButton>
+            </div>
+          </div>
+        </template>
+        <template v-else-if="modalStep===0">
+          <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>
+          <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+            <div class="w-full mr-[16px]">
+              <ClickButton @click="modalStore.closeModal();" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+                關閉視窗
+              </ClickButton>
+            </div>
+          </div>
+        </template>
+        
+      </template>
+    </Modal>
     <Calendar></Calendar>
     <Loading></Loading>
     <BackgroundMask></BackgroundMask>
@@ -189,11 +218,21 @@
 }
 </style>
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 // import type { Login } from "../types/login"
+import { apiGetRoomsDetail } from '@/api/rooms';
+import { useCalendarStore } from '../stores/calendar'
+import { useMaskStore } from '../stores/mask'
+import { useModalStore } from '../stores/modal'
+import { useTempRoomStore } from '../stores/tempRoom'
+import { useRouter, useRoute } from 'vue-router'
+import { Splide, SplideSlide } from '@splidejs/vue-splide'
+import { Grid } from '@splidejs/splide-extension-grid'
+import '@splidejs/splide/css/core'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 import ClickButton from '../components/ClickButton.vue'
+import Modal from '../components/Modal.vue'
 import Calendar from '../components/Calendar.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
@@ -205,16 +244,51 @@ import room2_2 from '../assets/img/pc/room2-2.png'
 import room2_3 from '../assets/img/pc/room2-3.png'
 import room2_4 from '../assets/img/pc/room2-4.png'
 import room2_5 from '../assets/img/pc/room2-5.png'
-import { useCalendarStore } from '../stores/calendar'
-import { useMaskStore } from '../stores/mask'
-import { Splide, SplideSlide } from '@splidejs/vue-splide'
-import { Grid } from '@splidejs/splide-extension-grid'
-import '@splidejs/splide/css/core'
+
 const calendarStore = useCalendarStore()
 const maskStore = useMaskStore()
+const modalStore = useModalStore()
+console.log('modalStore.isShow',modalStore.isShow)
+const tempRoomStore = useTempRoomStore()
+const router = useRouter()
+const route = useRoute()
+const modalStep = ref(1)
+const msg = ref('')
+const errorStatus = ref('')
+const room = ref(
+  {
+    "_id": "6763c8cc011eb06b0d10744f",
+    "name": "尊爵雙人房",
+    "description": "享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。",
+    "imageUrl": "https://fakeimg.pl/300/",
+    "imageUrlList": [
+        "https://fakeimg.pl/300/",
+        "https://fakeimg.pl/300/",
+        "https://fakeimg.pl/300/"
+    ],
+    "areaInfo": "24坪",
+    "bedInfo": "一張大床",
+    "maxPeople": 4,
+    "price": 10000,
+    "status": 1,
+    "facilityInfo": [
+        {
+            "title": "平面電視",
+            "isProvide": true
+        }
+    ],
+    "amenityInfo": [
+        {
+            "title": "衛生紙",
+            "isProvide": true
+        }
+    ],
+    "createdAt": "2024-12-19T07:18:36.783Z",
+    "updatedAt": "2024-12-19T07:18:36.783Z"
+  }
+)
 const extensions = ref({ Grid })
 const clickedDate = ref(false)
-
 const options = reactive({
   type: 'loop',
   height: '600px',
@@ -252,4 +326,32 @@ const options = reactive({
 const checkOrder = () => {
   calendarStore.openCalendar()
 }
+
+const makeOrder = async() => {
+  tempRoomStore.room = room.value
+  router.push({
+    name: 'Book'
+  })
+  // console.log('makeOrder')
+  // msg.value = ''
+  // errorStatus.value = ''
+  // try {
+  //   await tempRoomStore.storeGetRoomsDetail(route.params.id)    
+  // } catch(error) {
+  //   console.log('error!')
+  //   modalStep.value = 0
+  //   errorStatus.value = error.status
+  //   msg.value = error.response.data.message
+  // }
+  // modalStore.openModal()
+}
+
+onMounted(async() => {
+  // modalStore.openModal()
+  // console.log('route.params.id',route.params.id)
+  const res = await apiGetRoomsDetail(route.params.id)
+  room.value = res
+  console.log('res', res)
+  // rooms.value = res.data.result
+})
 </script>

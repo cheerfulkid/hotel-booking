@@ -72,7 +72,7 @@
               <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
               <div class="h-[56px] flex items-center justify-between">
                 <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
-                <router-link :to="{ name: 'HotelDetail' }">
+                <router-link :to="{ name: 'HotelDetail', params: { id: '6763c8cc011eb06b0d10744f' } }">
                   <button>
                     <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_14_2275)">
@@ -122,7 +122,7 @@
               <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
               <div class="h-[56px] flex items-center justify-between">
                 <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
-                <router-link :to="{ name: 'HotelDetail' }">
+                <router-link :to="{ name: 'HotelDetail', params: { id: 1 } }">
                   <button>
                     <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_14_2275)">
@@ -172,7 +172,7 @@
               <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
               <div class="h-[56px] flex items-center justify-between">
                 <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
-                <router-link :to="{ name: 'HotelDetail' }">
+                <router-link :to="{ name: 'HotelDetail', params: { id: 1 } }">
                   <button>
                     <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_14_2275)">
@@ -222,7 +222,7 @@
               <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
               <div class="h-[56px] flex items-center justify-between">
                 <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
-                <router-link :to="{ name: 'HotelDetail' }">
+                <router-link :to="{ name: 'HotelDetail', params: { id: 1 }}">
                   <button>
                     <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_14_2275)">
@@ -246,6 +246,8 @@
         </div>
       </section>
     </main>
+    <Loading></Loading>
+    <BackgroundMask></BackgroundMask>
     <Footer></Footer>
   </div>
 </template>
@@ -294,9 +296,12 @@
 }
 </style>
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
+import { apiGetRoomsAll } from '@/api/rooms';
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+import BackgroundMask from "@/components/BackgroundMask.vue";
+import Loading from "@/components/Loading.vue";
 import banner from '../assets/img/pc/banner.png'
 import BasicInfo from '../components/BasicInfo.vue'
 import room2_1 from '../assets/img/pc/room2-1.png'
@@ -321,7 +326,7 @@ import room5_4 from '../assets/img/pc/room5-4.png'
 import room5_5 from '../assets/img/pc/room5-5.png'
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import '@splidejs/splide/css/core'
-
+const rooms = ref([])
 const options = reactive({
   rewind: true,
   type: 'loop',
@@ -344,5 +349,10 @@ const options2 = reactive({
     prev: 'splide__arrow--prev custom-prev',
     next: 'splide__arrow--next custom-next'
   }
+})
+
+onMounted(async() => {
+  const res = await apiGetRoomsAll()
+  rooms.value = res.data.result
 })
 </script>

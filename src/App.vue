@@ -5,11 +5,11 @@ const maskStore = useMaskStore()
 
 watchEffect(() => {
   // 背景遮罩出現時，讓頁面卷軸禁止滾動
-  if (maskStore.isShow) {
-    document.body.classList.add('overflow-hidden');
-  } else {
-    document.body.classList.remove('overflow-hidden');
-  }
+  // if (maskStore.isShow) {
+  //   document.body.classList.add('overflow-hidden');
+  // } else {
+  //   document.body.classList.remove('overflow-hidden');
+  // }
 });
 </script>
 

@@ -21,7 +21,7 @@
         <img :src="`${ic_menu}`" alt="" />
       </button>
       <nav v-if="route.name != 'Login' && route.name != 'Signup'" class="hidden md:flex">
-        <div class="cursor-pointer relative">
+        <div v-if="userStore.userInfo" class="cursor-pointer relative">
           <span @click="dropdownOpen = !dropdownOpen" class="block p-[16px] mr-[16px] text-[#FFFFFF]">客房旅宿</span>
           <ul
             v-if="dropdownOpen"
@@ -35,17 +35,17 @@
               >
             </li>
             <li class="mb-[12px]">
-              <span
+              <span @click="logout()"
                 class="block cursor-pointer text-[1rem] font-bold py-[16px] px-[24px] hover:bg-[#F7F2EE] hover:text-[#BF9D7D] text-[#4B4B4B]"
                 >登出</span
               >
             </li>
           </ul>
         </div>
-        <router-link v-if="user" :to="{ name: 'Login' }" class="block p-[16px] mr-[16px] text-[#FFFFFF]">會員登入</router-link>
+        <router-link v-if="!userStore.userInfo" :to="{ name: 'Login' }" class="block p-[16px] mr-[16px] text-[#FFFFFF]">會員登入</router-link>
         <div v-else class="flex items-center p-[16px] mr-[16px]">
           <!-- <img class="mr-[8px]" src="../assets/img/ic_Profile.svg" alt=""> -->
-          <span class="text-[#FFFFFF]">Jessica</span>
+          <span class="text-[#FFFFFF]">{{ userStore.userInfo.name }}</span>
         </div>
         <router-link
           class="block rounded-[8px] px-[32px] py-[16px] font-bold text-[#FFFFFF] bg-[#BF9D7D]"
@@ -75,28 +75,69 @@
         </svg>
       </button>
       <div class="flex flex-col justify-center w-full h-full">
-        <ClickButton customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }"> 客房旅宿 </ClickButton>
-        <ClickButton customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }"> 會員登入 </ClickButton>
-        <ClickButton customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Book' }"> 立即訂房 </ClickButton>
+        <ClickButton v-if="userStore.userInfo" @click="dropdownOpen = !dropdownOpen" customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" isLink="false"> 客房旅宿 </ClickButton>
+        <ClickButton v-else customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'Login' }"> 會員登入 </ClickButton>
+        <transition name="expand">
+          <ul v-if="dropdownOpen">
+            <li class="text-right">
+              <router-link
+                class="block text-[1rem] font-bold py-[16px] px-[24px] hover:bg-[#F7F2EE] hover:text-[#BF9D7D] text-[#FFFFFF]"
+                :to="{ name: 'Profile' }"
+                >我的帳戶</router-link
+              >
+            </li>
+            <li class="text-right">
+              <span @click="logout()"
+                class="block cursor-pointer text-[1rem] font-bold py-[16px] px-[24px] hover:bg-[#F7F2EE] hover:text-[#BF9D7D] text-[#FFFFFF]"
+                >登出</span
+              >
+            </li>
+          </ul>
+        </transition>
+        <ClickButton customClass="hover:bg-[#BF9D7D] text-[#FFFFFF]" :to="{ name: 'AllHotel' }"> 立即訂房 </ClickButton>
       </div>
     </div>
   </header>
 </template>
-<style scoped></style>
+<style scoped>
+/* 定義過渡樣式 */
+.expand-enter-active,
+.expand-leave-active {
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  overflow: hidden;
+}
+
+.expand-enter-from,
+.expand-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+.expand-enter-to,
+.expand-leave-from {
+  max-height: 300px; /* 這裡可以根據內容調整最大高度 */
+  opacity: 1;
+}
+</style>
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useUserStore } from '../stores/user'
-import { useRoute } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import ic_menu from '../assets/img/svg/ic_menu.svg'
 import ic_close from '../assets/img/svg/ic_close.svg'
 import ClickButton from '../components/ClickButton.vue'
 const dropdownOpen = ref(false)
 const menuOpen = ref(false)
-const user = useUserStore()
+const userStore = useUserStore()
+const router = useRouter()
 const route = useRoute()
 const isScrolled = ref(false)
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 0
+}
+const logout = () => {
+  userStore.logout()
+  router.push({ name: 'Home' });
 }
 
 onMounted(() => {

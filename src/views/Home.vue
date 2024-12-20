@@ -376,6 +376,8 @@
         <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" :src="line2" alt="" />
       </section>
     </main>
+    <Loading></Loading>
+    <BackgroundMask></BackgroundMask>
     <Footer></Footer>
   </div>
 </template>
@@ -434,10 +436,18 @@
 } */
 </style>
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 // import type { Login } from "../types/login"
+import { useTempRoomStore } from '../stores/tempRoom'
+import { apiGetCulinaryAll, apiGetCulinary } from '@/api/culinary';
+import { apiGetRoomsAll } from '@/api/rooms';
+import { Splide, SplideSlide } from '@splidejs/vue-splide'
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
+import '@splidejs/splide/css/core'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+import BackgroundMask from "@/components/BackgroundMask.vue";
+import Loading from "@/components/Loading.vue";
 import banner from '../assets/img/pc/banner.png'
 import news1 from '../assets/img/pc/news1.png'
 import news2 from '../assets/img/pc/news2.png'
@@ -456,10 +466,10 @@ import food3 from '../assets/img/pc/food3.png'
 import food4 from '../assets/img/pc/food4.png'
 import food5 from '../assets/img/pc/food5.png'
 import map from '../assets/img/pc/map.png'
-import { Splide, SplideSlide } from '@splidejs/vue-splide'
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
-import '@splidejs/splide/css/core'
+const tempRoomStore = useTempRoomStore()
 const extensions = ref({ AutoScroll })
+const culinary = ref([])
+const rooms = ref([])
 const splide = ref(null)
 const options = reactive({
   rewind: true,
@@ -536,6 +546,20 @@ const goNext = () => {
     splide.value.go('>')
   }
 }
+
+onMounted(async() => {
+  const res = await apiGetCulinaryAll()
+  const res2 = await apiGetRoomsAll()
+  culinary.value = res.data.result
+  rooms.value = res2.data.result
+  // console.log('res',res)
+  // console.log('res.status', res.data.status)
+  // console.log('res.result', res.data.result)
+  // console.log('res2',res2)
+  // console.log('res2.status', res2.data.status)
+  // console.log('res2.result', res2.data.result)
+})
+
 // import line3 from '../assets/img/pc/line3.png';
 // const loading = ref(false)
 // const loginData = ref<Login>({

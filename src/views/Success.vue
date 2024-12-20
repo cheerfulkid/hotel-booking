@@ -83,15 +83,44 @@
         <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" :src="line2" alt="" />
       </section>
     </main>
+    <Modal>
+      <template #title> 訂單狀態 </template>
+      <template #content>        
+        <p class="text-[#4B4B4B] px-[18px] mt-[50px] text-center flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+          {{ modalStore.errorStatus }} <template v-if="modalStore.errorStatus">：</template> {{ modalStore.msg }}
+        </p>
+        <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>
+        <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+          <div class="w-full mr-[16px]">
+            <ClickButton @click="modalStore.closeModal();router.push({name: 'Home'})" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+              關閉視窗
+            </ClickButton>
+          </div>
+        </div>      
+      </template>
+    </Modal>
+    <Loading></Loading>
+    <BackgroundMask></BackgroundMask>
     <Footer></Footer>
   </div>
 </template>
 <style scoped></style>
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { apiGetOrdersDetail } from '@/api/orders';
+import { useUserStore } from '../stores/user'
+import { useModalStore } from '../stores/modal'
+import { useTempRoomStore } from '../stores/tempRoom'
+import { useOrderStore } from '@/stores/order'
+import { useRouter, useRoute } from 'vue-router'
+import { previousRoute } from '../router';
+import { useCommon } from '@/composables/useCommon';
 // import type { Login } from "../types/login"
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+import Modal from '../components/Modal.vue'
+import BackgroundMask from "@/components/BackgroundMask.vue";
+import Loading from "@/components/Loading.vue";
 import ic_check from '../assets/img/svg/ic_check.svg'
 import room2_1 from '../assets/img/pc/room2-1.png'
 import mobile_line2 from '../assets/img/mobile/line.png'
@@ -100,7 +129,44 @@ import DivideLine from '../components/DivideLine.vue'
 import ClickButton from '../components/ClickButton.vue'
 import DecoTitle from '../components/DecoTitle.vue'
 import CheckItem from '../components/CheckItem.vue'
+const { isEmpty } = useCommon();
+const userStore = useUserStore()
+const modalStore = useModalStore()
+const tempRoomStore = useTempRoomStore()
+const orderStore = useOrderStore()
+const router = useRouter()
+const route = useRoute()
+const modalStep = ref(1)
+const msg = ref('')
+const errorStatus = ref('')
+const newestSuccessOrder = ref(null)
 
+onMounted(async () => {
+  if(previousRoute?.name === 'Book') {
+    if (isEmpty(orderStore.newestSuccessOrder)) {
+      router.push({
+        name: 'Home'
+      })
+    } else {
+      try {
+        const res = await apiGetOrdersDetail(orderStore.newestSuccessOrder._id)
+        // const res = await apiGetOrdersDetail(1)
+        // console.log('res', res)
+        newestSuccessOrder.value = res.data.result
+      } catch(error) {
+        // console.log('error', error.response.data.message)
+        modalStore.errorStatus = error.status
+        modalStore.msg = error.response.data.message
+        console.log('apiGetOrdersDetail modalStore', modalStore)
+        modalStore.openModal()
+      }          
+    }
+  } else {
+    router.push({
+      name: 'Home'
+    })
+  }
+});
 // const loading = ref(false)
 // const loginData = ref<Login>({
 //  email: "",

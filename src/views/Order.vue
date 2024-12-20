@@ -51,7 +51,7 @@
       </div>
       <div class="flex">
         <div class="w-[50%] mr-[16px]">
-          <ClickButton @click="modalStore.openModal" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+          <ClickButton @click="cancelOrder()" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
             取消預訂
           </ClickButton>
         </div>
@@ -134,32 +134,87 @@
       </ClickButton>
     </div>
   </div>
-  <Modal>
+  <Modal v-if="modalStore.option==='cancel'">
     <template #title> 取消預訂 </template>
-    <template #content>
-      <p class="text-[#4B4B4B] h-[224px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
-        確定要取消此房型的預訂嗎？
-      </p>
+    <template #content>      
+      <template v-if="modalStore.step===0">
+        <p class="text-[#4B4B4B] h-[224px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+          確定要取消此房型的預訂嗎？
+        </p>
+        <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+          <div class="w-[50%] mr-[16px]">
+            <ClickButton @click="modalStore.closeModal" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+              關閉視窗
+            </ClickButton>
+          </div>
+          <div class="w-[50%]">
+            <ClickButton @click="makeCancel()" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 確定取消 </ClickButton>
+          </div>
+        </div>
+      </template>
+      <template v-else-if="modalStore.step===1">
+        <template v-if="modalStore.status===1">
+          <p class="text-[#4B4B4B] px-[18px] mt-[50px] text-center flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+            取消訂單成功！
+          </p>
+          <svg class="checkmark success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_success" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" stroke-linecap="round"/></svg>
+          <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+            <div class="w-full mr-[16px]">
+              <ClickButton @click="modalStore.closeModal();router.go(0)" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+                關閉視窗
+              </ClickButton>
+            </div>
+          </div>
+        </template>
+        <template v-else-if="modalStore.status===0">
+          <p class="text-[#4B4B4B] px-[18px] mt-[50px] text-center flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+            {{ modalStore.errorStatus }} <template v-if="modalStore.errorStatus">：</template> {{ modalStore.msg }}
+          </p>
+          <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>
+          <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+            <div class="w-full mr-[16px]">
+              <ClickButton @click="modalStore.closeModal();" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+                關閉視窗
+              </ClickButton>
+            </div>
+          </div>
+        </template>         
+      </template>        
+    </template>
+  </Modal>
+  <Modal v-if="modalStore.option!=='cancel'">
+    <template #title> 撈取全部訂單 </template>
+    <template #content>        
+      <p class="text-[#4B4B4B] px-[18px] mt-[50px] text-center flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+        {{ modalStore.errorStatus }} <template v-if="modalStore.errorStatus">：</template> {{ modalStore.msg }}
+      </p> 
+      <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>
       <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
-        <div class="w-[50%] mr-[16px]">
-          <ClickButton @click="modalStore.closeModal" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+        <div class="w-full mr-[16px]">
+          <ClickButton @click="modalStore.closeModal();router.push({name: 'Login'})" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
             關閉視窗
           </ClickButton>
         </div>
-        <div class="w-[50%]">
-          <ClickButton @click="makeCancel" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 確定取消 </ClickButton>
-        </div>
-      </div>
+      </div>   
     </template>
   </Modal>
+  <Loading></Loading>
+  <BackgroundMask></BackgroundMask>
 </template>
 <style scoped></style>
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { apiDeleteOrdersDetail } from '@/api/orders';
+import { useUserStore } from '../stores/user'
 import { useModalStore } from '../stores/modal'
+import { useTempRoomStore } from '../stores/tempRoom'
+import { useOrderStore } from '@/stores/order'
+import { useRouter, useRoute } from 'vue-router'
 import room2_1 from '../assets/img/pc/room2-1.png'
 import room_detail3 from '../assets/img/pc/room_detail3.png'
 import Modal from '../components/Modal.vue'
+import BackgroundMask from "@/components/BackgroundMask.vue";
+import Loading from "@/components/Loading.vue";
 import ClickButton from '../components/ClickButton.vue'
 import InputText from '../components/InputText.vue'
 import DivideLine from '../components/DivideLine.vue'
@@ -167,7 +222,12 @@ import DecoTitle from '../components/DecoTitle.vue'
 import CheckItem from '../components/CheckItem.vue'
 import InputSelectBind from '../components/InputSelectBind.vue'
 import taiwanCityData from '../api/taiwanCityData.json'
+const userStore = useUserStore()
 const modalStore = useModalStore()
+const tempRoomStore = useTempRoomStore()
+const orderStore = useOrderStore()
+const router = useRouter()
+const route = useRoute()
 const editPassword = ref(false)
 const editBasicInfo = ref(false)
 const cityName = ref('')
@@ -203,15 +263,39 @@ const generateYearRange = () => {
   }
 }
 
-const makeCancel = () => {}
+const cancelOrder = () => {
+  modalStore.option = 'cancel'
+  modalStore.status = 0
+  modalStore.step = 0
+  modalStore.openModal()
+}
+
+const makeCancel = async() => {
+  try {    
+    // console.log('orderStore.allOrders[orderStore.allOrders.length-1]_id', orderStore.allOrders[orderStore.allOrders.length-1]._id)
+    const res = await apiDeleteOrdersDetail(orderStore.allOrders[orderStore.allOrders.length-1]._id)
+    modalStore.status = 1
+    modalStore.step = 1
+    // const res = await apiDeleteOrdersDetail(orderStore.allOrders[orderStore.allOrders.length-1]._id)
+  } catch(error) {
+    // console.log('catch error', error)
+    modalStore.status = 0
+    modalStore.step = 1
+    modalStore.errorStatus = error.status
+    modalStore.msg = error.response.data.message
+  }
+  
+}
 
 const areaList = computed(() => {
   let city = taiwanCityData.find((item) => item.CityName === cityName.value)
   return city?.AreaList
 })
 
-onMounted(() => {
+onMounted(async() => {
   generateYearRange()
+  await orderStore.storeGetOrdersAll()
+  
 })
 // const loading = ref(false)
 // const loginData = ref<Login>({

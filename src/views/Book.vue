@@ -56,15 +56,15 @@
             <form action="">
               <div class="mb-[24px]">
                 <label class="text-[0.875rem] md:text-[1rem] font-bold mb-[8px] block" for="">姓名</label>
-                <InputText placeholder="請輸入姓名"></InputText>
+                <InputText v-model="bookData.userInfo.name" placeholder="請輸入姓名"></InputText>
               </div>
               <div class="mb-[24px]">
                 <label class="text-[0.875rem] md:text-[1rem] font-bold mb-[8px] block" for="">手機號碼</label>
-                <InputText placeholder="請輸入手機號碼"></InputText>
+                <InputText v-model="bookData.userInfo.phone" placeholder="請輸入手機號碼"></InputText>
               </div>
               <div class="mb-[24px]">
                 <label class="text-[0.875rem] md:text-[1rem] font-bold mb-[8px] block" for="">電子信箱</label>
-                <InputText placeholder="請輸入電子信箱"></InputText>
+                <InputText v-model="bookData.userInfo.email" placeholder="請輸入電子信箱"></InputText>
               </div>
               <div class="mb-[24px]">
                 <label class="text-[0.875rem] md:text-[1rem] font-bold mb-[8px] block" for="">地址</label>
@@ -84,7 +84,7 @@
                       :data="areaList"
                       propertyValue="ZipCode"
                       property="AreaName"
-                      v-model:name="bookData.address.zipcode"
+                      v-model:name="bookData.userInfo.address.zipcode"
                     ></InputSelectBind>
                   </div>
                 </div>
@@ -168,22 +168,61 @@
               <span class="font-bold">總價</span>
               <span class="font-bold">NT$ 19,000</span>
             </div>
-            <ClickButton @click="checkOrder" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 確認訂房 </ClickButton>
+            <ClickButton @click="checkOrder()" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 確認訂房 </ClickButton>
+            <!-- <button @click="checkOrder()"> TEST CHECK</button> -->
           </aside>
         </div>
       </section>
     </main>
+    <Modal>
+      <template #title> 訂房狀態 </template>
+      <template #content>        
+        <p class="text-[#4B4B4B] px-[18px] mt-[50px] text-center flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+          {{ modalStore.errorStatus }} <template v-if="modalStore.errorStatus">：</template> {{ modalStore.msg }}
+        </p>
+        <template v-if="modalStore.status===1">
+          <svg class="checkmark success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_success" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" stroke-linecap="round"/></svg>
+          <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+            <div class="w-full mr-[16px]">
+              <ClickButton @click="modalStore.closeModal();router.push({name: 'Success'})" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+                關閉視窗
+              </ClickButton>
+            </div>
+          </div>
+        </template>
+        <template v-else-if="modalStore.status===0">
+          <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>
+          <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+            <div class="w-full mr-[16px]">
+              <ClickButton @click="modalStore.closeModal();" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+                關閉視窗
+              </ClickButton>
+            </div>
+          </div>
+        </template>        
+      </template>
+    </Modal>
+    <Loading></Loading>
+    <BackgroundMask></BackgroundMask>
     <Footer></Footer>
-    <LoadingOrder v-if="orderLoading"></LoadingOrder>
+    <!-- <LoadingOrder v-if="orderLoading"></LoadingOrder> -->
   </div>
 </template>
 <style scoped></style>
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+// import { apiGetRoomsDetail } from '@/api/rooms';
+import { useUserStore } from '../stores/user'
+import { useModalStore } from '../stores/modal'
+import { useOrderStore } from '../stores/order'
+import { useTempRoomStore } from '../stores/tempRoom'
 import { useRouter, useRoute } from 'vue-router'
 // import type { Login } from "../types/login"
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+import Modal from '../components/Modal.vue'
+import BackgroundMask from "@/components/BackgroundMask.vue";
+import Loading from "@/components/Loading.vue";
 import room2_1 from '../assets/img/pc/room2-1.png'
 import ic_close from '../assets/img/svg/ic_close.svg'
 import LoadingOrder from '../components/LoadingOrder.vue'
@@ -195,34 +234,84 @@ import DecoTitle from '../components/DecoTitle.vue'
 import DivideLine from '../components/DivideLine.vue'
 import InputSelectBind from '../components/InputSelectBind.vue'
 import taiwanCityData from '../api/taiwanCityData.json'
+const userStore = useUserStore()
+const modalStore = useModalStore()
+const orderStore = useOrderStore()
+const tempRoomStore = useTempRoomStore()
 const router = useRouter()
 const route = useRoute()
+// const modalStep = ref(1)
+// const msg = ref('')
+// const errorStatus = ref('')
 const cityName = ref('')
 const orderLoading = ref(false)
 const bookData = ref({
-  name: '',
-  phone: '',
-  email: '',
-  address: {
-    zipcode: '',
-    detail: ''
+  'roomId': '6763c8cc011eb06b0d10744f',
+  'checkInDate': '2023/06/18',
+  'checkOutDate': '2023/06/19',
+  'peopleNum': 2,
+  'userInfo': {
+    'address': {
+      'zipcode': 802,
+      'detail': '文山路23號'
+    },
+    'name': 'Joanne Chen',
+    'phone': '0912345678',
+    'email': 'example@gmail.com'
   }
 })
 const areaList = computed(() => {
   let city = taiwanCityData.find((item) => item.CityName === cityName.value)
   return city?.AreaList
 })
-const checkOrder = () => {
-  orderLoading.value = true
-  setTimeout(() => {
-    router.push({
-      name: 'Success'
-    })
-  }, 1500)
+const checkOrder = async() => {
+  modalStore.msg = ''
+  modalStore.errorStatus = ''
+  await orderStore.storePostOrders(bookData.value)
+  // try {
+  //   const res = await orderStore.storePostOrders(bookData.value)
+  //   console.log('checkOrder', res)
+    // if (res.data.status) {
+    //   modalStep.value = 1
+    //   msg.value = '訂房成功！'
+
+    // } else {
+    //   modalStep.value = 0
+    //   msg.value = '訂房失敗'
+    // }
+  // } catch(error) {
+    // modalStep.value = 0
+    // errorStatus.value = error.status
+    // msg.value = error.response.data.message
+  // }
+  // orderLoading.value = true
+  // setTimeout(() => {
+  //   router.push({
+  //     name: 'Success'
+  //   })
+  // }, 1500)
+  // console.log('modalStore:', modalStore);
+  // console.log('modalStore.isShow', modalStore.isShow)
+  // useModal 時好時壞...
+  // 打印 modalStore 印出全部項目時 modalStore.openModal 就可以正常運作
+  // modalStore.openModal()
 }
 // const loading = ref(false)
 // const loginData = ref<Login>({
 //  email: "",
 //  password: ""
+// })
+// onMounted(async() => {
+  // console.log('!tempRoomStore.room',!tempRoomStore.room)
+  if(!tempRoomStore.room) {
+    // console.log('true')
+    router.push({
+      name: 'AllHotel'
+    })
+  } 
+  // console.log('route.params.id',route.params.id)
+  // const res = await apiGetRoomsDetail()
+  // console.log('res', res)
+  // rooms.value = res.data.result
 // })
 </script>

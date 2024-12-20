@@ -14,7 +14,7 @@ const routes = [
   { path: '/signup/:step?', name: 'Signup', component: Signup, meta: { requiresGuest: true } },
   { path: '/home', name: 'Home', component: Home },
   { path: '/allhotel', name: 'AllHotel', component: AllHotel },
-  { path: '/hoteldetail', name: 'HotelDetail', component: HotelDetail },
+  { path: '/hoteldetail/:id?', name: 'HotelDetail', component: HotelDetail },
   { path: '/book', name: 'Book', component: Book, meta: { requiresAuth: true } },
   { path: '/success', name: 'Success', component: Success, meta: { requiresAuth: true } },
   {
