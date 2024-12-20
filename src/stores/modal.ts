@@ -3,14 +3,16 @@ import { defineStore } from 'pinia'
 
 export const useModalStore = defineStore('modal', () => {
   const isShow = ref(false)
-  const msg = ref('')
-  const errorStatus = ref('')
+  const msg = ref()
+  const errorStatusCode = ref()
   const status = ref()
-  const step = ref(0)
-  const option = ref('')
+  const step = ref()
+  const option = ref()
+  const hasPrev = ref(false)
   
   const openModal = () => {
     // console.log('test open')
+    console.log('option.value',option.value)
     isShow.value = true
     // console.log('openModal')
   }
@@ -21,10 +23,11 @@ export const useModalStore = defineStore('modal', () => {
   return {
     isShow,
     msg,
-    errorStatus,
+    errorStatusCode,
     status,
     step,
     option,
+    hasPrev,
     openModal,
     closeModal
   }

@@ -121,11 +121,11 @@
 </style>
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useUserStore } from '../stores/user'
+import { useUserStore } from '@/stores/user'
 import { useRouter, useRoute } from 'vue-router'
-import ic_menu from '../assets/img/svg/ic_menu.svg'
-import ic_close from '../assets/img/svg/ic_close.svg'
-import ClickButton from '../components/ClickButton.vue'
+import ic_menu from '@/assets/img/svg/ic_menu.svg'
+import ic_close from '@/assets/img/svg/ic_close.svg'
+import ClickButton from '@/components/ClickButton.vue'
 const dropdownOpen = ref(false)
 const menuOpen = ref(false)
 const userStore = useUserStore()

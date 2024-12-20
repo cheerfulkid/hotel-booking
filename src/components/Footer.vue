@@ -75,5 +75,5 @@
 // defineProps<{ msg: string }>()
 // const count = ref(0)
 
-import logo from '../assets/img/pc/logo.png'
+import logo from '@/assets/img/pc/logo.png'
 </script>

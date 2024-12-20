@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useLoadingStore } from '@/stores/loading';
-import { useUserStore } from '../stores/user'
+import { useUserStore } from '@/stores/user'
 // const userStore = useUserStore()
 // const token = userStore.token
 

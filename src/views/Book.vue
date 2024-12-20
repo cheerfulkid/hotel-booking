@@ -178,7 +178,7 @@
       <template #title> 訂房狀態 </template>
       <template #content>        
         <p class="text-[#4B4B4B] px-[18px] mt-[50px] text-center flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
-          {{ modalStore.errorStatus }} <template v-if="modalStore.errorStatus">：</template> {{ modalStore.msg }}
+          {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
         </p>
         <template v-if="modalStore.status===1">
           <svg class="checkmark success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_success" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" stroke-linecap="round"/></svg>
@@ -211,38 +211,31 @@
 <style scoped></style>
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-// import { apiGetRoomsDetail } from '@/api/rooms';
-import { useUserStore } from '../stores/user'
-import { useModalStore } from '../stores/modal'
-import { useOrderStore } from '../stores/order'
-import { useTempRoomStore } from '../stores/tempRoom'
+import { useModalStore } from '@/stores/modal'
+import { useOrderStore } from '@/stores/order'
+import { useTempRoomStore } from '@/stores/tempRoom'
 import { useRouter, useRoute } from 'vue-router'
-// import type { Login } from "../types/login"
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
-import Modal from '../components/Modal.vue'
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+import Modal from '@/components/Modal.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
-import room2_1 from '../assets/img/pc/room2-1.png'
-import ic_close from '../assets/img/svg/ic_close.svg'
-import LoadingOrder from '../components/LoadingOrder.vue'
-import ClickButton from '../components/ClickButton.vue'
-import InputText from '../components/InputText.vue'
-import CheckItem from '../components/CheckItem.vue'
-import BasicInfo from '../components/BasicInfo.vue'
-import DecoTitle from '../components/DecoTitle.vue'
-import DivideLine from '../components/DivideLine.vue'
-import InputSelectBind from '../components/InputSelectBind.vue'
-import taiwanCityData from '../api/taiwanCityData.json'
-const userStore = useUserStore()
+import room2_1 from '@/assets/img/pc/room2-1.png'
+import ic_close from '@/assets/img/svg/ic_close.svg'
+import LoadingOrder from '@/components/LoadingOrder.vue'
+import ClickButton from '@/components/ClickButton.vue'
+import InputText from '@/components/InputText.vue'
+import CheckItem from '@/components/CheckItem.vue'
+import BasicInfo from '@/components/BasicInfo.vue'
+import DecoTitle from '@/components/DecoTitle.vue'
+import DivideLine from '@/components/DivideLine.vue'
+import InputSelectBind from '@/components/InputSelectBind.vue'
+import taiwanCityData from '@/api/taiwanCityData.json'
 const modalStore = useModalStore()
 const orderStore = useOrderStore()
 const tempRoomStore = useTempRoomStore()
 const router = useRouter()
 const route = useRoute()
-// const modalStep = ref(1)
-// const msg = ref('')
-// const errorStatus = ref('')
 const cityName = ref('')
 const orderLoading = ref(false)
 const bookData = ref({
@@ -266,24 +259,8 @@ const areaList = computed(() => {
 })
 const checkOrder = async() => {
   modalStore.msg = ''
-  modalStore.errorStatus = ''
+  modalStore.errorStatusCode = ''
   await orderStore.storePostOrders(bookData.value)
-  // try {
-  //   const res = await orderStore.storePostOrders(bookData.value)
-  //   console.log('checkOrder', res)
-    // if (res.data.status) {
-    //   modalStep.value = 1
-    //   msg.value = '訂房成功！'
-
-    // } else {
-    //   modalStep.value = 0
-    //   msg.value = '訂房失敗'
-    // }
-  // } catch(error) {
-    // modalStep.value = 0
-    // errorStatus.value = error.status
-    // msg.value = error.response.data.message
-  // }
   // orderLoading.value = true
   // setTimeout(() => {
   //   router.push({

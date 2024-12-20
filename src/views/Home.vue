@@ -437,36 +437,32 @@
 </style>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
-// import type { Login } from "../types/login"
-import { useTempRoomStore } from '../stores/tempRoom'
 import { apiGetCulinaryAll, apiGetCulinary } from '@/api/culinary';
 import { apiGetRoomsAll } from '@/api/rooms';
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
 import '@splidejs/splide/css/core'
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
-import banner from '../assets/img/pc/banner.png'
-import news1 from '../assets/img/pc/news1.png'
-import news2 from '../assets/img/pc/news2.png'
-import news3 from '../assets/img/pc/news3.png'
-import dot from '../assets/img/pc/dot.png'
-import about from '../assets/img/pc/about.png'
-import room from '../assets/img/pc/room1.png'
-import line from '../assets/img/pc/line.png'
-import mobile_line2 from '../assets/img/mobile/line.png'
-import line2 from '../assets/img/pc/line2.png'
-import bg from '../assets/img/pc/bg.png'
-import mobile_bg2 from '../assets/img/mobile/bg.png'
-import food1 from '../assets/img/pc/food1.png'
-import food2 from '../assets/img/pc/food2.png'
-import food3 from '../assets/img/pc/food3.png'
-import food4 from '../assets/img/pc/food4.png'
-import food5 from '../assets/img/pc/food5.png'
-import map from '../assets/img/pc/map.png'
-const tempRoomStore = useTempRoomStore()
+import banner from '@/assets/img/pc/banner.png'
+import news1 from '@/assets/img/pc/news1.png'
+import news2 from '@/assets/img/pc/news2.png'
+import news3 from '@/assets/img/pc/news3.png'
+import dot from '@/assets/img/pc/dot.png'
+import about from '@/assets/img/pc/about.png'
+import room from '@/assets/img/pc/room1.png'
+import line from '@/assets/img/pc/line.png'
+import mobile_line2 from '@/assets/img/mobile/line.png'
+import line2 from '@/assets/img/pc/line2.png'
+import bg from '@/assets/img/pc/bg.png'
+import mobile_bg2 from '@/assets/img/mobile/bg.png'
+import food1 from '@/assets/img/pc/food1.png'
+import food2 from '@/assets/img/pc/food2.png'
+import food3 from '@/assets/img/pc/food3.png'
+import food4 from '@/assets/img/pc/food4.png'
+import food5 from '@/assets/img/pc/food5.png'
 const extensions = ref({ AutoScroll })
 const culinary = ref([])
 const rooms = ref([])
@@ -548,22 +544,25 @@ const goNext = () => {
 }
 
 onMounted(async() => {
-  const res = await apiGetCulinaryAll()
-  const res2 = await apiGetRoomsAll()
-  culinary.value = res.data.result
-  rooms.value = res2.data.result
-  // console.log('res',res)
-  // console.log('res.status', res.data.status)
-  // console.log('res.result', res.data.result)
-  // console.log('res2',res2)
-  // console.log('res2.status', res2.data.status)
-  // console.log('res2.result', res2.data.result)
+  try {
+    const res = await apiGetCulinaryAll()
+    if (res.data.status) { 
+      culinary.value = res.data.result
+    } else {
+      console.error('apiGetCulinaryAll 未知錯誤')
+    }    
+  } catch(error) {
+    console.error(error)
+  }
+  try {
+    const res2 = await apiGetRoomsAll()
+    if (res2.data.status) { 
+      rooms.value = res2.data.result
+    } else {
+      console.error('apiGetRoomsAll 未知錯誤')
+    }      
+  } catch(error) {
+    console.error(error)
+  }
 })
-
-// import line3 from '../assets/img/pc/line3.png';
-// const loading = ref(false)
-// const loginData = ref<Login>({
-//  email: "",
-//  password: ""
-// })
 </script>

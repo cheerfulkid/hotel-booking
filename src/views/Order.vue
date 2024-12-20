@@ -139,7 +139,7 @@
     <template #content>      
       <template v-if="modalStore.step===0">
         <p class="text-[#4B4B4B] h-[224px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
-          確定要取消此房型的預訂嗎？
+          {{ modalStore.msg }}
         </p>
         <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
           <div class="w-[50%] mr-[16px]">
@@ -155,7 +155,7 @@
       <template v-else-if="modalStore.step===1">
         <template v-if="modalStore.status===1">
           <p class="text-[#4B4B4B] px-[18px] mt-[50px] text-center flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
-            取消訂單成功！
+            {{ modalStore.msg }}
           </p>
           <svg class="checkmark success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_success" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" stroke-linecap="round"/></svg>
           <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
@@ -168,7 +168,7 @@
         </template>
         <template v-else-if="modalStore.status===0">
           <p class="text-[#4B4B4B] px-[18px] mt-[50px] text-center flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
-            {{ modalStore.errorStatus }} <template v-if="modalStore.errorStatus">：</template> {{ modalStore.msg }}
+            {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
           </p>
           <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>
           <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
@@ -186,7 +186,7 @@
     <template #title> 撈取全部訂單 </template>
     <template #content>        
       <p class="text-[#4B4B4B] px-[18px] mt-[50px] text-center flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
-        {{ modalStore.errorStatus }} <template v-if="modalStore.errorStatus">：</template> {{ modalStore.msg }}
+        {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
       </p> 
       <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>
       <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
@@ -204,32 +204,26 @@
 <style scoped></style>
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { apiDeleteOrdersDetail } from '@/api/orders';
-import { useUserStore } from '../stores/user'
-import { useModalStore } from '../stores/modal'
-import { useTempRoomStore } from '../stores/tempRoom'
+import { apiGetOrdersAll, apiDeleteOrdersDetail } from '@/api/orders';
+import { useModalStore } from '@/stores/modal'
 import { useOrderStore } from '@/stores/order'
 import { useRouter, useRoute } from 'vue-router'
-import room2_1 from '../assets/img/pc/room2-1.png'
-import room_detail3 from '../assets/img/pc/room_detail3.png'
-import Modal from '../components/Modal.vue'
+import room2_1 from '@/assets/img/pc/room2-1.png'
+import room_detail3 from '@/assets/img/pc/room_detail3.png'
+import Modal from '@/components/Modal.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
-import ClickButton from '../components/ClickButton.vue'
-import InputText from '../components/InputText.vue'
-import DivideLine from '../components/DivideLine.vue'
-import DecoTitle from '../components/DecoTitle.vue'
-import CheckItem from '../components/CheckItem.vue'
-import InputSelectBind from '../components/InputSelectBind.vue'
-import taiwanCityData from '../api/taiwanCityData.json'
-const userStore = useUserStore()
+import ClickButton from '@/components/ClickButton.vue'
+import InputText from '@/components/InputText.vue'
+import DivideLine from '@/components/DivideLine.vue'
+import DecoTitle from '@/components/DecoTitle.vue'
+import CheckItem from '@/components/CheckItem.vue'
+import InputSelectBind from '@/components/InputSelectBind.vue'
+import taiwanCityData from '@/api/taiwanCityData.json'
 const modalStore = useModalStore()
-const tempRoomStore = useTempRoomStore()
 const orderStore = useOrderStore()
 const router = useRouter()
 const route = useRoute()
-const editPassword = ref(false)
-const editBasicInfo = ref(false)
 const cityName = ref('')
 const years = ref<number[]>([])
 const months = ref([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
@@ -251,6 +245,7 @@ const currentYear = computed(() => {
 const birthYear = ref(currentYear.value)
 const birthMonth = ref(1)
 const birthDay = ref(1)
+const allOrders = ref()
 const lastDayOfMonth = computed(() => {
   return new Date(birthYear.value, birthMonth.value, 0).getDate()
 })
@@ -267,24 +262,31 @@ const cancelOrder = () => {
   modalStore.option = 'cancel'
   modalStore.status = 0
   modalStore.step = 0
+  modalStore.msg = '確定要取消此房型的預訂嗎？'
   modalStore.openModal()
 }
 
 const makeCancel = async() => {
-  try {    
-    // console.log('orderStore.allOrders[orderStore.allOrders.length-1]_id', orderStore.allOrders[orderStore.allOrders.length-1]._id)
-    const res = await apiDeleteOrdersDetail(orderStore.allOrders[orderStore.allOrders.length-1]._id)
-    modalStore.status = 1
-    modalStore.step = 1
-    // const res = await apiDeleteOrdersDetail(orderStore.allOrders[orderStore.allOrders.length-1]._id)
+  try {   
+    const res = await apiDeleteOrdersDetail(allOrders.value[allOrders.value.length-1]._id)
+    if (res.data.status) { 
+      modalStore.status = 1
+      modalStore.step = 1
+      modalStore.msg = '取消訂單成功！'
+    } else {
+      modalStore.status = 0
+      modalStore.step = 1
+      modalStore.errorStatusCode = ''
+      modalStore.msg = 'apiDeleteOrdersDetail 未知錯誤'
+      console.error('apiDeleteOrdersDetail 未知錯誤')
+    }    
   } catch(error) {
-    // console.log('catch error', error)
     modalStore.status = 0
     modalStore.step = 1
-    modalStore.errorStatus = error.status
+    modalStore.errorStatusCode = error.status
     modalStore.msg = error.response.data.message
   }
-  
+  modalStore.openModal()
 }
 
 const areaList = computed(() => {
@@ -294,8 +296,16 @@ const areaList = computed(() => {
 
 onMounted(async() => {
   generateYearRange()
-  await orderStore.storeGetOrdersAll()
-  
+  try {
+    const res = await apiGetOrdersAll()
+    if (res.data.status) { 
+      allOrders.value = res.data.result
+    } else {
+      console.error('apiGetOrdersAll 未知錯誤', res)
+    }        
+  } catch(error) {
+    console.error(error)
+  }  
 })
 // const loading = ref(false)
 // const loginData = ref<Login>({

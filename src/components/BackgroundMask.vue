@@ -6,6 +6,6 @@
 
 <script setup>
 // import { ref, defineProps, defineEmits } from 'vue'
-import { useMaskStore } from '../stores/mask'
+import { useMaskStore } from '@/stores/mask'
 const maskStore = useMaskStore()
 </script>

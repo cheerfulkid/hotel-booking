@@ -160,9 +160,9 @@
       <template #title> 預訂狀態 </template>
       <template #content>        
         <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
-          {{ errorStatus }} <template v-if="errorStatus">：</template> {{ msg }}
+          {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
         </p>
-        <template v-if="modalStep===1">
+        <template v-if="modalStore.step===1">
           <svg class="checkmark success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_success" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" stroke-linecap="round"/></svg>
           <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
             <div class="w-full mr-[16px]">
@@ -172,7 +172,7 @@
             </div>
           </div>
         </template>
-        <template v-else-if="modalStep===0">
+        <template v-else-if="modalStore.step===0">
           <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>
           <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
             <div class="w-full mr-[16px]">
@@ -181,8 +181,7 @@
               </ClickButton>
             </div>
           </div>
-        </template>
-        
+        </template>        
       </template>
     </Modal>
     <Calendar></Calendar>
@@ -219,42 +218,35 @@
 </style>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
-// import type { Login } from "../types/login"
 import { apiGetRoomsDetail } from '@/api/rooms';
-import { useCalendarStore } from '../stores/calendar'
-import { useMaskStore } from '../stores/mask'
-import { useModalStore } from '../stores/modal'
-import { useTempRoomStore } from '../stores/tempRoom'
+import { useCalendarStore } from '@/stores/calendar'
+import { useModalStore } from '@/stores/modal'
+import { useTempRoomStore } from '@/stores/tempRoom'
 import { useRouter, useRoute } from 'vue-router'
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import { Grid } from '@splidejs/splide-extension-grid'
 import '@splidejs/splide/css/core'
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
-import ClickButton from '../components/ClickButton.vue'
-import Modal from '../components/Modal.vue'
-import Calendar from '../components/Calendar.vue'
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+import ClickButton from '@/components/ClickButton.vue'
+import Modal from '@/components/Modal.vue'
+import Calendar from '@/components/Calendar.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
-import BasicInfo from '../components/BasicInfo.vue'
-import DecoTitle from '../components/DecoTitle.vue'
-import CheckItem from '../components/CheckItem.vue'
-import room2_1 from '../assets/img/pc/room2-1.png'
-import room2_2 from '../assets/img/pc/room2-2.png'
-import room2_3 from '../assets/img/pc/room2-3.png'
-import room2_4 from '../assets/img/pc/room2-4.png'
-import room2_5 from '../assets/img/pc/room2-5.png'
+import BasicInfo from '@/components/BasicInfo.vue'
+import DecoTitle from '@/components/DecoTitle.vue'
+import CheckItem from '@/components/CheckItem.vue'
+import room2_1 from '@/assets/img/pc/room2-1.png'
+import room2_2 from '@/assets/img/pc/room2-2.png'
+import room2_3 from '@/assets/img/pc/room2-3.png'
+import room2_4 from '@/assets/img/pc/room2-4.png'
+import room2_5 from '@/assets/img/pc/room2-5.png'
 
 const calendarStore = useCalendarStore()
-const maskStore = useMaskStore()
 const modalStore = useModalStore()
-console.log('modalStore.isShow',modalStore.isShow)
 const tempRoomStore = useTempRoomStore()
 const router = useRouter()
 const route = useRoute()
-const modalStep = ref(1)
-const msg = ref('')
-const errorStatus = ref('')
 const room = ref(
   {
     "_id": "6763c8cc011eb06b0d10744f",
@@ -334,24 +326,28 @@ const makeOrder = async() => {
   })
   // console.log('makeOrder')
   // msg.value = ''
-  // errorStatus.value = ''
+  // errorStatusCode.value = ''
   // try {
   //   await tempRoomStore.storeGetRoomsDetail(route.params.id)    
   // } catch(error) {
   //   console.log('error!')
-  //   modalStep.value = 0
-  //   errorStatus.value = error.status
+  //   modalStore.step.value = 0
+  //   errorStatusCode.value = error.status
   //   msg.value = error.response.data.message
   // }
   // modalStore.openModal()
 }
 
 onMounted(async() => {
-  // modalStore.openModal()
-  // console.log('route.params.id',route.params.id)
-  const res = await apiGetRoomsDetail(route.params.id)
-  room.value = res
-  console.log('res', res)
-  // rooms.value = res.data.result
+  try {
+    const res = await apiGetRoomsDetail(route.params.id)
+    if (res.data.status) { 
+      room.value = res.data.result
+    } else {
+      console.error('apiGetRoomsDetail 未知錯誤')
+    }
+  } catch(error) {
+    console.error(error)
+  }
 })
 </script>

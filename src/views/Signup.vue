@@ -244,9 +244,9 @@
       <template #title> 註冊狀態 </template>
       <template #content>        
         <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
-          {{ errorStatus }} <template v-if="errorStatus">：</template> {{ msg }}
+          {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
         </p>
-        <template v-if="modalStep===1">
+        <template v-if="modalStore.step===1">
           <svg class="checkmark success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_success" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" stroke-linecap="round"/></svg>
           <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
             <div class="w-full mr-[16px]">
@@ -256,7 +256,7 @@
             </div>
           </div>
         </template>
-        <template v-else-if="modalStep===0">
+        <template v-else-if="modalStore.step===0">
           <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>
           <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
             <div class="w-full mr-[16px]">
@@ -265,8 +265,7 @@
               </ClickButton>
             </div>
           </div>
-        </template>
-        
+        </template>        
       </template>
     </Modal>
     <Loading></Loading>
@@ -276,31 +275,24 @@
 <style scoped></style>
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { useUserStore } from '../stores/user'
-import { useModalStore } from '../stores/modal'
+import { useModalStore } from '@/stores/modal'
 import { apiPostUserSignup } from '@/api/user';
 import { useRouter, useRoute } from 'vue-router'
-import { Signup } from '../types/signup'
-import Header from '../components/Header.vue'
-import ClickButton from '../components/ClickButton.vue'
-import Modal from '../components/Modal.vue'
+import { Signup } from '@/types/signup'
+import Header from '@/components/Header.vue'
+import ClickButton from '@/components/ClickButton.vue'
+import Modal from '@/components/Modal.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
-import taiwanCityData from '../api/taiwanCityData.json'
-import line3 from '../assets/img/pc/line3.png'
-import smLine3 from '../assets/img/mobile/line.png'
-import customLine from '../assets/img/pc/custom-line.png'
-import register from '../assets/img/pc/register.png'
-import InputSelectBind from '../components/InputSelectBind.vue'
-import ic_check from '../assets/img/svg/ic_check.svg'
-const userStore = useUserStore()
+import taiwanCityData from '@/api/taiwanCityData.json'
+import line3 from '@/assets/img/pc/line3.png'
+import customLine from '@/assets/img/pc/custom-line.png'
+import register from '@/assets/img/pc/register.png'
+import InputSelectBind from '@/components/InputSelectBind.vue'
+import ic_check from '@/assets/img/svg/ic_check.svg'
 const modalStore = useModalStore()
 const router = useRouter()
 const route = useRoute()
-const modalStep = ref(1)
-const msg = ref('')
-const errorStatus = ref('')
-// const loading = ref(false)
 const cityName = ref('')
 const checkPassword = ref<string>('')
 const years = ref<number[]>([])
@@ -339,33 +331,27 @@ const areaList = computed(() => {
   return city?.AreaList
 })
 const signup = async () => {
-  msg.value = ''
-  errorStatus.value = ''
+  modalStore.msg = ''
+  modalStore.errorStatusCode = ''
   if (checkPassword.value === signupData.value.password) {
     try {
       const res = await apiPostUserSignup(signupData.value)
-      // console.log('res', res)
       if (res.data.status) {
-        modalStep.value = 1
-        msg.value = '註冊成功！'
-        // alert('註冊成功！')
-        // router.push({
-        //   name: 'Login'
-        // })
+        modalStore.step = 1
+        modalStore.msg = '註冊成功！'
       } else {
-        modalStep.value = 0
-        msg.value = '註冊失敗'
+        modalStore.step = 0
+        modalStore.msg = 'apiPostUserSignup 未知錯誤'
       }
     } catch(error) {
-      modalStep.value = 0
-      errorStatus.value = error.status
-      msg.value = error.response.data.message
+      modalStore.step = 0
+      modalStore.errorStatusCode = error.status
+      modalStore.msg = error.response.data.message
     }
   } else {
-    modalStep.value = 0
-    msg.value = '密碼與第一次輸入的不同，再請確認！'
+    modalStore.step = 0
+    modalStore.msg = '密碼與第一次輸入的不同，再請確認！'
   }
-  // console.log('msg.value',msg.value)
   modalStore.openModal() 
 }
 onMounted(() => {

@@ -11,11 +11,11 @@
 </template>
 
 <script setup>
-// import InfoSize from '../components/InfoSize.vue';
-// import InfoBed from '../components/InfoBed.vue';
-// import InfoPeople from '../components/InfoPeople.vue';
-import loading from '../assets/img/pc/loading.gif'
-import logo_gold from '../assets/img/pc/logo-gold.png'
+// import InfoSize from '@/components/InfoSize.vue';
+// import InfoBed from '@/components/InfoBed.vue';
+// import InfoPeople from '@/components/InfoPeople.vue';
+import loading from '@/assets/img/pc/loading.gif'
+import logo_gold from '@/assets/img/pc/logo-gold.png'
 import { defineProps } from 'vue'
 
 const props = defineProps({

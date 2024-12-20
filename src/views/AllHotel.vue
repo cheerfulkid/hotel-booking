@@ -298,32 +298,32 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import { apiGetRoomsAll } from '@/api/rooms';
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
-import banner from '../assets/img/pc/banner.png'
-import BasicInfo from '../components/BasicInfo.vue'
-import room2_1 from '../assets/img/pc/room2-1.png'
-import room2_2 from '../assets/img/pc/room2-2.png'
-import room2_3 from '../assets/img/pc/room2-3.png'
-import room2_4 from '../assets/img/pc/room2-4.png'
-import room2_5 from '../assets/img/pc/room2-5.png'
-import room3_1 from '../assets/img/pc/room3-1.png'
-import room3_2 from '../assets/img/pc/room3-2.png'
-import room3_3 from '../assets/img/pc/room3-3.png'
-import room3_4 from '../assets/img/pc/room3-4.png'
-import room3_5 from '../assets/img/pc/room3-5.png'
-import room4_1 from '../assets/img/pc/room4-1.png'
-import room4_2 from '../assets/img/pc/room4-2.png'
-import room4_3 from '../assets/img/pc/room4-3.png'
-import room4_4 from '../assets/img/pc/room4-4.png'
-import room4_5 from '../assets/img/pc/room4-5.png'
-import room5_1 from '../assets/img/pc/room5-1.png'
-import room5_2 from '../assets/img/pc/room5-2.png'
-import room5_3 from '../assets/img/pc/room5-3.png'
-import room5_4 from '../assets/img/pc/room5-4.png'
-import room5_5 from '../assets/img/pc/room5-5.png'
+import banner from '@/assets/img/pc/banner.png'
+import BasicInfo from '@/components/BasicInfo.vue'
+import room2_1 from '@/assets/img/pc/room2-1.png'
+import room2_2 from '@/assets/img/pc/room2-2.png'
+import room2_3 from '@/assets/img/pc/room2-3.png'
+import room2_4 from '@/assets/img/pc/room2-4.png'
+import room2_5 from '@/assets/img/pc/room2-5.png'
+import room3_1 from '@/assets/img/pc/room3-1.png'
+import room3_2 from '@/assets/img/pc/room3-2.png'
+import room3_3 from '@/assets/img/pc/room3-3.png'
+import room3_4 from '@/assets/img/pc/room3-4.png'
+import room3_5 from '@/assets/img/pc/room3-5.png'
+import room4_1 from '@/assets/img/pc/room4-1.png'
+import room4_2 from '@/assets/img/pc/room4-2.png'
+import room4_3 from '@/assets/img/pc/room4-3.png'
+import room4_4 from '@/assets/img/pc/room4-4.png'
+import room4_5 from '@/assets/img/pc/room4-5.png'
+import room5_1 from '@/assets/img/pc/room5-1.png'
+import room5_2 from '@/assets/img/pc/room5-2.png'
+import room5_3 from '@/assets/img/pc/room5-3.png'
+import room5_4 from '@/assets/img/pc/room5-4.png'
+import room5_5 from '@/assets/img/pc/room5-5.png'
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import '@splidejs/splide/css/core'
 const rooms = ref([])
@@ -352,7 +352,15 @@ const options2 = reactive({
 })
 
 onMounted(async() => {
-  const res = await apiGetRoomsAll()
-  rooms.value = res.data.result
+  try {
+    const res = await apiGetRoomsAll()
+    if (res.data.status) { 
+      rooms.value = res.data.result
+    } else {
+      console.error('apiGetRoomsAll 未知錯誤')
+    }    
+  } catch(error) {
+    console.error(error)
+  }  
 })
 </script>

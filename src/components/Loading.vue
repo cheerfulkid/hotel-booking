@@ -46,6 +46,6 @@
 
 <script setup>
 // import { ref, defineProps, defineEmits } from 'vue'
-import { useLoadingStore } from '../stores/loading'
+import { useLoadingStore } from '@/stores/loading'
 const loadingStore = useLoadingStore()
 </script>
