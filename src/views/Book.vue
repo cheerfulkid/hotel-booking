@@ -90,7 +90,7 @@
                 </div>
                 <!-- <InputText placeholder="請選擇縣市" customClass="max-w-[369px] mr-[8px]"></InputText>
         <InputText placeholder="請選擇區域" customClass="max-w-[369px]"></InputText> -->
-                <InputText placeholder="請輸入詳細地址" customClass="mt-[16px]"></InputText>
+                <InputText v-model="bookData.userInfo.address.detail" placeholder="請輸入詳細地址" customClass="mt-[16px]"></InputText>
               </div>
               <DivideLine customClass="bg-[#909090] my-[40px] md:my-[47px]"></DivideLine>
               <h5 class="text-[1.25rem] md:text-[2rem] font-bold mb-[32px] md:mb-[40px]">房間資訊</h5>
@@ -174,7 +174,7 @@
         </div>
       </section>
     </main>
-    <Modal>
+    <Modal v-if="modalStore.option==='order'">
       <template #title> 訂房狀態 </template>
       <template #content>        
         <p class="text-[#4B4B4B] px-[18px] mt-[50px] text-center flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
@@ -202,6 +202,22 @@
         </template>        
       </template>
     </Modal>
+    <Modal v-if="modalStore.option==='status'">
+      <template #title> 登入狀態 </template>
+      <template #content>
+        <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+          {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
+        </p>
+        <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>     
+        <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+          <div class="w-full mr-[16px]">
+            <ClickButton @click="modalStore.closeModal();router.push({name: 'Login'})" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+              關閉視窗
+            </ClickButton>
+          </div>
+        </div>
+      </template>
+    </Modal>
     <Loading></Loading>
     <BackgroundMask></BackgroundMask>
     <Footer></Footer>
@@ -210,10 +226,11 @@
 </template>
 <style scoped></style>
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { useModalStore } from '@/stores/modal'
 import { useOrderStore } from '@/stores/order'
 import { useTempRoomStore } from '@/stores/tempRoom'
+import { useUserStore } from '@/stores/user'
 import { useRouter, useRoute } from 'vue-router'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
@@ -234,23 +251,24 @@ import taiwanCityData from '@/api/taiwanCityData.json'
 const modalStore = useModalStore()
 const orderStore = useOrderStore()
 const tempRoomStore = useTempRoomStore()
+const userStore = useUserStore()
 const router = useRouter()
 const route = useRoute()
 const cityName = ref('')
 const orderLoading = ref(false)
 const bookData = ref({
-  'roomId': '6763c8cc011eb06b0d10744f',
+  'roomId': tempRoomStore.room?.id,
   'checkInDate': '2023/06/18',
   'checkOutDate': '2023/06/19',
   'peopleNum': 2,
   'userInfo': {
     'address': {
-      'zipcode': 802,
-      'detail': '文山路23號'
+      'zipcode': '',
+      'detail': userStore.userInfo?.address?.detail
     },
-    'name': 'Joanne Chen',
-    'phone': '0912345678',
-    'email': 'example@gmail.com'
+    'name': userStore.userInfo?.name,
+    'phone': userStore.userInfo?.phone,
+    'email': userStore.userInfo?.email
   }
 })
 const areaList = computed(() => {
@@ -273,6 +291,40 @@ const checkOrder = async() => {
   // 打印 modalStore 印出全部項目時 modalStore.openModal 就可以正常運作
   // modalStore.openModal()
 }
+
+// const updateCityAndArea = (zipcode) => {
+//   console.log('updateCityAndArea')
+//   for (const city of taiwanCityData) {
+//     for (const area of city.AreaList) {
+//       if (area.ZipCode === zipcode) {
+//         cityName.value = city.CityName
+//         areaList.value = city.AreaList
+//         console.log('cityName.value',cityName.value)
+//         console.log('areaList.value',areaList.value)
+//         return
+//       }
+//     }
+//   }
+// }
+
+// watch(() => bookData.value.userInfo.address.zipcode, (newZipcode) => {
+//   console.log('watch newZipcode', newZipcode)
+//   if (newZipcode) {
+//     updateCityAndArea(newZipcode)
+//   }
+// })
+
+// watch(bookData.value.userInfo.address.zipcode, (newZipcode) => {
+//   console.log('watch newZipcode', newZipcode)
+//   // for (const city of taiwanCityData) {
+//   //   const area = city.Areas.find(area => area.ZipCode === newZipcode)
+//   //   if (area) {
+//   //     cityName.value = city.CityName
+//   //     return
+//   //   }
+//   // }
+// })
+
 // const loading = ref(false)
 // const loginData = ref<Login>({
 //  email: "",
@@ -280,12 +332,21 @@ const checkOrder = async() => {
 // })
 // onMounted(async() => {
   // console.log('!tempRoomStore.room',!tempRoomStore.room)
-  if(!tempRoomStore.room) {
-    // console.log('true')
-    router.push({
-      name: 'AllHotel'
-    })
-  } 
+if(!tempRoomStore.room) {
+  // console.log('true')
+  router.push({
+    name: 'AllHotel'
+  })
+} 
+
+// onMounted(() => {
+//   if (userStore.userInfo?.address?.zipcode) {
+//     console.log('has zipcode')
+//     // bookData.value.userInfo.address.zipcode = userStore.userInfo.address.zipcode
+//     // console.log('userStore.userInfo.address.zipcode', userStore.userInfo.address.zipcode)
+//     // updateCityAndArea(userStore.userInfo.address.zipcode)
+//   }
+// })
   // console.log('route.params.id',route.params.id)
   // const res = await apiGetRoomsDetail()
   // console.log('res', res)

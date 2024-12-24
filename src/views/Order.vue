@@ -198,6 +198,22 @@
       </div>   
     </template>
   </Modal>
+  <Modal v-if="modalStore.option==='status'">
+    <template #title> 登入狀態 </template>
+    <template #content>
+      <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+        {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
+      </p>
+      <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>     
+      <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+        <div class="w-full mr-[16px]">
+          <ClickButton @click="modalStore.closeModal();router.push({name: 'Login'})" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+            關閉視窗
+          </ClickButton>
+        </div>
+      </div>
+    </template>
+  </Modal>
   <Loading></Loading>
   <BackgroundMask></BackgroundMask>
 </template>
@@ -281,10 +297,22 @@ const makeCancel = async() => {
       console.error('apiDeleteOrdersDetail 未知錯誤')
     }    
   } catch(error) {
-    modalStore.status = 0
-    modalStore.step = 1
-    modalStore.errorStatusCode = error.status
-    modalStore.msg = error.response.data.message
+    if(error.code === 'ECONNABORTED') {
+      modalStore.status = 0
+      modalStore.step = 1
+      modalStore.errorStatusCode = '' 
+      modalStore.msg = '連線逾時，請稍後再試'
+    } else if (error.code === 'ERR_NETWORK'){
+      modalStore.status = 0
+      modalStore.step = 1
+      modalStore.errorStatusCode = '' 
+      modalStore.msg = '請檢查網路連線'
+    } else {
+      modalStore.status = 0
+      modalStore.step = 1
+      modalStore.errorStatusCode = error.status
+      modalStore.msg = error.response.data.message
+    }    
   }
   modalStore.openModal()
 }

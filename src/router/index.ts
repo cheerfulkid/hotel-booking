@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { apiGetUserCheck } from '@/api/user'
 import { useUserStore } from '@/stores/user'
+import { useModalStore } from '@/stores/modal'
 // import { useTempRoomStore } from '@/stores/tempRoom'
 import routes from './routes'
 
@@ -24,41 +26,49 @@ const router = createRouter({
 // 全局變數存儲前一個頁面的路由
 let previousRoute = null;
 
-// 全域前置守衛 - 驗證登入和權限
 router.beforeEach(async (to, from, next) => {
   previousRoute = from;
   const userStore = useUserStore()
-  if (to.meta.requiresAuth) {
-    await userStore.storeGetUserCheck()
-    if (!userStore.isLoggedIn) {
-      alert('登入狀態已過期，請重新登入')
-      userStore.logout()
-      next('/login')
-    } else {
-      next()
-    }
-  } else if (to.meta.requiresGuest) {
-    await userStore.storeGetUserCheck()
-    if (userStore.isLoggedIn) {
-      next('/home')
-    } else {
-      next()
-    }
-  } else {
-    next()
+  const modalStore = useModalStore()
+
+  // 檢查路由參數是否正確
+  if ((to.name === 'HotelDetail' && !to.params.id)) {
+    console.log('導向錯誤頁面')
+    return next('/error'); // 如果參數缺失，直接導向錯誤頁面
   }
 
-  // console.log('當前頁面:', from.path); // 當前頁面的路徑
-  // console.log('即將前往:', to.path);  // 目標頁面的路徑
-  // console.log('from',from)
-  // if(from.name === 'Book' && to.name === 'Success') {
-    // const orderStore = useOrderStore()
-    // console.log('ENTERING')
-    // console.log('orderStore.newestSuccessOrder',orderStore.newestSuccessOrder)
-    // console.log('from Book')
-    // console.log('routes.name')
-  // }
-  
-})
+  // 驗證登入狀態
+  if (to.meta.requiresAuth) {
+    modalStore.option = 'status'
+    try {
+      const res = await apiGetUserCheck()
+      if (res.data.status) {
+        userStore.isLoggedIn = res.data.status
+        userStore.token = res.data.token
+        return next(); // 驗證成功，繼續導航
+      } else {
+        modalStore.errorStatusCode = ''
+        modalStore.msg = 'apiGetUserCheck 未知錯誤'
+        modalStore.openModal()
+        return next('/login'); // 驗證失敗，導航到登入頁面
+      }
+    } catch (error) {
+      userStore.logout()
+      modalStore.errorStatusCode = error.status
+      modalStore.msg = '登入狀態已過期，請重新登入'
+      modalStore.openModal()
+      return next('/login'); // 捕獲錯誤，導航到登入頁面
+    }
+  }
+
+  // 檢查是否需要登錄且用戶已經登入
+  if (to.meta.requiresGuest && userStore.isLoggedIn) {
+    return next('/home'); // 如果需要客人角色但已經登入，則導向首頁
+  }
+
+  // 其他情況下正常導航
+  next();
+});
+
 export { router, previousRoute };
 export default router

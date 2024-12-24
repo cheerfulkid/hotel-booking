@@ -42,6 +42,7 @@
                   <input
                     id="remember"
                     type="checkbox"
+                    v-model="rememberMe"
                     :class="`w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url(${ic_check})] before:block before:w-full before:h-full checked:bg-[#BF9D7D]`"
                   />
                   <label for="remember" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold"
@@ -54,8 +55,8 @@
               </div>
               <a
                 href=""
-                @click.prevent="userStore.storePostUserLogin(loginData)"
-                class="mb-[56px] font-bold inline-block py-[16px] text-[#909090] bg-[#ECECEC] rounded-[8px] text-[1rem] line-height-[24px] font-bold w-full text-center hover:bg-[#BF9D7D] hover:text-[#FFFFFF]"
+                @click.prevent="userStore.rememberMe = rememberMe;userStore.storePostUserLogin(loginData);"
+                class="mb-[56px] font-bold inline-block py-[16px] text-[#909090] bg-[#ECECEC] rounded-[8px] text-[1rem] line-height-[24px] font-bold w-full text-center hover:bg-[#BF9D7D] hover:text-[#FFFFFF] transition duration-300 ease-in-out"
               >
                 <!-- <button type="button" class="bg-indigo-500" disabled>
                   <svg
@@ -218,13 +219,29 @@
         </template>        
       </template>
     </Modal>
+    <Modal v-if="modalStore.option==='status'">
+      <template #title> 登入狀態 </template>
+      <template #content>
+        <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+          {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
+        </p>
+        <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>     
+        <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+          <div class="w-full mr-[16px]">
+            <ClickButton @click="modalStore.closeModal();router.push({name: 'Login'})" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+              關閉視窗
+            </ClickButton>
+          </div>
+        </div>
+      </template>
+    </Modal>
     <Loading></Loading>
     <BackgroundMask></BackgroundMask>
   </div>
 </template>
 <style scoped></style>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import type { Login } from '@/types/login'
 import { useUserStore } from '@/stores/user'
 import { useModalStore } from '@/stores/modal'
@@ -256,6 +273,7 @@ const loginData = ref<Login>({
   email: '',
   password: ''
 })
+const rememberMe = ref(userStore.rememberMe)
 const forget = () => {  
   modalStore.step=1;
   modalStore.errorStatusCode = ''
@@ -277,9 +295,19 @@ const verify = async () => {
       modalStore.msg = 'apiPostUserVerifyEmail 未知錯誤'
     }
   } catch(error) {
-    modalStore.step = 0
-    modalStore.errorStatusCode = error.status
-    modalStore.msg = error.response.data.message
+    if(error.code === 'ECONNABORTED') {
+      modalStore.step = 0
+      modalStore.errorStatusCode = '' 
+      modalStore.msg = '連線逾時，請稍後再試'
+    } else if (error.code === 'ERR_NETWORK'){
+      modalStore.step = 0
+      modalStore.errorStatusCode = '' 
+      modalStore.msg = '請檢查網路連線'
+    } else {
+      modalStore.step = 0
+      modalStore.errorStatusCode = error.status
+      modalStore.msg = error.response.data.message
+    }
   } 
   modalStore.openModal() 
 }
@@ -297,9 +325,19 @@ const sendCode = async () => {
       modalStore.msg = 'apiPostUserVerifyGenerateEmailCode 未知錯誤'
     }
   } catch(error) {
-    modalStore.step = 0
-    modalStore.errorStatusCode = error.status
-    modalStore.msg = error.response.data.message
+    if(error.code === 'ECONNABORTED') {
+      modalStore.step = 0
+      modalStore.errorStatusCode = '' 
+      modalStore.msg = '連線逾時，請稍後再試'
+    } else if (error.code === 'ERR_NETWORK'){
+      modalStore.step = 0
+      modalStore.errorStatusCode = '' 
+      modalStore.msg = '請檢查網路連線'
+    } else {
+      modalStore.step = 0
+      modalStore.errorStatusCode = error.status
+      modalStore.msg = error.response.data.message
+    }
   }
   modalStore.openModal()
 }
@@ -318,10 +356,22 @@ const resetPassword = async () => {
       modalStore.msg = 'apiPostUserForget 未知錯誤'
     }    
   } catch(error) {
-    modalStore.step = 0
-    modalStore.hasPrev = true
-    modalStore.errorStatusCode = error.status
-    modalStore.msg = error.response.data.message
+    if(error.code === 'ECONNABORTED') {
+      modalStore.step = 0
+      modalStore.hasPrev = true
+      modalStore.errorStatusCode = '' 
+      modalStore.msg = '連線逾時，請稍後再試'
+    } else if (error.code === 'ERR_NETWORK'){
+      modalStore.step = 0
+      modalStore.hasPrev = true
+      modalStore.errorStatusCode = '' 
+      modalStore.msg = '請檢查網路連線'
+    } else {
+      modalStore.step = 0
+      modalStore.hasPrev = true
+      modalStore.errorStatusCode = error.status
+      modalStore.msg = error.response.data.message
+    }
   }
   modalStore.openModal()
 }
@@ -331,4 +381,18 @@ const prevToStep = (step) => {
   modalStore.option = 'verify'
   // modalStore.hasPrev = false
 }
+// const savedEmail = localStorage.getItem('savedEmail')
+// if (savedEmail) {
+//   loginData.value.email = savedEmail
+//   userStore.rememberMe = true
+// }
+onMounted(() => {
+  // console.log("localStorage.getItem('savedEmail')",localStorage.getItem('savedEmail'))
+  if (localStorage.getItem('savedEmail')) {
+    loginData.value.email = localStorage.getItem('savedEmail')
+    // console.log("localStorage.getItem('savedEmail')",localStorage.getItem('savedEmail'))
+    // console.log('loginData.value.email',loginData.value.email)
+    rememberMe.value = true
+  }
+})
 </script>

@@ -49,10 +49,10 @@
               </p>
               <router-link
                 :to="{ name: 'AllHotel' }"
-                class="ml-[10px] relative z-10 h-[64px] 2xl:h-[116px] flex items-center px-[40px] 2xl:text-[1.5rem] bg-[#FFFFFF] block w-full rounded-lg hover:bg-[#BF9D7D] hover:text-[#FFFFFF] group"
+                class="ml-[10px] relative z-10 h-[64px] 2xl:h-[116px] flex items-center px-[40px] 2xl:text-[1.5rem] bg-[#FFFFFF] block w-full rounded-lg hover:bg-[#BF9D7D] hover:text-[#FFFFFF] group  transition duration-300 ease-in-out"
                 ><span class="flex justify-end items-center w-full font-bold"
                   >立即訂房<span
-                    class="ml-[15px] h-[2px] bg-[#140F0A] block w-full max-w-[80px] md:max-w-[150px] group-hover:bg-[#FFFFFF]"
+                    class="ml-[15px] h-[2px] bg-[#140F0A] block w-full max-w-[80px] md:max-w-[150px] group-hover:bg-[#FFFFFF] transition duration-300 ease-in-out"
                   ></span></span
               ></router-link>
             </div>
@@ -162,10 +162,10 @@
               <h5 class="text-[#FFFFFF] text-[1.5rem] md:text-[2rem] mb-[30px] md:mb-[40px] font-bold font-bold">NT$ 10,000</h5>
               <router-link
                 :to="{ name: 'Book' }"
-                class="relative z-10 p-[20px] md:p-[40px] text-[1rem] font-bold md:text-[1.5rem] bg-[#FFFFFF] block w-full rounded-lg hover:bg-[#BF9D7D] hover:text-[#FFFFFF] group mb-[24px] md:mb-[40px]"
+                class="relative z-10 p-[20px] md:p-[40px] text-[1rem] font-bold md:text-[1.5rem] bg-[#FFFFFF] block w-full rounded-lg hover:bg-[#BF9D7D] hover:text-[#FFFFFF] group mb-[24px] md:mb-[40px]  transition duration-300 ease-in-out"
                 ><span class="flex justify-end items-center"
                   >查看更多<span
-                    class="ml-[15px] h-[2px] bg-[#140F0A] block w-full max-w-[80px] md:max-w-[150px] group-hover:bg-[#FFFFFF]"
+                    class="ml-[15px] h-[2px] bg-[#140F0A] block w-full max-w-[80px] md:max-w-[150px] group-hover:bg-[#FFFFFF] transition duration-300 ease-in-out"
                   ></span></span
               ></router-link>
               <div class="flex justify-end">
@@ -376,6 +376,22 @@
         <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" :src="line2" alt="" />
       </section>
     </main>
+    <Modal v-if="modalStore.option==='status'">
+      <template #title> 登入狀態 </template>
+      <template #content>
+        <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+          {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
+        </p>
+        <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>     
+        <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+          <div class="w-full mr-[16px]">
+            <ClickButton @click="modalStore.closeModal();router.push({name: 'Login'})" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+              關閉視窗
+            </ClickButton>
+          </div>
+        </div>
+      </template>
+    </Modal>
     <Loading></Loading>
     <BackgroundMask></BackgroundMask>
     <Footer></Footer>
@@ -439,6 +455,7 @@
 import { ref, reactive, onMounted } from 'vue'
 import { apiGetCulinaryAll, apiGetCulinary } from '@/api/culinary';
 import { apiGetRoomsAll } from '@/api/rooms';
+import { useModalStore } from '@/stores/modal'
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
 import '@splidejs/splide/css/core'
@@ -446,6 +463,7 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
+import Modal from '@/components/Modal.vue'
 import banner from '@/assets/img/pc/banner.png'
 import news1 from '@/assets/img/pc/news1.png'
 import news2 from '@/assets/img/pc/news2.png'
@@ -463,6 +481,7 @@ import food2 from '@/assets/img/pc/food2.png'
 import food3 from '@/assets/img/pc/food3.png'
 import food4 from '@/assets/img/pc/food4.png'
 import food5 from '@/assets/img/pc/food5.png'
+const modalStore = useModalStore()
 const extensions = ref({ AutoScroll })
 const culinary = ref([])
 const rooms = ref([])

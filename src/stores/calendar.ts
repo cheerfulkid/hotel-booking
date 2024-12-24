@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useMaskStore } from '@/stores/mask'
 
-export const useCalendarStore = defineStore('modal', () => {
+export const useCalendarStore = defineStore('calendar', () => {
   const maskStore = useMaskStore()
   const isShow = ref(false)
   const openCalendar = () => {
