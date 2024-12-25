@@ -128,13 +128,13 @@
             <div class="flex justify-between items-center mb-[40px]">
               <p class="text-[1.5rem]">人數</p>
               <div class="flex items-center">
-                <button class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
+                <button @click="decreasePeopleNum()" class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
                   <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 13H5V11H19V13Z" fill="black" />
                   </svg>
                 </button>
-                <span class="text-[1.25rem] mx-[16px]">2</span>
-                <button class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
+                <span class="text-[1.25rem] mx-[16px] w-[16px] text-center">{{ tempRoomStore.peopleNum }}</span>
+                <button @click="increasePeopleNum()" class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
                   <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="black" />
                   </svg>
@@ -352,6 +352,17 @@ const makeOrder = async() => {
   //   msg.value = error.response.data.message
   // }
   // modalStore.openModal()
+}
+const decreasePeopleNum = () => {
+  if (tempRoomStore.peopleNum > 1) {
+    tempRoomStore.peopleNum--
+  }
+}
+
+const increasePeopleNum = () => {
+  if (tempRoomStore.peopleNum < room.value.maxPeople) {
+    tempRoomStore.peopleNum++
+  }
 }
 
 onMounted(async() => {

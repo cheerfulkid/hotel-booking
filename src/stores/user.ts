@@ -58,8 +58,11 @@ export const useUserStore = defineStore(
       try {
         console.log('storeGetUserProfile')
         const res = await apiGetUserProfile()
-        console.log('res',res)
-        // userInfo.value = res
+        // 原本應該直接用 storeGetUserProfile() 獲取會員資料即可 但回傳的 API 沒有 city 跟 county，只好用其他方式
+        // 另外補上 city & area
+        userInfo.value = res.data.result
+        userInfo.value.address.city = localStorage.getItem('city')
+        userInfo.value.address.area = localStorage.getItem('area')
       } catch(error) {
         console.error('Error in storeGetUserProfile:', error)
       }

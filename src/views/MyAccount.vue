@@ -8,7 +8,7 @@
             <div class="max-w-[72px] sm:max-w-[144px] mr-[24px] mb-[16px] sm:mb-0">
               <img :src="`${user1}`" alt="" />
             </div>
-            <p class="font-bold text-[2rem] sm:text-[3rem] text-[#FFFFFF]">Hello，Grace</p>
+            <p class="font-bold text-[2rem] sm:text-[3rem] text-[#FFFFFF]">Hello，{{ userStore.userInfo.name }}</p>
           </div>
         </div>
       </section>
@@ -47,7 +47,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-// import type { Login } from "@/types/login"
+import { useUserStore } from '@/stores/user'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import hero from '@/assets/img/pc/hero.png'
@@ -55,4 +55,5 @@ import mobile_line2 from '@/assets/img/mobile/line.png'
 import line2 from '@/assets/img/pc/line2.png'
 import user1 from '@/assets/img/pc/user1.png'
 const route = useRoute()
+const userStore = useUserStore()
 </script>

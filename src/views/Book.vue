@@ -6,7 +6,7 @@
         <div class="max-w-[1296px] mx-auto md:flex items-start px-[12px]">
           <div class="w-full max-w-[746px] md:pr-[16px] lg:pr-[72px]">
             <div class="flex items-center mb-[40px]">
-              <button class="mr-[8px]">
+              <button class="mr-[8px]" @click="router.go(-1)">
                 <svg
                   class="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
                   viewBox="0 0 24 24"
@@ -31,7 +31,7 @@
                 <DecoTitle customClass="mb-[8px] before:bg-[#BF9D7D]">選擇房型</DecoTitle>
                 <p class="mb-[24px]">尊爵雙人房</p>
               </div>
-              <router-link class="underline underline-offset-1 font-bold">編輯</router-link>
+              <router-link :to="{name:'HotelDetail', params: { id: tempRoomStore.room._id }}" class="underline underline-offset-1 font-bold">編輯</router-link>
             </div>
             <div class="flex items-center justify-between">
               <div>
@@ -39,19 +39,19 @@
                 <p class="mb-[8px]">入住：12 月 4 日星期二</p>
                 <p class="mb-[24px]">退房：12 月 6 日星期三</p>
               </div>
-              <router-link class="underline underline-offset-1 font-bold">編輯</router-link>
+              <router-link :to="{name:'HotelDetail', params: { id: tempRoomStore.room._id }}" class="underline underline-offset-1 font-bold">編輯</router-link>
             </div>
             <div class="flex items-center justify-between">
               <div>
                 <DecoTitle customClass="mb-[8px] before:bg-[#BF9D7D]">房客人數</DecoTitle>
                 <p>2 人</p>
               </div>
-              <router-link class="underline underline-offset-1 font-bold">編輯</router-link>
+              <router-link :to="{name:'HotelDetail', params: { id: tempRoomStore.room._id }}" class="underline underline-offset-1 font-bold">編輯</router-link>
             </div>
             <DivideLine customClass="bg-[#909090] my-[40px] md:my-[47px]"></DivideLine>
             <div class="flex items-center justify-between mb-[40px]">
               <h5 class="text-[1.25rem] md:text-[2rem] font-bold">訂房人資訊</h5>
-              <button class="text-[#BF9D7D] font-bold underline underline-offset-1">套用會員資料</button>
+              <button class="text-[#BF9D7D] font-bold underline underline-offset-1" @click="applyUserInfo()">套用會員資料</button>
             </div>
             <form action="">
               <div class="mb-[24px]">
@@ -260,21 +260,29 @@ const bookData = ref({
   'roomId': tempRoomStore.room?.id,
   'checkInDate': '2023/06/18',
   'checkOutDate': '2023/06/19',
-  'peopleNum': 2,
+  'peopleNum': 1,
   'userInfo': {
     'address': {
       'zipcode': '',
-      'detail': userStore.userInfo?.address?.detail
+      'detail': ''
     },
-    'name': userStore.userInfo?.name,
-    'phone': userStore.userInfo?.phone,
-    'email': userStore.userInfo?.email
+    'name': '',
+    'phone': '',
+    'email': ''
   }
 })
 const areaList = computed(() => {
   let city = taiwanCityData.find((item) => item.CityName === cityName.value)
   return city?.AreaList
 })
+const applyUserInfo = () => {
+  bookData.value.userInfo.name = userStore.userInfo.name
+  bookData.value.userInfo.phone = userStore.userInfo.phone
+  bookData.value.userInfo.email = userStore.userInfo.email
+  bookData.value.userInfo.address.zipcode = userStore.userInfo.address.zipcode
+  bookData.value.userInfo.address.detail = userStore.userInfo.address.detail
+  cityName.value = userStore.userInfo.address.city
+}
 const checkOrder = async() => {
   modalStore.msg = ''
   modalStore.errorStatusCode = ''

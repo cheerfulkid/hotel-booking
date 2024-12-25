@@ -4,6 +4,9 @@ import { apiGetRoomsDetail } from '@/api/rooms';
 
 export const useTempRoomStore = defineStore('tempRoom', () => {
   const room = ref(null)
+  const checkInDate = ref('2023/12/3')
+  const checkOutDate = ref('2023/12/4')
+  const peopleNum = ref(1)
 
   const storeGetRoomsDetail = async (id) => {
     // try {
@@ -18,6 +21,9 @@ export const useTempRoomStore = defineStore('tempRoom', () => {
   }
   return {
     room,
+    checkInDate,
+    checkOutDate,
+    peopleNum,
     storeGetRoomsDetail
   }
 })

@@ -4,7 +4,7 @@
       <template v-if="!editPassword">
         <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">修改密碼</h6>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">電子信箱</p>
-        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">Grace@exsample.com</p>
+        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{ resetUserInfo.email }}</p>
         <div class="flex items-center justify-between">
           <div>
             <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">密碼</p>
@@ -32,27 +32,21 @@
       <template v-else>
         <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">修改密碼</h6>
         <p class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">電子信箱</p>
-        <p class="mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">Grace@exsample.com</p>
+        <p class="mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{userStore.userInfo.email}}</p>
         <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">舊密碼</label>
-        <InputText class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入舊密碼"></InputText>
+        <InputText type="password" class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入舊密碼" v-model="resetUserInfo.oldPassword"></InputText>
         <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">新密碼</label>
-        <InputText class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入新密碼"></InputText>
+        <InputText type="password" class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入新密碼" v-model="resetUserInfo.newPassword"></InputText>
         <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">確認新密碼</label>
-        <InputText class="text-[0.875rem] md:text-[1rem] mb-[24px] md:mb-[40px]" placeholder="請再輸入一次新密碼"></InputText>
+        <InputText type="password" class="text-[0.875rem] md:text-[1rem] mb-[24px] md:mb-[40px]" placeholder="請再輸入一次新密碼" v-model="checkNewPassword"></InputText>
         <div class="flex justify-between">
           <div class="max-w-full md:min-w-[129px]">
-            <ClickButton
-              isLink="false"
-              @click="cancel()"
-              customClass="bg-[#ECECEC] text-[#909090]"
-            >
-              取消
-            </ClickButton>
+            <ClickButton isLink="false" @click="cancel()"  customClass="bg-[#BF9D7D] text-[#FFFFFF]">取消</ClickButton>
           </div>
           <div class="max-w-full md:min-w-[129px]">
-            <ClickButton
-              isLink="false"
-              @click="saveReset()"
+            <ClickButton v-if="isAllFieldsFilled" @click="saveReset()" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]">儲存設定</ClickButton>
+            <ClickButton v-else
+              isLink="false"              
               customClass="bg-[#ECECEC] text-[#909090]"
             >
               儲存設定
@@ -65,13 +59,13 @@
       <template v-if="!editBasicInfo">
         <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">基本資料</h6>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">姓名</p>
-        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">Grace YH</p>
+        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo.name }}</p>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">手機號碼</p>
-        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">+886 912 345 678</p>
+        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo.phone }}</p>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">生日</p>
         <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">1991 年 7 月 4 日</p>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">地址</p>
-        <p class="font-bold mb-[24px] md:mb-[40px] text-[0.875rem] md:text-[1rem]">高雄市新興區六角路 123 號</p>
+        <p class="font-bold mb-[24px] md:mb-[40px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo.address.detail }}</p>
         <!-- <div class="max-w-[97px]">
           <ClickButton
             isLink="false"
@@ -86,9 +80,9 @@
       <template v-else>
         <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">基本資料</h6>
         <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">姓名</label>
-        <InputText class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入姓名"></InputText>
+        <InputText class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入姓名" v-model="resetUserInfo.name"></InputText>
         <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">手機號碼</label>
-        <InputText class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入手機號碼"></InputText>
+        <InputText class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入手機號碼" v-model="resetUserInfo.phone"></InputText>
         <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">生日</label>
         <div class="flex mb-[16px] md:mb-[24px]">
           <div class="w-1/3 pr-[8px]">
@@ -122,7 +116,7 @@
         <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">地址</label>
         <div class="flex">
           <div class="w-1/2 pr-[8px]">
-            <InputSelectBind
+            <InputSelectBind @input="resetUserInfo.address.zipcode = ''"
               customClass="text-[0.875rem] md:text-[1rem] border-[1px] border-[#ECECEC]"
               :data="taiwanCityData"
               propertyValue="CityName"
@@ -136,32 +130,26 @@
               :data="areaList"
               propertyValue="ZipCode"
               property="AreaName"
-              v-model:name="signupData.address.zipcode"
+              v-model:name="resetUserInfo.address.zipcode"
             ></InputSelectBind>
           </div>
         </div>
         <InputText
           placeholder="請輸入詳細地址"
-          customClass="text-[0.875rem] md:text-[1rem] mt-[16px] mb-[24px] md:mb-[40px] mt-[16px]"
+          customClass="text-[0.875rem] md:text-[1rem] mt-[16px] mb-[24px] md:mb-[40px] mt-[16px]" v-model="resetUserInfo.address.detail"
         ></InputText>
         <div class="flex justify-between">
           <div class="max-w-full md:min-w-[129px]">
-            <ClickButton
-              isLink="false"
-              @click="cancel()"
-              customClass="bg-[#ECECEC] text-[#909090]"
-            >
-              取消
-            </ClickButton>
+            <ClickButton isLink="false" @click="cancel()"  customClass="bg-[#BF9D7D] text-[#FFFFFF]">取消</ClickButton>
           </div>
           <div class="max-w-full md:min-w-[129px]">
-            <ClickButton
-              isLink="false"
-              @click="saveReset()"
+            <ClickButton v-if="isAllFieldsFilled" @click="saveReset()" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]">儲存設定</ClickButton>
+            <ClickButton v-else
+              isLink="false"              
               customClass="bg-[#ECECEC] text-[#909090]"
             >
               儲存設定
-            </ClickButton>
+            </ClickButton>            
           </div>
         </div>
       </template>
@@ -235,7 +223,7 @@
 </template>
 <style scoped></style>
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { apiPutUserProfile } from '@/api/user';
 import { useUserStore } from '@/stores/user'
 import { useModalStore } from '@/stores/modal'
@@ -257,21 +245,11 @@ const cityName = ref('')
 const years = ref<number[]>([])
 const months = ref([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
 const currentDate = ref(new Date())
-const signupData = ref<Signup>({
-  name: '',
-  email: '',
-  password: '',
-  phone: '',
-  birthday: '',
-  address: {
-    zipcode: '',
-    detail: ''
-  }
-})
 const resetUserInfo = ref(
   {
     "userId": "",
     "name": "",
+    "email": "",
     "phone": "",
     "birthday": "",
     "address": {
@@ -282,16 +260,44 @@ const resetUserInfo = ref(
     "newPassword": ""
   }
 )
+const birthMonth = ref(1)
+const birthDay = ref(1)
+const checkNewPassword = ref('')
 const currentYear = computed(() => {
   return currentDate.value.getFullYear()
 })
 const birthYear = ref(currentYear.value)
-const birthMonth = ref(1)
-const birthDay = ref(1)
+// const isAllFieldsFilled = computed(() => {
+//   return  resetUserInfo.value.name &&
+//           resetUserInfo.value.phone &&
+//           resetUserInfo.value.email &&
+//           resetUserInfo.value.address.zipcode &&
+//           resetUserInfo.value.address.detail
+// })
+const isAllFieldsFilled = computed(() => {
+      return  resetUserInfo.value.name.trim() !== '' &&
+              resetUserInfo.value.phone.trim() !== '' &&
+              resetUserInfo.value.email.trim() !== '' &&
+              //  resetUserInfo.value.birthday.trim() !== '' &&
+              birthYear.value !== '' &&
+              birthMonth.value !== '' &&
+              birthDay.value !== '' &&
+              resetUserInfo.value.oldPassword.trim() !== '' &&
+              resetUserInfo.value.newPassword.trim() !== '' &&
+              checkNewPassword.value.trim() !== '' &&
+              String(resetUserInfo.value.address.zipcode).trim() !== '' &&
+              resetUserInfo.value.address.detail.trim() !== ''
+    })
+
+const areaList = computed(() => {
+  let city = taiwanCityData.find((item) => item.CityName === cityName.value)
+  return city?.AreaList
+})
+
 const lastDayOfMonth = computed(() => {
   return new Date(birthYear.value, birthMonth.value, 0).getDate()
 })
-signupData.value.birthday = `${birthYear.value}/${birthMonth.value}/${birthDay.value}`
+// signupData.value.birthday = `${birthYear.value}/${birthMonth.value}/${birthDay.value}`
 const generateYearRange = () => {
   const startYear = currentYear.value - 100
   const endYear = currentYear.value
@@ -306,6 +312,8 @@ const edit = () => {
 const cancel = () => {
   editBasicInfo.value = false
   editPassword.value = false
+  originalUserInfo()
+
 }
 const saveReset = async() => {
   modalStore.option = 'reset'
@@ -314,6 +322,11 @@ const saveReset = async() => {
     if (res.data.status) { 
       modalStore.status = 1    
       modalStore.msg = '修改成功！'
+      userStore.storeGetUserProfile()
+      // 原本應該直接用 storeGetUserProfile() 獲取會員資料即可 但回傳的 API 沒有 city 跟 county，只好用其他方式
+      const area = areaList.value.find(item => item.ZipCode === String(resetUserInfo.value.address.zipcode));
+      localStorage.setItem('city', cityName.value)
+      localStorage.setItem('area', area.AreaName)      
     } else {
       modalStore.status = 0
       modalStore.errorStatusCode = ''
@@ -336,22 +349,32 @@ const saveReset = async() => {
   } 
   modalStore.openModal()
 }
-const areaList = computed(() => {
-  let city = taiwanCityData.find((item) => item.CityName === cityName.value)
-  return city?.AreaList
-})
 
-resetUserInfo.value.userId = userStore.userInfo._id
-resetUserInfo.value.name = userStore.userInfo.name
-resetUserInfo.value.phone = userStore.userInfo.phone
-resetUserInfo.value.birthday = '1948/6/5'
-resetUserInfo.value.address.zipcode = userStore.userInfo.address.zipcode
-resetUserInfo.value.address.detail = userStore.userInfo.address.detail
-resetUserInfo.value.oldPassword = 'cheer801174'
-resetUserInfo.value.newPassword = ''
+const originalUserInfo = () => {
+  const birthday = userStore.userInfo.birthday; // 假設生日格式為 '1991-04-07T00:00:00.000Z'
+  const date = new Date(birthday);
+  birthYear.value = date.getFullYear();
+  birthMonth.value = date.getMonth() + 1; // getMonth() 返回的月份是從 0 開始的，所以需要加 1
+  birthDay.value = date.getDate();
+  resetUserInfo.value.userId = userStore.userInfo._id
+  resetUserInfo.value.name = userStore.userInfo.name
+  resetUserInfo.value.email = userStore.userInfo.email
+  resetUserInfo.value.phone = userStore.userInfo.phone
+  resetUserInfo.value.birthday = `${birthYear.value}/${birthMonth.value}/${birthDay.value}`
+  resetUserInfo.value.address.zipcode = userStore.userInfo.address.zipcode
+  resetUserInfo.value.address.detail = userStore.userInfo.address.detail
+  cityName.value = userStore.userInfo.address.city
+}
+
+
+// watch(() => cityName.value, (newValue) => {
+//   console.log('cityName.value', cityName.value)
+//   // resetUserInfo.value.address.zipcode = ''
+// })
 
 onMounted(() => {
   generateYearRange()
+  originalUserInfo()
 })
 // const loading = ref(false)
 // const loginData = ref<Login>({
