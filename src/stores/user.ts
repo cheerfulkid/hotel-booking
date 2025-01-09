@@ -22,7 +22,7 @@ export const useUserStore = defineStore(
         isLoggedIn.value = res.data.status
         token.value = res.data.token
         userInfo.value = res.data.result
-        console.log('storePostUserLogin', res)
+        // console.log('storePostUserLogin', res)
         if(isLoggedIn.value) {
           modalStore.status = true
           modalStore.msg = '登入成功！'      
@@ -36,7 +36,7 @@ export const useUserStore = defineStore(
           modalStore.msg = '未知錯誤'
         }        
       } catch(error) {
-        console.log('error',error)        
+        // console.log('error',error)        
         if(error.code === 'ECONNABORTED') {
           modalStore.status = false
           modalStore.errorStatusCode = '' 
@@ -56,7 +56,7 @@ export const useUserStore = defineStore(
 
     const storeGetUserProfile = async () => {
       try {
-        console.log('storeGetUserProfile')
+        // console.log('storeGetUserProfile')
         const res = await apiGetUserProfile()
         // 原本應該直接用 storeGetUserProfile() 獲取會員資料即可 但回傳的 API 沒有 city 跟 county，只好用其他方式
         // 另外補上 city & area
@@ -64,7 +64,20 @@ export const useUserStore = defineStore(
         userInfo.value.address.city = localStorage.getItem('city')
         userInfo.value.address.area = localStorage.getItem('area')
       } catch(error) {
-        console.error('Error in storeGetUserProfile:', error)
+        // console.error('Error in storeGetUserProfile:', error)
+        if(error.code === 'ECONNABORTED') {
+          modalStore.option = 'network'
+          modalStore.errorStatusCode = '' 
+          modalStore.msg = '連線逾時，請稍後再試'
+        } else if (error.code === 'ERR_NETWORK'){
+          modalStore.option = 'network'
+          modalStore.errorStatusCode = '' 
+          modalStore.msg = '請檢查網路連線'
+        } else {
+          modalStore.errorStatusCode = error.status
+          modalStore.msg = error.response.data.message
+        }
+        modalStore.openModal()
       }
     }
 

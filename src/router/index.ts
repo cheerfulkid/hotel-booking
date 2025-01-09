@@ -33,7 +33,7 @@ router.beforeEach(async (to, from, next) => {
 
   // 檢查路由參數是否正確
   if ((to.name === 'HotelDetail' && !to.params.id)) {
-    console.log('導向錯誤頁面')
+    // console.log('導向錯誤頁面')
     return next('/error'); // 如果參數缺失，直接導向錯誤頁面
   }
 

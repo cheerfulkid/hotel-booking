@@ -31,7 +31,7 @@
                 <DecoTitle customClass="mb-[8px] before:bg-[#BF9D7D]">選擇房型</DecoTitle>
                 <p class="mb-[24px]">尊爵雙人房</p>
               </div>
-              <router-link :to="{name:'HotelDetail', params: { id: tempRoomStore.room._id }}" class="underline underline-offset-1 font-bold">編輯</router-link>
+              <router-link :to="{name:'HotelDetail', params: { id: tempRoomStore?.room?._id }}" class="underline underline-offset-1 font-bold">編輯</router-link>
             </div>
             <div class="flex items-center justify-between">
               <div>
@@ -39,14 +39,14 @@
                 <p class="mb-[8px]">入住：12 月 4 日星期二</p>
                 <p class="mb-[24px]">退房：12 月 6 日星期三</p>
               </div>
-              <router-link :to="{name:'HotelDetail', params: { id: tempRoomStore.room._id }}" class="underline underline-offset-1 font-bold">編輯</router-link>
+              <router-link :to="{name:'HotelDetail', params: { id: tempRoomStore?.room?._id }}" class="underline underline-offset-1 font-bold">編輯</router-link>
             </div>
             <div class="flex items-center justify-between">
               <div>
                 <DecoTitle customClass="mb-[8px] before:bg-[#BF9D7D]">房客人數</DecoTitle>
                 <p>2 人</p>
               </div>
-              <router-link :to="{name:'HotelDetail', params: { id: tempRoomStore.room._id }}" class="underline underline-offset-1 font-bold">編輯</router-link>
+              <router-link :to="{name:'HotelDetail', params: { id: tempRoomStore?.room?._id }}" class="underline underline-offset-1 font-bold">編輯</router-link>
             </div>
             <DivideLine customClass="bg-[#909090] my-[40px] md:my-[47px]"></DivideLine>
             <div class="flex items-center justify-between mb-[40px]">
@@ -218,6 +218,22 @@
         </div>
       </template>
     </Modal>
+    <Modal v-if="modalStore.option==='network'">
+      <template #title> 網路狀態 </template>
+      <template #content>
+        <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+          {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
+        </p>
+        <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>     
+        <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+          <div class="w-full mr-[16px]">
+            <ClickButton @click="modalStore.closeModal();" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+              關閉視窗
+            </ClickButton>
+          </div>
+        </div>
+      </template>
+    </Modal>
     <Loading></Loading>
     <BackgroundMask></BackgroundMask>
     <Footer></Footer>
@@ -257,7 +273,7 @@ const route = useRoute()
 const cityName = ref('')
 const orderLoading = ref(false)
 const bookData = ref({
-  'roomId': tempRoomStore.room?.id,
+  'roomId': '',
   'checkInDate': '2023/06/18',
   'checkOutDate': '2023/06/19',
   'peopleNum': 1,
@@ -276,16 +292,18 @@ const areaList = computed(() => {
   return city?.AreaList
 })
 const applyUserInfo = () => {
-  bookData.value.userInfo.name = userStore.userInfo.name
-  bookData.value.userInfo.phone = userStore.userInfo.phone
-  bookData.value.userInfo.email = userStore.userInfo.email
-  bookData.value.userInfo.address.zipcode = userStore.userInfo.address.zipcode
-  bookData.value.userInfo.address.detail = userStore.userInfo.address.detail
-  cityName.value = userStore.userInfo.address.city
+  bookData.value.userInfo.name = userStore.userInfo?.name
+  bookData.value.userInfo.phone = userStore.userInfo?.phone
+  bookData.value.userInfo.email = userStore.userInfo?.email
+  bookData.value.userInfo.address.zipcode = String(userStore.userInfo?.address?.zipcode)
+  bookData.value.userInfo.address.detail = userStore.userInfo?.address?.detail
+  cityName.value = userStore.userInfo?.address?.city
 }
 const checkOrder = async() => {
   modalStore.msg = ''
   modalStore.errorStatusCode = ''
+  // console.log('tempRoomStore.room?._id',tempRoomStore.room?._id)
+  bookData.value.roomId = tempRoomStore?.room?._id
   await orderStore.storePostOrders(bookData.value)
   // orderLoading.value = true
   // setTimeout(() => {
@@ -340,6 +358,7 @@ const checkOrder = async() => {
 // })
 // onMounted(async() => {
   // console.log('!tempRoomStore.room',!tempRoomStore.room)
+// console.log('tempRoomStore?.room',tempRoomStore?.room)
 if(!tempRoomStore.room) {
   // console.log('true')
   router.push({

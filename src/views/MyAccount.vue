@@ -8,7 +8,7 @@
             <div class="max-w-[72px] sm:max-w-[144px] mr-[24px] mb-[16px] sm:mb-0">
               <img :src="`${user1}`" alt="" />
             </div>
-            <p class="font-bold text-[2rem] sm:text-[3rem] text-[#FFFFFF]">Hello，{{ userStore.userInfo.name }}</p>
+            <p class="font-bold text-[2rem] sm:text-[3rem] text-[#FFFFFF]">Hello，{{ userStore.userInfo?.name }}</p>
           </div>
         </div>
       </section>

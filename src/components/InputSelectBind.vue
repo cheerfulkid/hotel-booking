@@ -18,8 +18,8 @@ import { defineProps } from 'vue'
 
 const props = defineProps({
   data: {
-    type: Object,
-    default: {}
+    type: [Array, Object, String, Number],
+    default: []
   },
   propertyValue: {
     type: String,
@@ -30,7 +30,7 @@ const props = defineProps({
     default: ''
   },
   name: {
-    type: String,
+    type: [ String, Number ],
     default: ''
   },
   customClass: {

@@ -262,6 +262,22 @@
         </div>
       </template>
     </Modal>
+    <Modal v-if="modalStore.option==='network'">
+      <template #title> 網路狀態 </template>
+      <template #content>
+        <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+          {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
+        </p>
+        <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>     
+        <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+          <div class="w-full mr-[16px]">
+            <ClickButton @click="modalStore.closeModal();" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+              關閉視窗
+            </ClickButton>
+          </div>
+        </div>
+      </template>
+    </Modal>
     <Loading></Loading>
     <BackgroundMask></BackgroundMask>
     <Footer></Footer>
@@ -316,6 +332,7 @@ import { ref, reactive, onMounted } from 'vue'
 import { apiGetRoomsAll } from '@/api/rooms';
 import { useModalStore } from '@/stores/modal'
 import Header from '@/components/Header.vue'
+import ClickButton from '@/components/ClickButton.vue'
 import Footer from '@/components/Footer.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
@@ -379,7 +396,19 @@ onMounted(async() => {
       console.error('apiGetRoomsAll 未知錯誤')
     }    
   } catch(error) {
-    console.error(error)
+    if(error.code === 'ECONNABORTED') {
+      modalStore.option = 'network'
+      modalStore.errorStatusCode = '' 
+      modalStore.msg = '連線逾時，請稍後再試'
+    } else if (error.code === 'ERR_NETWORK'){
+      modalStore.option = 'network'
+      modalStore.errorStatusCode = '' 
+      modalStore.msg = '請檢查網路連線'
+    } else {
+      modalStore.errorStatusCode = error.status
+      modalStore.msg = error.response.data.message
+    }
+    modalStore.openModal() 
   }  
 })
 </script>

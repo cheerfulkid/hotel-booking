@@ -247,6 +247,22 @@
         </div>
       </template>
     </Modal>
+    <Modal v-if="modalStore.option==='network'">
+      <template #title> 網路狀態 </template>
+      <template #content>
+        <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+          {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
+        </p>
+        <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>     
+        <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+          <div class="w-full mr-[16px]">
+            <ClickButton @click="modalStore.closeModal();" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+              關閉視窗
+            </ClickButton>
+          </div>
+        </div>
+      </template>
+    </Modal>
     <Loading></Loading>
     <BackgroundMask></BackgroundMask>
   </div>
@@ -305,9 +321,9 @@ const signupData = ref<Signup>({
 const currentYear = computed(() => {
   return currentDate.value.getFullYear()
 })
-const birthYear = ref(currentYear.value)
-const birthMonth = ref(1)
-const birthDay = ref(1)
+const birthYear = ref(String(currentYear.value))
+const birthMonth = ref("1")
+const birthDay = ref("1")
 const lastDayOfMonth = computed(() => {
   return new Date(birthYear.value, birthMonth.value, 0).getDate()
 })
@@ -324,7 +340,7 @@ const areaList = computed(() => {
   return city?.AreaList
 })
 watch([birthYear, birthMonth, birthDay], ([year, month, day]) => {
-  console.log('original ', year, month, day)
+  // console.log('original ', year, month, day)
   if (year && month && day) {
     // 確保格式正確（例如：補零）
     // 如果 month 的長度小於 2，會在開頭補上指定的字符（這裡是 '0'）。
@@ -336,14 +352,14 @@ watch([birthYear, birthMonth, birthDay], ([year, month, day]) => {
   } else {
     signupData.value.birthday = ''; // 清空無效生日
   }
-  console.log('signupData.value.birthday ', signupData.value.birthday)
+  // console.log('signupData.value.birthday ', signupData.value.birthday)
 });
 const signup = async () => {
   modalStore.msg = ''
   modalStore.errorStatusCode = ''
   if (checkPassword.value === signupData.value.password) {
     if(checkAccept.value) {
-      console.log('signupData.value.birthday',signupData.value.birthday)
+      // console.log('signupData.value.birthday',signupData.value.birthday)
       try {
         const res = await apiPostUserSignup(signupData.value)
         if (res.data.status) {
@@ -355,10 +371,12 @@ const signup = async () => {
         }
       } catch(error) {
         if(error.code === 'ECONNABORTED') {
+          modalStore.option = 'network'
           modalStore.step = 0
           modalStore.errorStatusCode = '' 
           modalStore.msg = '連線逾時，請稍後再試'
         } else if (error.code === 'ERR_NETWORK'){
+          modalStore.option = 'network'
           modalStore.step = 0
           modalStore.errorStatusCode = '' 
           modalStore.msg = '請檢查網路連線'
@@ -387,5 +405,10 @@ onMounted(() => {
   //   router.push({name: 'Signup', params: { step: 1 }})
   // }
   generateYearRange()
+
+  // console.log('months',months.value)
+  // console.log('lastDayOfMonth', lastDayOfMonth.value)
+  // console.log('taiwanCityData', taiwanCityData)
+  // console.log('areaList', areaList.value)
 })
 </script>

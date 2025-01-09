@@ -32,7 +32,7 @@
       <template v-else>
         <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">修改密碼</h6>
         <p class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">電子信箱</p>
-        <p class="mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{userStore.userInfo.email}}</p>
+        <p class="mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{userStore.userInfo?.email}}</p>
         <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">舊密碼</label>
         <InputText type="password" class="text-[0.875rem] md:text-[1rem] mb-[16px] md:mb-[24px]" placeholder="請輸入舊密碼" v-model="resetUserInfo.oldPassword"></InputText>
         <label class="text-[#000000] mb-[8px] font-bold inline-block text-[0.875rem] md:text-[1rem]">新密碼</label>
@@ -59,13 +59,13 @@
       <template v-if="!editBasicInfo">
         <h6 class="text-[1.25rem] md:text-[1.5rem] mb-[24px] md:mb-[40px] font-bold">基本資料</h6>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">姓名</p>
-        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo.name }}</p>
+        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo?.name }}</p>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">手機號碼</p>
-        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo.phone }}</p>
+        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo?.phone }}</p>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">生日</p>
         <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">1991 年 7 月 4 日</p>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">地址</p>
-        <p class="font-bold mb-[24px] md:mb-[40px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo.address.detail }}</p>
+        <p class="font-bold mb-[24px] md:mb-[40px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo?.address?.detail }}</p>
         <!-- <div class="max-w-[97px]">
           <ClickButton
             isLink="false"
@@ -218,6 +218,22 @@
       </div>
     </template>
   </Modal>
+  <Modal v-if="modalStore.option==='network'">
+    <template #title> 網路狀態 </template>
+    <template #content>
+      <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
+        {{ modalStore.errorStatusCode }} <template v-if="modalStore.errorStatusCode">：</template> {{ modalStore.msg }}
+      </p>
+      <svg class="checkmark error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark_circle_error" cx="26" cy="26" r="25" fill="none"/><path class="checkmark_check" stroke-linecap="round" fill="none" d="M16 16 36 36 M36 16 16 36"/></svg>     
+      <div class="flex w-full p-[12px] border-t-[1px] border-[#ECECEC]">
+        <div class="w-full mr-[16px]">
+          <ClickButton @click="modalStore.closeModal();" isLink="false" customClass="border-[1px] border-[#BF9D7D] text-[#BF9D7D]">
+            關閉視窗
+          </ClickButton>
+        </div>
+      </div>
+    </template>
+  </Modal>
   <Loading></Loading>
   <BackgroundMask></BackgroundMask>
 </template>
@@ -253,20 +269,20 @@ const resetUserInfo = ref(
     "phone": "",
     "birthday": "",
     "address": {
-      "zipcode": 0,
+      "zipcode": "0",
       "detail": ""
     },
     "oldPassword": "",
     "newPassword": ""
   }
 )
-const birthMonth = ref(1)
-const birthDay = ref(1)
+const birthMonth = ref("1")
+const birthDay = ref("1")
 const checkNewPassword = ref('')
 const currentYear = computed(() => {
   return currentDate.value.getFullYear()
 })
-const birthYear = ref(currentYear.value)
+const birthYear = ref(String(currentYear.value))
 // const isAllFieldsFilled = computed(() => {
 //   return  resetUserInfo.value.name &&
 //           resetUserInfo.value.phone &&
@@ -351,19 +367,19 @@ const saveReset = async() => {
 }
 
 const originalUserInfo = () => {
-  const birthday = userStore.userInfo.birthday; // 假設生日格式為 '1991-04-07T00:00:00.000Z'
+  const birthday = userStore.userInfo?.birthday; // 假設生日格式為 '1991-04-07T00:00:00.000Z'
   const date = new Date(birthday);
   birthYear.value = date.getFullYear();
   birthMonth.value = date.getMonth() + 1; // getMonth() 返回的月份是從 0 開始的，所以需要加 1
   birthDay.value = date.getDate();
-  resetUserInfo.value.userId = userStore.userInfo._id
-  resetUserInfo.value.name = userStore.userInfo.name
-  resetUserInfo.value.email = userStore.userInfo.email
-  resetUserInfo.value.phone = userStore.userInfo.phone
+  resetUserInfo.value.userId = userStore.userInfo?._id
+  resetUserInfo.value.name = userStore.userInfo?.name
+  resetUserInfo.value.email = userStore.userInfo?.email
+  resetUserInfo.value.phone = userStore.userInfo?.phone
   resetUserInfo.value.birthday = `${birthYear.value}/${birthMonth.value}/${birthDay.value}`
-  resetUserInfo.value.address.zipcode = userStore.userInfo.address.zipcode
-  resetUserInfo.value.address.detail = userStore.userInfo.address.detail
-  cityName.value = userStore.userInfo.address.city
+  resetUserInfo.value.address.zipcode = String(userStore.userInfo?.address?.zipcode)
+  resetUserInfo.value.address.detail = userStore.userInfo?.address?.detail
+  cityName.value = userStore.userInfo?.address?.city
 }
 
 

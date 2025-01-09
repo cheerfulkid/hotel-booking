@@ -12,7 +12,7 @@ export const useModalStore = defineStore('modal', () => {
   
   const openModal = () => {
     // console.log('test open')
-    console.log('option.value',option.value)
+    // console.log('option.value',option.value)
     isShow.value = true
     // console.log('openModal')
   }
