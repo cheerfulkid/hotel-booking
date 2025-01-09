@@ -300,7 +300,7 @@ const cancelOrder = () => {
 
 const makeCancel = async() => {
   try {   
-    const res = await apiDeleteOrdersDetail(allOrders.value[allOrders.value.length-1]._id)
+    const res = await apiDeleteOrdersDetail(allOrders.value[allOrders.value.length-1]?._id)
     if (res.data.status) { 
       modalStore.status = 1
       modalStore.step = 1
