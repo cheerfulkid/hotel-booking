@@ -18,7 +18,7 @@
         <img class="max-w-[110px] xs:max-w-[110px] md:max-w-[196px]" src="../assets/img/pc/logo.png" alt="享樂酒店" />
       </router-link>
       <button class="block md:hidden" @click="menuOpen = true">
-        <img :src="`${ic_menu}`" alt="" />
+        <img src="@/assets/img/svg/ic_menu.svg" alt="" />
       </button>
       <nav v-if="route.name != 'Login' && route.name != 'Signup'" class="hidden md:flex">
         <div v-if="userStore.userInfo" class="cursor-pointer relative">

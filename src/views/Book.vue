@@ -148,13 +148,13 @@
           </div>
           <aside class="p-[40px] bg-[#FFFFFF] rounded-xl w-full md:max-w-[478px] sticky top-[120px]">
             <div class="max-w-full md:max-w-[398px] mb-[40px]">
-              <img class="rounded-lg" :src="`${room2_1}`" alt="" />
+              <img class="rounded-lg" src="@/assets/img/pc/room2-1.png" alt="" />
             </div>
             <h6 class="text-[1.25rem] md:text-[1.75rem] font-bold mb-[24px]">價格詳情</h6>
             <div class="flex mb-[12px] items-center justify-between">
               <div class="flex items-center">
                 <span>NT$ 10,000</span>
-                <img class="w-[16px]" :src="`${ic_close}`" alt="" />
+                <img class="w-[16px]" src="@/assets/img/svg/ic_close.svg" alt="" />
                 <span>2 晚</span>
               </div>
               <p>NT$ 20,000</p>
@@ -253,8 +253,6 @@ import Footer from '@/components/Footer.vue'
 import Modal from '@/components/Modal.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
-import room2_1 from '@/assets/img/pc/room2-1.png'
-import ic_close from '@/assets/img/svg/ic_close.svg'
 import LoadingOrder from '@/components/LoadingOrder.vue'
 import ClickButton from '@/components/ClickButton.vue'
 import InputText from '@/components/InputText.vue'
@@ -264,6 +262,8 @@ import DecoTitle from '@/components/DecoTitle.vue'
 import DivideLine from '@/components/DivideLine.vue'
 import InputSelectBind from '@/components/InputSelectBind.vue'
 import taiwanCityData from '@/api/taiwanCityData.json'
+import room2_1 from '@/assets/img/pc/room2-1.png'
+import ic_close from '@/assets/img/svg/ic_close.svg'
 const modalStore = useModalStore()
 const orderStore = useOrderStore()
 const tempRoomStore = useTempRoomStore()

@@ -6,19 +6,19 @@
         <div class="relative before:top-0 before:absolute before:z-10 before:inset-0 before:bg-black/50">
           <Splide :options="options" aria-label="享樂酒店">
             <SplideSlide>
-              <img class="w-full h-[466px] md:h-[800px] md:object-cover" :src="`${banner}`" alt="Sample 1" />
+              <img class="w-full h-[466px] md:h-[800px] md:object-cover" src="@/assets/img/pc/banner.png" alt="Sample 1" />
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[466px] md:h-[800px] md:object-cover" :src="`${banner}`" alt="Sample 2" />
+              <img class="w-full h-[466px] md:h-[800px] md:object-cover" src="@/assets/img/pc/banner.png" alt="Sample 2" />
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[466px] md:h-[800px] md:object-cover" :src="`${banner}`" alt="Sample 3" />
+              <img class="w-full h-[466px] md:h-[800px] md:object-cover" src="@/assets/img/pc/banner.png" alt="Sample 3" />
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[466px] md:h-[800px] md:object-cover" :src="`${banner}`" alt="Sample 4" />
+              <img class="w-full h-[466px] md:h-[800px] md:object-cover" src="@/assets/img/pc/banner.png" alt="Sample 4" />
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[466px] md:h-[800px] md:object-cover" :src="`${banner}`" alt="Sample 5" />
+              <img class="w-full h-[466px] md:h-[800px] md:object-cover" src="@/assets/img/pc/banner.png" alt="Sample 5" />
             </SplideSlide>
           </Splide>
         </div>
@@ -47,19 +47,19 @@
             <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
               <Splide :options="options2" aria-label="享樂酒店">
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_1}`" alt="Sample 1" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room2-1.png" alt="Sample 1" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_2}`" alt="Sample 2" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room2-2.png" alt="Sample 2" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_3}`" alt="Sample 3" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room2-3.png" alt="Sample 3" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_4}`" alt="Sample 4" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room2-4.png" alt="Sample 4" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room2_5}`" alt="Sample 5" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room2-5.png" alt="Sample 5" />
                 </SplideSlide>
               </Splide>
             </div>
@@ -72,7 +72,7 @@
               <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
               <div class="h-[56px] flex items-center justify-between">
                 <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
-                <router-link :to="{ name: 'HotelDetail', params: { id: '6763c8cc011eb06b0d10744f' } }">
+                <router-link :to="{ name: 'HotelDetail', params: { id: '677fd4985d26975987a10702' } }">
                   <button>
                     <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_14_2275)">
@@ -97,19 +97,19 @@
             <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
               <Splide :options="options2" aria-label="享樂酒店">
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_1}`" alt="Sample 1" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room3-1.png" alt="Sample 1" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_2}`" alt="Sample 2" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room3-2.png" alt="Sample 2" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_3}`" alt="Sample 3" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room3-3.png" alt="Sample 3" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_4}`" alt="Sample 4" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room3-4.png" alt="Sample 4" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room3_5}`" alt="Sample 5" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room3-5.png" alt="Sample 5" />
                 </SplideSlide>
               </Splide>
             </div>
@@ -147,19 +147,19 @@
             <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
               <Splide :options="options2" aria-label="享樂酒店">
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_1}`" alt="Sample 1" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room4-1.png" alt="Sample 1" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_2}`" alt="Sample 2" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room4-2.png" alt="Sample 2" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_3}`" alt="Sample 3" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room4-3.png" alt="Sample 3" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_4}`" alt="Sample 4" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room4-4.png" alt="Sample 4" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room4_5}`" alt="Sample 5" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room4-5.png" alt="Sample 5" />
                 </SplideSlide>
               </Splide>
             </div>
@@ -197,19 +197,19 @@
             <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
               <Splide :options="options2" aria-label="享樂酒店">
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_1}`" alt="Sample 1" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room5-1.png" alt="Sample 1" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_2}`" alt="Sample 2" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room5-2.png" alt="Sample 2" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_3}`" alt="Sample 3" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room5-3.png" alt="Sample 3" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_4}`" alt="Sample 4" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room5-4.png" alt="Sample 4" />
                 </SplideSlide>
                 <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="`${room5_5}`" alt="Sample 5" />
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room5-5.png" alt="Sample 5" />
                 </SplideSlide>
               </Splide>
             </div>
@@ -336,9 +336,9 @@ import ClickButton from '@/components/ClickButton.vue'
 import Footer from '@/components/Footer.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
-import banner from '@/assets/img/pc/banner.png'
 import BasicInfo from '@/components/BasicInfo.vue'
 import Modal from '@/components/Modal.vue'
+import banner from '@/assets/img/pc/banner.png'
 import room2_1 from '@/assets/img/pc/room2-1.png'
 import room2_2 from '@/assets/img/pc/room2-2.png'
 import room2_3 from '@/assets/img/pc/room2-3.png'

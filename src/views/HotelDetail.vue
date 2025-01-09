@@ -6,19 +6,19 @@
         <div class="max-w-[1760px] mx-auto overflow-hidden lg:rounded-xl">
           <Splide :options="options" :extensions="extensions" aria-label="享樂酒店">
             <SplideSlide>
-              <img class="lg:h-[600px] object-cover object-center" :src="`${room2_1}`" alt="Sample 1" />
+              <img class="lg:h-[600px] object-cover object-center" src="@/assets/img/pc/room2-1.png" alt="Sample 1" />
             </SplideSlide>
             <SplideSlide>
-              <img class="lg:h-[296px] object-cover object-center" :src="`${room2_2}`" alt="Sample 2" />
+              <img class="lg:h-[296px] object-cover object-center" src="@/assets/img/pc/room2-2.png" alt="Sample 2" />
             </SplideSlide>
             <SplideSlide>
-              <img class="lg:h-[296px] object-cover object-center" :src="`${room2_3}`" alt="Sample 3" />
+              <img class="lg:h-[296px] object-cover object-center" src="@/assets/img/pc/room2-3.png" alt="Sample 3" />
             </SplideSlide>
             <SplideSlide>
-              <img class="lg:h-[296px] object-cover object-center" :src="`${room2_4}`" alt="Sample 4" />
+              <img class="lg:h-[296px] object-cover object-center" src="@/assets/img/pc/room2-4.png" alt="Sample 4" />
             </SplideSlide>
             <SplideSlide>
-              <img class="lg:h-[296px] object-cover object-center" :src="`${room2_5}`" alt="Sample 5" />
+              <img class="lg:h-[296px] object-cover object-center" src="@/assets/img/pc/room2-5.png" alt="Sample 5" />
             </SplideSlide>
           </Splide>
         </div>
@@ -281,7 +281,7 @@ const router = useRouter()
 const route = useRoute()
 const room = ref(
   {
-    "_id": "6763c8cc011eb06b0d10744f",
+    "_id": "677fd4985d26975987a10702",
     "name": "尊爵雙人房",
     "description": "享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。",
     "imageUrl": "https://fakeimg.pl/300/",
@@ -385,6 +385,7 @@ const increasePeopleNum = () => {
 onMounted(async() => {
   try {
     const res = await apiGetRoomsDetail(route.params.id)
+    // console.log('route.params.id',route.params.id)
     if (res.data.status) { 
       room.value = res.data.result
     } else {

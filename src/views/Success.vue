@@ -9,7 +9,7 @@
               <div
                 class="w-[56px] h-[56px] bg-[#52DD7E] rounded-full flex items-center justify-center mr-[40px] mb-[16px] md:mb-0"
               >
-                <img class="w-[40px] h-[40px]" :src="`${ic_check}`" alt="" />
+                <img class="w-[40px] h-[40px]" src="@/assets/img/svg/ic_check.svg" alt="" />
               </div>
               <h3 class="text-[2rem] md:text-[2rem] lg:text-[3rem] font-bold text-[#FFFFFF]">恭喜，Grace！<br />您已預訂成功</h3>
             </div>
@@ -33,7 +33,7 @@
             <p class="text-[1rem] md:text-[1.5rem] font-bold mb-[24px] md:mb-[40px]">即將來的行程</p>
             <img
               class="w-full max-w-full md:max-w-[398px] h-[240px] object-cover object-left-bottom mb-[24px] md:mb-[40px] rounded-lg"
-              :src="`${room2_1}`"
+              src="@/assets/img/pc/room2-1.png"
               alt=""
             />
             <p class="text-[#4B4B4B] text-[0.875rem] md:text-[1.25rem] flex items-center mb-[24px] font-bold">
@@ -79,8 +79,8 @@
             </div>
           </aside>
         </div>
-        <img class="block md:hidden mt-[40px] md:mt-[120px] object-scale-down" :src="mobile_line2" alt="" />
-        <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" :src="line2" alt="" />
+        <img class="block md:hidden mt-[40px] md:mt-[120px] object-scale-down" src="@/assets/img/mobile/line.png" alt="" />
+        <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" src="@/assets/img/pc/line2.png" alt="" />
       </section>
     </main>
     <Modal>
@@ -150,14 +150,14 @@ import Footer from '@/components/Footer.vue'
 import Modal from '@/components/Modal.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
-import ic_check from '@/assets/img/svg/ic_check.svg'
-import room2_1 from '@/assets/img/pc/room2-1.png'
-import mobile_line2 from '@/assets/img/mobile/line.png'
-import line2 from '@/assets/img/pc/line2.png'
 import DivideLine from '@/components/DivideLine.vue'
 import ClickButton from '@/components/ClickButton.vue'
 import DecoTitle from '@/components/DecoTitle.vue'
 import CheckItem from '@/components/CheckItem.vue'
+import ic_check from '@/assets/img/svg/ic_check.svg'
+import room2_1 from '@/assets/img/pc/room2-1.png'
+import mobile_line2 from '@/assets/img/mobile/line.png'
+import line2 from '@/assets/img/pc/line2.png'
 const { isEmpty } = useCommon();
 const modalStore = useModalStore()
 const orderStore = useOrderStore()

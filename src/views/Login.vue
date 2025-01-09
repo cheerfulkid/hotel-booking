@@ -3,10 +3,10 @@
     <Header></Header>
     <main>
       <div class="flex h-full pt-[72px] md:pt-[120px] relative">
-        <img class="hidden md:block absolute h-[187px] object-cover right-0 top-[191px]" :src="line3" alt="" />
-        <div :class="`z-10 w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url(${register})] bg-cover bg-center`"></div>
+        <img class="hidden md:block absolute h-[187px] object-cover right-0 top-[191px]" src="@/assets/img/pc/line3.png" alt="" />
+        <div :class="`z-10 w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url('@/assets/img/pc/register.png')] bg-cover bg-center`"></div>
         <div class="z-10 w-full md:w-[50%] relative bg-no-repeat md:px-[20px] pt-[32px] md:pt-[159px]">
-          <img class="block md:hidden object-scale-down mb-[6px]" :src="customLine" alt="" />
+          <img class="block md:hidden object-scale-down mb-[6px]" src="@/assets/img/pc/custom-line.png" alt="" />
           <div class="max-w-full md:max-w-[416px] mx-[20px] md:mx-auto">
             <span class="text-[0.875rem] md:text-[1rem] text-[#BF9D7D] line-height-[24px] font-bold relative"
               >享樂酒店，誠摯歡迎</span
@@ -43,7 +43,7 @@
                     id="remember"
                     type="checkbox"
                     v-model="rememberMe"
-                    :class="`w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url(${ic_check})] before:block before:w-full before:h-full checked:bg-[#BF9D7D]`"
+                    :class="`w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url('@/assets/img/svg/ic_check.svg')] before:block before:w-full before:h-full checked:bg-[#BF9D7D]`"
                   />
                   <label for="remember" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold"
                     >記住帳號</label

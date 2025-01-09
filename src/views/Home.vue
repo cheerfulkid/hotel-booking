@@ -6,19 +6,19 @@
         <div class="relative before:top-0 before:absolute before:z-10 before:inset-0 before:bg-black/50">
           <Splide :options="options" aria-label="享樂酒店">
             <SplideSlide>
-              <img class="w-full h-[812px] md:h-[1080px] object-cover" :src="`${banner}`" alt="Sample 1" />
+              <img class="w-full h-[812px] md:h-[1080px] object-cover" src="@/assets/img/pc/banner.png" alt="Sample 1" />
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[812px] md:h-[1080px] object-cover" :src="`${banner}`" alt="Sample 2" />
+              <img class="w-full h-[812px] md:h-[1080px] object-cover" src="@/assets/img/pc/banner.png" alt="Sample 2" />
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[812px] md:h-[1080px] object-cover" :src="`${banner}`" alt="Sample 3" />
+              <img class="w-full h-[812px] md:h-[1080px] object-cover" src="@/assets/img/pc/banner.png" alt="Sample 3" />
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[812px] md:h-[1080px] object-cover" :src="`${banner}`" alt="Sample 4" />
+              <img class="w-full h-[812px] md:h-[1080px] object-cover" src="@/assets/img/pc/banner.png" alt="Sample 4" />
             </SplideSlide>
             <SplideSlide>
-              <img class="w-full h-[812px] md:h-[1080px] object-cover" :src="`${banner}`" alt="Sample 5" />
+              <img class="w-full h-[812px] md:h-[1080px] object-cover" src="@/assets/img/pc/banner.png" alt="Sample 5" />
             </SplideSlide>
           </Splide>
         </div>
@@ -61,7 +61,7 @@
       </section>
       <section class="px-[12px] pt-[80px] pb-[80px] md:pt-[256px] md:pb-[120px] bg-[#F7F2EE]">
         <div
-          :class="`w-full md:max-w-[1296px] mx-auto flex flex-col xl:flex-row items-start justify-between  relative before:z-[40] before:absolute before:z-10 before:left-0 before:bottom-[-140px] md:before:left-[-112px] md:before:bottom-[-200px] before:w-[100px] before:h-[100px] 2xl:before:w-[200px] 2xl:before:h-[200px] before:bg-contain before:bg-[url(${dot})] after:absolute after:right-0 after:top-[-40px] md:after:right-[-68px] md:after:top-[-10px] after:w-[100px] after:h-[100px] 2xl:after:w-[200px] 2xl:after:h-[200px] after:bg-contain after:bg-[url(${dot})]`"
+          :class="`w-full md:max-w-[1296px] mx-auto flex flex-col xl:flex-row items-start justify-between  relative before:z-[40] before:absolute before:z-10 before:left-0 before:bottom-[-140px] md:before:left-[-112px] md:before:bottom-[-200px] before:w-[100px] before:h-[100px] 2xl:before:w-[200px] 2xl:before:h-[200px] before:bg-contain before:bg-[url('@/assets/img/pc/dot.png')] after:absolute after:right-0 after:top-[-40px] md:after:right-[-68px] md:after:top-[-10px] after:w-[100px] after:h-[100px] 2xl:after:w-[200px] 2xl:after:h-[200px] after:bg-contain after:bg-[url('@/assets/img/pc/dot.png')]`"
         >
           <h3
             class="text-[#BF9D7D] text-[2rem] md:text-[3rem] relative mb-[40px] xl:mb-0 before:absolute pb-[24px] md:pb-[40px] before:bottom-0 before:h-[2px] before:w-[140px] before:bg-gradient-to-r before:from-[#BE9C7C] before:to-[#FFFFFF] font-bold"
@@ -70,7 +70,7 @@
           </h3>
           <div>
             <div class="flex flex-col md:flex-row items-center mb-[40px]">
-              <img class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0" :src="news1" alt="" />
+              <img class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0" src="@/assets/img/pc/news1.png" alt="" />
               <div class="w-full md:max-w-[602px] md:pl-[24px]">
                 <h5 class="text-[1.75rem] md:text-[2rem] mb-[24px] font-bold">秋季旅遊，豪華享受方案</h5>
                 <p class="text-[0.875rem] md:text-[1rem]">
@@ -79,7 +79,7 @@
               </div>
             </div>
             <div class="flex flex-col md:flex-row items-center mb-[40px]">
-              <img class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0" :src="news2" alt="" />
+              <img class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0" src="@/assets/img/pc/news2.png" alt="" />
               <div class="w-full md:max-w-[602px] md:pl-[24px]">
                 <h5 class="text-[1.75rem] md:text-[2rem] mb-[24px] font-bold">輕鬆住房專案</h5>
                 <p class="text-[0.875rem] md:text-[1rem]">
@@ -88,7 +88,7 @@
               </div>
             </div>
             <div class="flex flex-col md:flex-row items-center">
-              <img class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0" :src="news3" alt="" />
+              <img class="rounded w-full md:max-w-[474px] mb-[24px] md:mb-0" src="@/assets/img/pc/news3.png" alt="" />
               <div class="w-full md:max-w-[602px] md:pl-[24px]">
                 <h5 class="text-[1.75rem] md:text-[2rem] mb-[24px] font-bold">耶誕快樂，住房送禮</h5>
                 <p class="text-[0.875rem] md:text-[1rem]">
@@ -100,7 +100,7 @@
         </div>
       </section>
       <section
-        :class="`bg-[#140F0A] pt-[80px] md:pt-[120px] relative z-30 before:absolute before:bg-[url(${about})] before:w-full before:h-[594px] md:before:h-[672px] before:bg-center before:bg-cover`"
+        :class="`bg-[#140F0A] pt-[80px] md:pt-[120px] relative z-30 before:absolute before:bg-[url('@/assets/img/pc/about.png')] before:w-full before:h-[594px] md:before:h-[672px] before:bg-center before:bg-cover`"
       >
         <div
           class="max-w-[1044px] p-[24px] md:p-[80px] rounded-tl-[40px] rounded-bl-[40px] rounded-tr-[40px] md:rounded-tl-[60px] md:rounded-bl-[60px] md:rounded-tr-[60px] bg-gradient-to-b from-[#140F0ACC] to-[#BE9C7CCC] backdrop-blur-sm border-b-2 border-l-2 border-white relative top-[40px] md:top-[80px] xl:left-[120px] ml-[40px] mr-[12px] xl:mx-auto"
@@ -125,34 +125,34 @@
         </div>
       </section>
       <section
-        :class="`pt-[28%] md:py-[120px] bg-[#140F0A] relative bg-no-repeat bg-none md:bg-[url(${bg})] bg-contain bg-[center_450px]`"
+        :class="`pt-[28%] md:py-[120px] bg-[#140F0A] relative bg-no-repeat bg-none md:bg-[url('@/assets/img/pc/bg.png')] bg-contain bg-[center_450px]`"
       >
-        <img class="absolute left-[100px] top-[200px] hidden md:block object-cover h-[187px]" :src="line2" alt="" />
+        <img class="absolute left-[100px] top-[200px] hidden md:block object-cover h-[187px]" src="@/assets/img/pc/line2.png" alt="" />
         <div class="flex justify-end block md:hidden ml-[80px] mb-[20px]">
-          <img class="object-scale-down" :src="mobile_line2" alt="" />
+          <img class="object-scale-down" src="@/assets/img/mobile/line.png" alt="" />
         </div>
         <div class="max-w-[1608px] flex flex-col md:flex-row items-end">
           <div class="px-[12px] md:px-0 w-full max-w-full xl:max-w-[900px] xl:mr-[80px] mb-[24px] xl:mb-0">
             <Splide ref="splide" :options="options2" aria-label="房型">
               <SplideSlide>
-                <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" :src="`${room}`" alt="Sample 1" />
+                <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" src="@/assets/img/pc/room1.png" alt="Sample 1" />
               </SplideSlide>
               <SplideSlide>
-                <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" :src="`${room}`" alt="Sample 2" />
+                <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" src="@/assets/img/pc/room1.png" alt="Sample 2" />
               </SplideSlide>
               <SplideSlide>
-                <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" :src="`${room}`" alt="Sample 3" />
+                <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" src="@/assets/img/pc/room1.png" alt="Sample 3" />
               </SplideSlide>
               <SplideSlide>
-                <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" :src="`${room}`" alt="Sample 4" />
+                <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" src="@/assets/img/pc/room1.png" alt="Sample 4" />
               </SplideSlide>
               <SplideSlide>
-                <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" :src="`${room}`" alt="Sample 5" />
+                <img class="rounded-tr rounded-br w-full h-[300px] md:h-[900px] object-cover" src="@/assets/img/pc/room1.png" alt="Sample 5" />
               </SplideSlide>
             </Splide>
           </div>
           <div
-            :class="`w-full xl:max-w-[1060px] mb-[80px] md:mb-0 h-full bg-no-repeat bg-[url(${mobile_bg2})] md:bg-none bg-contain bg-[right_top]`"
+            :class="`w-full xl:max-w-[1060px] mb-[80px] md:mb-0 h-full bg-no-repeat bg-[url('@/assets/img/mobile/bg.png')] md:bg-none bg-contain bg-[right_top]`"
           >
             <div class="px-[12px] w-full xl:max-w-[628px]">
               <h4 class="text-[#FFFFFF] text-[1.75rem] md:text-[2.5rem] mb-[16px] font-bold">尊爵雙人房</h4>
@@ -202,7 +202,7 @@
       <section
         class="px-[12px] overflow-hidden bg-[#F7F2EE] flex py-[80px] md:py-[120px] relative after:absolute after:z-20 after:right-[80px] after:top-[-40px] after:w-[200px] after:h-[200px] after:bg-contain"
       >
-        <img class="object-cover h-[990px] absolute top-[60px] left-[50px] custom-show" :src="line" alt="" />
+        <img class="object-cover h-[990px] absolute top-[60px] left-[50px] custom-show" src="@/assets/img/pc/line.png" alt="" />
         <div class="w-full">
           <div class="max-w-[1296px] mx-auto">
             <h3
@@ -215,7 +215,7 @@
             <Splide :options="options3" :extensions="extensions" aria-label="享樂酒店">
               <SplideSlide>
                 <div class="w-full h-full max-w-[300px] md:max-w-[416px] relative">
-                  <img class="rounded h-full object-cover" :src="`${food1}`" alt="Sample 1" />
+                  <img class="rounded h-full object-cover" src="@/assets/img/pc/food1.png" alt="Sample 1" />
                   <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
                     <div class="flex items-center justify-between mb-[24px]">
                       <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">海霸</h6>
@@ -231,7 +231,7 @@
               </SplideSlide>
               <SplideSlide>
                 <div class="w-full h-full max-w-[300px] md:max-w-[416px] relative">
-                  <img class="rounded h-full object-cover" :src="`${food2}`" alt="Sample 2" />
+                  <img class="rounded h-full object-cover" src="@/assets/img/pc/food2.png" alt="Sample 2" />
                   <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
                     <div class="flex items-center justify-between mb-[24px]">
                       <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">日食</h6>
@@ -247,7 +247,7 @@
               </SplideSlide>
               <SplideSlide>
                 <div class="w-full h-full max-w-[300px] md:max-w-[416px] relative">
-                  <img class="rounded h-full object-cover" :src="`${food3}`" alt="Sample 3" />
+                  <img class="rounded h-full object-cover" src="@/assets/img/pc/food3.png" alt="Sample 3" />
                   <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
                     <div class="flex items-center justify-between mb-[24px]">
                       <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">山臻</h6>
@@ -263,7 +263,7 @@
               </SplideSlide>
               <SplideSlide>
                 <div class="w-full h-full max-w-[300px] md:max-w-[416px] relative">
-                  <img class="rounded h-full object-cover" :src="`${food4}`" alt="Sample 4" />
+                  <img class="rounded h-full object-cover" src="@/assets/img/pc/food4.png" alt="Sample 4" />
                   <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
                     <div class="flex items-center justify-between mb-[24px]">
                       <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">月永</h6>
@@ -279,7 +279,7 @@
               </SplideSlide>
               <SplideSlide>
                 <div class="w-full h-full max-w-[300px] md:max-w-[416px] relative">
-                  <img class="rounded h-full object-cover" :src="`${food5}`" alt="Sample 5" />
+                  <img class="rounded h-full object-cover" src="@/assets/img/pc/food5.png" alt="Sample 5" />
                   <div class="absolute p-[24px] rounded-bl rounded-br bottom-0 bg-white/10 backdrop-blur-sm">
                     <div class="flex items-center justify-between mb-[24px]">
                       <h6 class="text-[#FFFFFF] text-[1.5rem] font-bold">天潮</h6>
@@ -372,8 +372,8 @@
             </div>
           </div>
         </div>
-        <img class="block md:hidden mt-[40px] md:mt-[120px] object-scale-down" :src="mobile_line2" alt="" />
-        <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" :src="line2" alt="" />
+        <img class="block md:hidden mt-[40px] md:mt-[120px] object-scale-down" src="@/assets/img/mobile/line.png" alt="" />
+        <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" src="@/assets/img/pc/line2.png" alt="" />
       </section>
     </main>
     <Modal v-if="modalStore.option==='status'">

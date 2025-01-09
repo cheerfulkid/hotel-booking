@@ -5,7 +5,7 @@
       <p class="text-[1rem] md:text-[1.5rem] font-bold mb-[24px] md:mb-[40px]">即將來的行程</p>
       <img
         class="w-full max-w-full md:max-w-full h-[240px] object-cover object-left-bottom mb-[24px] md:mb-[40px] rounded-lg"
-        :src="`${room2_1}`"
+        src="@/assets/img/pc/room2-1.png"
         alt=""
       />
       <p class="text-[#4B4B4B] text-[0.875rem] md:text-[1.25rem] flex items-center mb-[24px] font-bold">
@@ -63,7 +63,7 @@
     <div class="w-full max-w-full md:max-w-[527px] bg-[#FFFFFF] mb-[24px] md:mb-0 rounded-lg p-[16px] lg:p-[40px]">
       <p class="text-[1rem] md:text-[1.5rem] font-bold mb-[24px] md:mb-[40px]">歷史訂單</p>
       <div class="lg:flex">
-        <img class="w-[120px] h-[80px] rounded-lg object-cover mr-[24px] mb-[24px] lg:mb-0" :src="`${room_detail3}`" alt="" />
+        <img class="w-[120px] h-[80px] rounded-lg object-cover mr-[24px] mb-[24px] lg:mb-0" src="@/assets/img/pc/room_detail3.png" alt="" />
         <div>
           <p class="mb-[16px] text-[0.875rem] md:text-[1rem] text-[#4B4B4B]">預訂參考編號： HH2302183151222</p>
           <p class="text-[#4B4B4B] text-[0.875rem] md:text-[1.25rem] flex items-center mb-[16px] font-bold">尊爵雙人房</p>
@@ -80,7 +80,7 @@
       </div>
       <DivideLine customClass="bg-[#ECECEC] my-[24px] md:my-[40px]"></DivideLine>
       <div class="lg:flex">
-        <img class="w-[120px] h-[80px] rounded-lg object-cover mr-[24px] mb-[24px] lg:mb-0" :src="`${room_detail3}`" alt="" />
+        <img class="w-[120px] h-[80px] rounded-lg object-cover mr-[24px] mb-[24px] lg:mb-0" src="@/assets/img/pc/room_detail3.png" alt="" />
         <div>
           <p class="mb-[16px] text-[0.875rem] md:text-[1rem] text-[#4B4B4B]">預訂參考編號： HH2302183151222</p>
           <p class="text-[#4B4B4B] text-[0.875rem] md:text-[1.25rem] flex items-center mb-[16px] font-bold">尊爵雙人房</p>
@@ -97,7 +97,7 @@
       </div>
       <DivideLine customClass="bg-[#ECECEC] my-[24px] md:my-[40px]"></DivideLine>
       <div class="lg:flex">
-        <img class="w-[120px] h-[80px] rounded-lg object-cover mr-[24px] mb-[24px] lg:mb-0" :src="`${room_detail3}`" alt="" />
+        <img class="w-[120px] h-[80px] rounded-lg object-cover mr-[24px] mb-[24px] lg:mb-0" src="@/assets/img/pc/room_detail3.png" alt="" />
         <div>
           <p class="mb-[16px] text-[0.875rem] md:text-[1rem] text-[#4B4B4B]">預訂參考編號： HH2302183151222</p>
           <p class="text-[#4B4B4B] text-[0.875rem] md:text-[1.25rem] flex items-center mb-[16px] font-bold">尊爵雙人房</p>
@@ -240,8 +240,6 @@ import { apiGetOrdersAll, apiDeleteOrdersDetail } from '@/api/orders';
 import { useModalStore } from '@/stores/modal'
 import { useOrderStore } from '@/stores/order'
 import { useRouter, useRoute } from 'vue-router'
-import room2_1 from '@/assets/img/pc/room2-1.png'
-import room_detail3 from '@/assets/img/pc/room_detail3.png'
 import Modal from '@/components/Modal.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
@@ -252,6 +250,8 @@ import DecoTitle from '@/components/DecoTitle.vue'
 import CheckItem from '@/components/CheckItem.vue'
 import InputSelectBind from '@/components/InputSelectBind.vue'
 import taiwanCityData from '@/api/taiwanCityData.json'
+import room2_1 from '@/assets/img/pc/room2-1.png'
+import room_detail3 from '@/assets/img/pc/room_detail3.png'
 const modalStore = useModalStore()
 const orderStore = useOrderStore()
 const router = useRouter()

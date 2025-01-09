@@ -3,10 +3,10 @@
     <Header></Header>
     <main class="bg-[#140F0A]">
       <section class="pt-[72px] md:pt-[120px]">
-        <div :class="`w-full h-[206px] sm:h-[384px] bg-cover bg-center bg-[url(${hero})]`">
+        <div :class="`w-full h-[206px] sm:h-[384px] bg-cover bg-center bg-[url('@/assets/img/pc/hero.png')]`">
           <div class="max-w-[1296px] h-full mx-auto px-[12px] sm:flex items-center pt-[40px] sm:pt-0">
             <div class="max-w-[72px] sm:max-w-[144px] mr-[24px] mb-[16px] sm:mb-0">
-              <img :src="`${user1}`" alt="" />
+              <img src="@/assets/img/pc/user1.png" alt="" />
             </div>
             <p class="font-bold text-[2rem] sm:text-[3rem] text-[#FFFFFF]">Hello，{{ userStore.userInfo?.name }}</p>
           </div>
@@ -37,8 +37,8 @@
           <router-view></router-view>
         </div>
       </section>
-      <img class="block md:hidden mt-[40px] md:mt-[120px] object-scale-down" :src="mobile_line2" alt="" />
-      <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" :src="line2" alt="" />
+      <img class="block md:hidden mt-[40px] md:mt-[120px] object-scale-down" src="@/assets/img/mobile/line.png" alt="" />
+      <img class="hidden md:block mt-[40px] md:mt-[120px] object-cover h-[188px]" src="@/assets/img/pc/line2.png" alt="" />
     </main>
     <Footer></Footer>
   </div>

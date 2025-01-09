@@ -3,11 +3,11 @@
     <Header></Header>
     <main>
       <div class="flex h-full pt-[72px] md:pt-[120px] relative">
-        <img class="hidden md:block absolute h-[187px] object-cover right-0 top-[191px]" :src="line3" alt="" />
-        <div :class="`z-10 w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url(${register})] bg-cover bg-center`"></div>   
+        <img class="hidden md:block absolute h-[187px] object-cover right-0 top-[191px]" src="@/assets/img/pc/line3.png" alt="" />
+        <div :class="`z-10 w-full md:max-w-[960px] hidden md:block h-[958px] bg-[url('@/assets/img/pc/register.png')] bg-cover bg-center`"></div>   
         
           <div class="z-10 w-full md:w-[50%] relative bg-no-repeat md:px-[20px] pt-[32px] md:pt-[159px]">
-            <img class="absolute top-[38px] block md:hidden object-scale-down mb-[6px]" :src="customLine" alt="" />
+            <img class="absolute top-[38px] block md:hidden object-scale-down mb-[6px]" src="@/assets/img/pc/custom-line.png" alt="" />
             <div class="z-10 max-w-full md:max-w-[416px] mx-[20px] md:mx-auto">
               <span class="text-[0.875rem] md:text-[1rem] text-[#BF9D7D] line-height-[24px] font-bold relative"
                 >享樂酒店，誠摯歡迎</span
@@ -164,7 +164,7 @@
                       id="agree"
                       type="checkbox"
                       v-model="checkAccept"
-                      :class="`w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url(${ic_check})] before:block before:w-full before:h-full checked:bg-[#BF9D7D] transition duration-300 ease-in-out`"
+                      :class="`w-[24px] h-[24px] rounded-[4px] bg-white mr-[8px] appearance-none before:content-[''] before:bg-[url('@/assets/img/svg/ic_check.svg')] before:block before:w-full before:h-full checked:bg-[#BF9D7D] transition duration-300 ease-in-out`"
                     />
                     <label for="agree" class="text-[#FFFFFF] text-[0.875rem] md:text-[1rem] line-height-[24px] font-bold"
                       >我已閱讀並同意本網站個資使用規範<span class="ml-1 text-red-600">*</span></label
@@ -293,10 +293,10 @@ import Modal from '@/components/Modal.vue'
 import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
 import taiwanCityData from '@/api/taiwanCityData.json'
+import InputSelectBind from '@/components/InputSelectBind.vue'
 import line3 from '@/assets/img/pc/line3.png'
 import customLine from '@/assets/img/pc/custom-line.png'
 import register from '@/assets/img/pc/register.png'
-import InputSelectBind from '@/components/InputSelectBind.vue'
 import ic_check from '@/assets/img/svg/ic_check.svg'
 const modalStore = useModalStore()
 const router = useRouter()
