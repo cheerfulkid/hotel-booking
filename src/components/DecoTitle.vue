@@ -13,7 +13,7 @@
 // import InfoSize from '@/components/InfoSize.vue';
 // import InfoBed from '@/components/InfoBed.vue';
 // import InfoPeople from '@/components/InfoPeople.vue';
-import { defineProps } from 'vue'
+// import { defineProps } from 'vue'
 
 const props = defineProps({
   customClass: {

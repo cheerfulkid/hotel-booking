@@ -16,7 +16,7 @@
 // import InfoPeople from '@/components/InfoPeople.vue';
 import loading from '@/assets/img/pc/loading.gif'
 import logo_gold from '@/assets/img/pc/logo-gold.png'
-import { defineProps } from 'vue'
+// import { defineProps } from 'vue'
 
 const props = defineProps({
   customClass: {

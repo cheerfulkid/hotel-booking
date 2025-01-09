@@ -75,7 +75,7 @@
 }
 </style>
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue'
+// import { ref, defineProps, defineEmits } from 'vue'
 import { useModalStore } from '@/stores/modal'
 const props = defineProps({
   customClass: {
