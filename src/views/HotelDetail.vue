@@ -2,10 +2,13 @@
   <div class="min-h-[100%]">
     <Header></Header>
     <main>
-      <section class="relative bg-[#F7F2EE] px-0 lg:px-[12px] pt-[72px] lg:pt-[200px] lg:pb-[80px]">
+      <section v-if="room?.imageUrlList.length!=0" class="relative bg-[#F7F2EE] px-0 lg:px-[12px] pt-[72px] lg:pt-[200px] lg:pb-[80px]">
         <div class="max-w-[1760px] mx-auto overflow-hidden lg:rounded-xl">
           <Splide :options="options" :extensions="extensions" aria-label="享樂酒店">
-            <SplideSlide>
+            <SplideSlide v-for="(img,index) in room?.imageUrlList" :key="img">
+              <img class="object-cover object-center" :class="[index === 0 ? 'lg:h-[600px]' : 'lg:h-[296px]']" :src="img" :alt="img" />
+            </SplideSlide>            
+            <!-- <SplideSlide>
               <img class="lg:h-[600px] object-cover object-center" src="@/assets/img/pc/room2-1.png" alt="Sample 1" />
             </SplideSlide>
             <SplideSlide>
@@ -19,7 +22,7 @@
             </SplideSlide>
             <SplideSlide>
               <img class="lg:h-[296px] object-cover object-center" src="@/assets/img/pc/room2-5.png" alt="Sample 5" />
-            </SplideSlide>
+            </SplideSlide> -->
           </Splide>
         </div>
         <router-link
@@ -28,18 +31,19 @@
           >看更多</router-link
         >
       </section>
+      <section v-else class="relative bg-[#F7F2EE] px-0 lg:px-[12px] pt-[72px] lg:pt-[200px] lg:pb-[80px] flex items-center justify-center">載入中...</section>
       <section class="relative bg-[#F7F2EE] px-[12px] py-[40px] lg:pt-[120px] lg:pb-[120px]">
         <div class="max-w-[1296px] mx-auto md:flex items-start">
           <div class="w-full max-w-full lg:max-w-[746px] lg:mr-[72px]">
-            <h3 class="text-[2rem] md:text-[3rem] mb-[16px]">尊爵雙人房</h3>
+            <h3 class="text-[2rem] md:text-[3rem] mb-[16px]">{{ room?.name }}</h3>
             <p class="text-[0.875rem] mb-[24px] md:mb-[80px]">
-              享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。
+              {{ room?.description }}
             </p>
             <div class="mb-[24px] md:mb-[80px]">
               <DecoTitle customClass="mb-[16px] md:mb-[24px] text-[1rem] md:text-[1.5rem] before:bg-[#BF9D7D]"
                 >房型基本資訊</DecoTitle
               >
-              <BasicInfo roomSize="24" bedCount="1" peopleCount="2-4"></BasicInfo>
+              <BasicInfo :roomSize="room?.areaInfo" :bedCount="room?.bedInfo" :peopleCount="`2-${room?.maxPeople}`"></BasicInfo>
             </div>
             <div class="mb-[24px] md:mb-[80px]">
               <DecoTitle customClass="mb-[16px] md:mb-[24px] text-[1rem] md:text-[1.5rem] before:bg-[#BF9D7D]"
@@ -47,7 +51,7 @@
               >
               <div
                 class="w-full grid grid-cols-3 xl:grid-cols-5 gap-[8px] auto-cols-auto px-[24px] py-[24px] items-center bg-[#FFFFFF] rounded-lg"
-              >
+              >                
                 <CheckItem>市景</CheckItem>
                 <CheckItem>獨立衛浴</CheckItem>
                 <CheckItem>客廳</CheckItem>
@@ -62,16 +66,7 @@
               <div
                 class="w-full grid grid-cols-2 xl:grid-cols-5 gap-[8px] auto-cols-auto px-[24px] py-[24px] items-center bg-[#FFFFFF] rounded-lg"
               >
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">平面電視</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">吹風機</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">冰箱</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">熱水壺</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">檯燈</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">衣櫃</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">除濕機</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">浴缸</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">書桌</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">音響</CheckItem>
+                <CheckItem v-for="(facility, index) in room?.facilityInfo?.filter(item => item.isProvide)" :key="facility?.title">{{ facility?.title }}</CheckItem>
               </div>
             </div>
             <div class="mb-[24px] md:mb-[80px]">
@@ -81,16 +76,7 @@
               <div
                 class="w-full grid grid-cols-2 xl:grid-cols-5 gap-[8px] auto-cols-auto px-[24px] py-[24px] items-center bg-[#FFFFFF] rounded-lg"
               >
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">衛生紙</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">拖鞋</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">沐浴用品</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">清潔用品</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">刮鬍刀</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">吊衣架</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">浴巾</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">刷牙用品</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">罐裝水</CheckItem>
-                <CheckItem customClass="text-[0.875rem] md:text-[1rem]">梳子</CheckItem>
+                <CheckItem customClass="text-[0.875rem] md:text-[1rem]" v-for="(amenity, index) in room?.amenityInfo?.filter(item => item.isProvide)" :key="amenity?.title">{{ amenity?.title }}</CheckItem> 
               </div>
             </div>
             <div class="md:mb-[80px]">
@@ -113,8 +99,8 @@
           </div>
           <aside class="relative hidden lg:block p-[40px] bg-[#FFFFFF] rounded-xl max-w-[478px] sticky top-[120px]">
             <h6 class="text-[1.5rem] mb-[56px] pb-[16px] border-b border-[#ECECEC]">預訂房型</h6>
-            <h3 class="text-[2.5rem] mb-[8px]">尊爵雙人房</h3>
-            <p class="mb-[40px]">享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。</p>
+            <h3 class="text-[2.5rem] mb-[8px]">{{ room?.name }}</h3>
+            <p class="mb-[40px]">{{ room?.description }}</p>
             <div class="relative grid grid-flow-col gap-[8px] mb-[16px] justify-stretch items-center">
               <button class="p-[16px] border rounded-lg text-left" @click="calendarStore.openCalendar()">
                 <p class="text-[0.75rem]">入住</p>
@@ -141,7 +127,7 @@
                 </button>
               </div>
             </div>
-            <p class="text-[1.5rem] text-[#BF9D7D] mb-[40px]">NT$ 10,000</p>
+            <p class="text-[1.5rem] text-[#BF9D7D] mb-[40px]">NT$ {{ formatPrice(room?.price) }}</p>
             <ClickButton @click="makeOrder()" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]">立即預訂</ClickButton>
           </aside>
         </div>
@@ -151,7 +137,7 @@
       v-if="!calendarStore.isShow"
       class="fixed lg:hidden bottom-0 w-full p-[12px] bg-[#FFFFFF] flex justify-between items-center border-[#ECECEC] border-[1px]"
     >
-      <p class="text-[0.875rem] text-[#4B4B4B]">ＮＴ$ 10,000 / 晚</p>
+      <p class="text-[0.875rem] text-[#4B4B4B]">NT$ {{ formatPrice(room?.price) }} / 晚</p>
       <div class="w-full max-w-[194px]">
         <ClickButton @click="checkOrder" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 查看可訂日期 </ClickButton>
       </div>
@@ -255,6 +241,7 @@ import { useCalendarStore } from '@/stores/calendar'
 import { useModalStore } from '@/stores/modal'
 import { useTempRoomStore } from '@/stores/tempRoom'
 import { useRouter, useRoute } from 'vue-router'
+import { useCommon } from '@/composables/useCommon';
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import { Grid } from '@splidejs/splide-extension-grid'
 import '@splidejs/splide/css/core'
@@ -268,12 +255,7 @@ import Loading from "@/components/Loading.vue";
 import BasicInfo from '@/components/BasicInfo.vue'
 import DecoTitle from '@/components/DecoTitle.vue'
 import CheckItem from '@/components/CheckItem.vue'
-import room2_1 from '@/assets/img/pc/room2-1.png'
-import room2_2 from '@/assets/img/pc/room2-2.png'
-import room2_3 from '@/assets/img/pc/room2-3.png'
-import room2_4 from '@/assets/img/pc/room2-4.png'
-import room2_5 from '@/assets/img/pc/room2-5.png'
-
+const { formatPrice } = useCommon();
 const calendarStore = useCalendarStore()
 const modalStore = useModalStore()
 const tempRoomStore = useTempRoomStore()
@@ -281,34 +263,20 @@ const router = useRouter()
 const route = useRoute()
 const room = ref(
   {
-    "_id": "677fd4985d26975987a10702",
-    "name": "尊爵雙人房",
-    "description": "享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。",
-    "imageUrl": "https://fakeimg.pl/300/",
-    "imageUrlList": [
-        "https://fakeimg.pl/300/",
-        "https://fakeimg.pl/300/",
-        "https://fakeimg.pl/300/"
-    ],
-    "areaInfo": "24坪",
-    "bedInfo": "一張大床",
-    "maxPeople": 4,
-    "price": 10000,
+    "_id": "",
+    "name": "",
+    "description": "",
+    "imageUrl": "",
+    "imageUrlList": [],
+    "areaInfo": "",
+    "bedInfo": "",
+    "maxPeople": 0,
+    "price": 0,
     "status": 1,
-    "facilityInfo": [
-        {
-            "title": "平面電視",
-            "isProvide": true
-        }
-    ],
-    "amenityInfo": [
-        {
-            "title": "衛生紙",
-            "isProvide": true
-        }
-    ],
-    "createdAt": "2024-12-19T07:18:36.783Z",
-    "updatedAt": "2024-12-19T07:18:36.783Z"
+    "facilityInfo": [],
+    "amenityInfo": [],
+    "createdAt": "",
+    "updatedAt": ""
   }
 )
 const extensions = ref({ Grid })

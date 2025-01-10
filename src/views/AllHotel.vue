@@ -43,36 +43,25 @@
         <div class="w-full max-w-[773px] lg:max-w-[1296px] mx-auto">
           <p class="text-[0.875rem] md:text-[1.25rem] text-[#4B4B4B] font-bold mb-[8px] md:mb-[16px]">房型選擇</p>
           <h3 class="text-[#BF9D7D] text-[2rem] md:text-[3rem] font-bold mb-[40px] md:mb-[80px]">各種房型，任您挑選</h3>
-          <div class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF] mb-[24px] md:mb-[48px]">
-            <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
+          <div v-for="(room,rindex) in rooms" :key="room?._id" class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF] mb-[24px] md:mb-[48px]">
+            <div v-if="room?.imageUrlList.length!=0" class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
               <Splide :options="options2" aria-label="享樂酒店">
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room2-1.png" alt="Sample 1" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room2-2.png" alt="Sample 2" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room2-3.png" alt="Sample 3" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room2-4.png" alt="Sample 4" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room2-5.png" alt="Sample 5" />
+                <SplideSlide v-for="(img, index) in room?.imageUrlList" :key="img">
+                  <img class="w-full h-[200px] lg:h-[457px] object-cover" :src="img" :alt="img" />
                 </SplideSlide>
               </Splide>
             </div>
+            <div v-else class="w-full max-w-[773px] h-[200px] lg:h-[457px] flex items-center justify-center">載入中...</div>
             <div class="p-[16px] lg:p-[40px]">
-              <h4 class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]">尊爵雙人房</h4>
+              <h4 class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]">{{ room?.name }}</h4>
               <p class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]">
-                享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。
+                {{ room?.description }}
               </p>
-              <BasicInfo customClass="border-[#F1EAE4] border-[1px]" roomSize="24" bedCount="1" peopleCount="2-4"></BasicInfo>
+              <BasicInfo customClass="border-[#F1EAE4] border-[1px]" :roomSize="`${room?.areaInfo}`" :bedCount="room?.bedInfo" :peopleCount="`2-${room?.maxPeople}`"></BasicInfo>
               <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
               <div class="h-[56px] flex items-center justify-between">
-                <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
-                <router-link :to="{ name: 'HotelDetail', params: { id: '677fd4985d26975987a10702' } }">
+                <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ {{ formatPrice(room?.price) }}</p>
+                <router-link :to="{ name: 'HotelDetail', params: { id: room?._id } }">
                   <button>
                     <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_14_2275)">
@@ -92,157 +81,7 @@
                 </router-link>
               </div>
             </div>
-          </div>
-          <div class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF] mb-[24px] md:mb-[48px]">
-            <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
-              <Splide :options="options2" aria-label="享樂酒店">
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room3-1.png" alt="Sample 1" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room3-2.png" alt="Sample 2" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room3-3.png" alt="Sample 3" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room3-4.png" alt="Sample 4" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room3-5.png" alt="Sample 5" />
-                </SplideSlide>
-              </Splide>
-            </div>
-            <div class="p-[16px] lg:p-[40px]">
-              <h4 class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]">景觀雙人房</h4>
-              <p class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]">
-                景觀雙人房擁有絕美的高雄市景觀，讓您在舒適的環境中欣賞城市之美。
-              </p>
-              <BasicInfo customClass="border-[#F1EAE4] border-[1px]" roomSize="28" bedCount="1" peopleCount="2-4"></BasicInfo>
-              <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
-              <div class="h-[56px] flex items-center justify-between">
-                <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
-                <router-link :to="{ name: 'HotelDetail', params: { id: 1 } }">
-                  <button>
-                    <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g clip-path="url(#clip0_14_2275)">
-                        <path
-                          class="fill-[#BF9D7D]"
-                          d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
-                          fill="black"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_14_2275">
-                          <rect width="24" height="24" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </button>
-                </router-link>
-              </div>
-            </div>
-          </div>
-          <div class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF] mb-[24px] md:mb-[48px]">
-            <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
-              <Splide :options="options2" aria-label="享樂酒店">
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room4-1.png" alt="Sample 1" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room4-2.png" alt="Sample 2" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room4-3.png" alt="Sample 3" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room4-4.png" alt="Sample 4" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room4-5.png" alt="Sample 5" />
-                </SplideSlide>
-              </Splide>
-            </div>
-            <div class="p-[16px] lg:p-[40px]">
-              <h4 class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]">豪華雅緻房</h4>
-              <p class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]">
-                享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。
-              </p>
-              <BasicInfo customClass="border-[#F1EAE4] border-[1px]" roomSize="36" bedCount="2" peopleCount="2-4"></BasicInfo>
-              <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
-              <div class="h-[56px] flex items-center justify-between">
-                <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
-                <router-link :to="{ name: 'HotelDetail', params: { id: 1 } }">
-                  <button>
-                    <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g clip-path="url(#clip0_14_2275)">
-                        <path
-                          class="fill-[#BF9D7D]"
-                          d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
-                          fill="black"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_14_2275">
-                          <rect width="24" height="24" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </button>
-                </router-link>
-              </div>
-            </div>
-          </div>
-          <div class="lg:flex rounded-lg overflow-hidden bg-[#FFFFFF]">
-            <div class="w-full max-w-[773px] h-[200px] lg:h-[457px]">
-              <Splide :options="options2" aria-label="享樂酒店">
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room5-1.png" alt="Sample 1" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room5-2.png" alt="Sample 2" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room5-3.png" alt="Sample 3" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room5-4.png" alt="Sample 4" />
-                </SplideSlide>
-                <SplideSlide>
-                  <img class="w-full h-[200px] lg:h-[457px] object-cover" src="@/assets/img/pc/room5-5.png" alt="Sample 5" />
-                </SplideSlide>
-              </Splide>
-            </div>
-            <div class="p-[16px] lg:p-[40px]">
-              <h4 class="text-[1.75rem] md:text-[2.5rem] text-[#4B4B4B] font-bold mb-[8px]">景觀尊榮家庭房</h4>
-              <p class="text-[0.875rem] md:text-[1rem] text-[#4B4B4B] mb-[24px] md:mb-[40px]">
-                景觀尊榮家庭房不僅有寬敞的空間，還有絕美的市景視野，是帶給家庭最尊榮的待遇。
-              </p>
-              <BasicInfo customClass="border-[#F1EAE4] border-[1px]" roomSize="48" bedCount="2" peopleCount="2-4"></BasicInfo>
-              <hr class="border-0 bg-gradient-to-r from-[#BE9C7C] to-[#FFFFFF] h-[2px] my-[24px] md:my-[40px]" />
-              <div class="h-[56px] flex items-center justify-between">
-                <p class="font-bold text-[1rem] md:text-[1.5rem] text-[#BF9D7D]">NT$ 10,000</p>
-                <router-link :to="{ name: 'HotelDetail', params: { id: 1 }}">
-                  <button>
-                    <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g clip-path="url(#clip0_14_2275)">
-                        <path
-                          class="fill-[#BF9D7D]"
-                          d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
-                          fill="black"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_14_2275">
-                          <rect width="24" height="24" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </button>
-                </router-link>
-              </div>
-            </div>
-          </div>
+          </div>          
         </div>
       </section>
     </main>
@@ -338,29 +177,10 @@ import BackgroundMask from "@/components/BackgroundMask.vue";
 import Loading from "@/components/Loading.vue";
 import BasicInfo from '@/components/BasicInfo.vue'
 import Modal from '@/components/Modal.vue'
-import banner from '@/assets/img/pc/banner.png'
-import room2_1 from '@/assets/img/pc/room2-1.png'
-import room2_2 from '@/assets/img/pc/room2-2.png'
-import room2_3 from '@/assets/img/pc/room2-3.png'
-import room2_4 from '@/assets/img/pc/room2-4.png'
-import room2_5 from '@/assets/img/pc/room2-5.png'
-import room3_1 from '@/assets/img/pc/room3-1.png'
-import room3_2 from '@/assets/img/pc/room3-2.png'
-import room3_3 from '@/assets/img/pc/room3-3.png'
-import room3_4 from '@/assets/img/pc/room3-4.png'
-import room3_5 from '@/assets/img/pc/room3-5.png'
-import room4_1 from '@/assets/img/pc/room4-1.png'
-import room4_2 from '@/assets/img/pc/room4-2.png'
-import room4_3 from '@/assets/img/pc/room4-3.png'
-import room4_4 from '@/assets/img/pc/room4-4.png'
-import room4_5 from '@/assets/img/pc/room4-5.png'
-import room5_1 from '@/assets/img/pc/room5-1.png'
-import room5_2 from '@/assets/img/pc/room5-2.png'
-import room5_3 from '@/assets/img/pc/room5-3.png'
-import room5_4 from '@/assets/img/pc/room5-4.png'
-import room5_5 from '@/assets/img/pc/room5-5.png'
+import { useCommon } from '@/composables/useCommon';
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import '@splidejs/splide/css/core'
+const { formatPrice } = useCommon();
 const modalStore = useModalStore()
 const rooms = ref([])
 const options = reactive({

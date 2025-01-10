@@ -9,7 +9,11 @@ export function useCommon() {
     return value === null || value === undefined || (typeof value === 'object' && Object.keys(value).length === 0);
   }
 
+  const formatPrice = (value) => {
+    return new Intl.NumberFormat('en-US').format(value);
+  }
+
    
 
-  return { isEmpty };
+  return { isEmpty, formatPrice };
 }

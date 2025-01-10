@@ -203,7 +203,7 @@
         
       </div>
     </main>
-    <Modal>
+    <Modal v-if="modalStore.option==='signup'">
       <template #title> 註冊狀態 </template>
       <template #content>        
         <p class="text-[#4B4B4B] mt-[50px] flex items-center text-[0.875rem] md:text-[1.25rem] font-bold">
@@ -355,6 +355,7 @@ watch([birthYear, birthMonth, birthDay], ([year, month, day]) => {
   // console.log('signupData.value.birthday ', signupData.value.birthday)
 });
 const signup = async () => {
+  modalStore.option = 'signup'
   modalStore.msg = ''
   modalStore.errorStatusCode = ''
   if (checkPassword.value === signupData.value.password) {
@@ -386,7 +387,7 @@ const signup = async () => {
           modalStore.msg = error.response.data.message
         }
       }
-    } else {
+    } else {      
       modalStore.step = 0
       modalStore.msg = '請勾選「已閱讀並同意本網站個資使用規範」'
     }   
