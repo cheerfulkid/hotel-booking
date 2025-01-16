@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-import viteImagemin from 'vite-plugin-imagemin'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
@@ -25,23 +25,18 @@ export default defineConfig({
         },
       ],
     }),
-    viteImagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
+    ViteImageOptimizer({
+      png: {
+        quality: 5,
       },
-      optipng: {
-        optimizationLevel: 7,
+      jpeg: {
+        quality: 5,
       },
-      mozjpeg: {
-        quality: 80, // 壓縮 JPEG 品質 (1-100)
+      jpg: {
+        quality: 5,
       },
-      pngquant: {
-        quality: [0.65, 0.8], // 壓縮 PNG 品質
-        speed: 4,
-      },
-      webp: {
-        quality: 80, // 生成 WebP 格式
+      webp: {        
+        lossless: true,
       },
     }),
   ],
