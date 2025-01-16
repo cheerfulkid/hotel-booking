@@ -2,7 +2,7 @@
   <transition name="fade">
     <div v-if="calendarStore.isShow">
       <!-- PC -->
-      <div class="hidden lg:block fixed left-[50%] top-[50%] transform -translate-x-[50%] -translate-y-[50%] z-50 w-[740px] rounded-lg bg-[#FFFFFF] p-[32px]">
+      <div class="hidden lg:block fixed left-[50%] top-[50%] transform -translate-x-[50%] -translate-y-[50%] z-70 w-[740px] rounded-lg bg-[#FFFFFF] p-[32px]">
         <!-- 上方區塊 -->
         <div class="flex mb-[40px]">
           <!-- 住宿時間 -->
@@ -178,7 +178,7 @@
       <!-- PC END -->
       <!-- MOBILE -->
       <div
-        class="block lg:hidden fixed left-0 bottom-0 z-50 w-full rounded-tl-lg rounded-tr-lg bg-[#FFFFFF] h-[97%] overflow-auto"
+        class="block lg:hidden fixed left-0 bottom-0 z-70 w-full rounded-tl-lg rounded-tr-lg bg-[#FFFFFF] h-[97%] overflow-auto"
       >
         <div class="fixed w-full bg-[#ECECEC] px-[24px] pt-[16px] pb-[8px] border-b-[1px] border-[black/10]">
           <button @click="calendarStore.closeCalendar" class="w-[40px] h-[40px] mb-[16px] flex items-center justify-center">
