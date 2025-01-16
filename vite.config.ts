@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import viteImagemin from 'vite-plugin-imagemin'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
@@ -23,6 +24,25 @@ export default defineConfig({
           dest: 'img',            // 複製到輸出目錄下的目標文件夾
         },
       ],
+    }),
+    viteImagemin({
+      gifsicle: {
+        optimizationLevel: 7,
+        interlaced: false,
+      },
+      optipng: {
+        optimizationLevel: 7,
+      },
+      mozjpeg: {
+        quality: 80, // 壓縮 JPEG 品質 (1-100)
+      },
+      pngquant: {
+        quality: [0.65, 0.8], // 壓縮 PNG 品質
+        speed: 4,
+      },
+      webp: {
+        quality: 80, // 生成 WebP 格式
+      },
     }),
   ],
   resolve: {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loadingStore.isShow" class="z-50 fixed left-[50%] top-[50%] transform -translate-x-[50%] -translate-y-[50%]">
+  <div v-if="loadingStore.isShow" class="z-60 fixed left-[50%] top-[50%] transform -translate-x-[50%] -translate-y-[50%]">
     <svg class="svg" viewBox="25 25 50 50">
       <circle class="circle" cx="50" cy="50" r="20"></circle>
     </svg>
