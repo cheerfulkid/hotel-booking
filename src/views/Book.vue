@@ -303,6 +303,7 @@ const checkOrder = async() => {
   modalStore.msg = ''
   modalStore.errorStatusCode = ''
   // console.log('tempRoomStore.room?._id',tempRoomStore.room?._id)
+  bookData.value.peopleNum = tempRoomStore?.peopleNum
   bookData.value.roomId = tempRoomStore?.room?._id
   await orderStore.storePostOrders(bookData.value)
   // orderLoading.value = true

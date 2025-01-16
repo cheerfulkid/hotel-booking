@@ -104,23 +104,23 @@
             <div class="relative grid grid-flow-col gap-[8px] mb-[16px] justify-stretch items-center">
               <button class="p-[16px] border rounded-lg text-left" @click="calendarStore.openCalendar()">
                 <p class="text-[0.75rem]">入住</p>
-                <p>2023 / 12 / 03</p>
+                <p>2023 / 12 / 11</p>
               </button>
               <button class="p-[16px] border rounded-lg text-left" @click="calendarStore.openCalendar()">
                 <p class="text-[0.75rem]">退房</p>
-                <p>2023 / 12 / 04</p>
+                <p>2023 / 12 / 27</p>
               </button>
             </div>
             <div class="flex justify-between items-center mb-[40px]">
               <p class="text-[1.5rem]">人數</p>
               <div class="flex items-center">
-                <button @click="decreasePeopleNum()" class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
+                <button @click="tempRoomStore.decreasePeopleNum()" class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
                   <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 13H5V11H19V13Z" fill="black" />
                   </svg>
                 </button>
                 <span class="text-[1.25rem] mx-[16px] w-[16px] text-center">{{ tempRoomStore.peopleNum }}</span>
-                <button @click="increasePeopleNum()" class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
+                <button @click="tempRoomStore.increasePeopleNum()" class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
                   <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="black" />
                   </svg>
@@ -128,20 +128,32 @@
               </div>
             </div>
             <p class="text-[1.5rem] text-[#BF9D7D] mb-[40px]">NT$ {{ formatPrice(room?.price) }}</p>
-            <ClickButton @click="makeOrder()" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]">立即預訂</ClickButton>
+            <ClickButton @click="tempRoomStore.makeOrder(room)" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]">立即預訂</ClickButton>
           </aside>
         </div>
       </section>
     </main>
-    <div
-      v-if="!calendarStore.isShow"
-      class="fixed lg:hidden bottom-0 w-full p-[12px] bg-[#FFFFFF] flex justify-between items-center border-[#ECECEC] border-[1px]"
-    >
-      <p class="text-[0.875rem] text-[#4B4B4B]">NT$ {{ formatPrice(room?.price) }} / 晚</p>
-      <div class="w-full max-w-[194px]">
-        <ClickButton @click="checkOrder" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 查看可訂日期 </ClickButton>
+    <template v-if="!calendarStore.isShow">
+      <div v-if="calendarStore.step!=3"     
+        class="fixed lg:hidden bottom-0 w-full p-[12px] bg-[#FFFFFF] flex justify-between items-center border-[#ECECEC] border-[1px]"
+      >
+        <p class="text-[0.875rem] text-[#4B4B4B]">NT$ {{ formatPrice(room?.price) }} / 晚</p>
+        <div class="w-full max-w-[194px]">
+          <ClickButton @click="checkOrder(room)" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 查看可訂日期 </ClickButton>
+        </div>
       </div>
-    </div>
+      <div v-if="calendarStore.step===3"     
+        class="fixed lg:hidden bottom-0 w-full p-[12px] bg-[#FFFFFF] flex justify-between items-center border-[#ECECEC] border-[1px]"
+      >
+        <div>
+          <p class="text-[0.875rem] text-[#4B4B4B] mb-[4px]">NT$ {{ formatPrice(room?.price) }} / 16 晚 / {{ tempRoomStore.room?.maxPeople }} 人</p>
+          <p @click="calendarStore.reSelect()" class="underline underline-offset-4 text-[0.75rem] text-[#4B4B4B]">12 / 11 - 12 / 27</p>
+        </div>        
+        <div class="w-full max-w-[194px]">
+          <ClickButton @click="tempRoomStore.makeOrder(room)" isLink="false" customClass="bg-[#BF9D7D] text-[#FFFFFF]"> 立即預訂 </ClickButton>
+        </div>
+      </div>
+    </template>    
     <Modal>
       <template #title> 預訂狀態 </template>
       <template #content>        
@@ -315,40 +327,42 @@ const options = reactive({
   }
 })
 
-const checkOrder = () => {
+const checkOrder = (obj) => {
+  // tempRoomStore.room = obj
+  calendarStore.step = 1
   calendarStore.openCalendar()
 }
 
-const makeOrder = async() => {
-  tempRoomStore.room = room.value
-  // console.log('tempRoomStore.room', tempRoomStore.room)
-  router.push({
-    name: 'Book'
-  })
-  // console.log('makeOrder')
-  // msg.value = ''
-  // errorStatusCode.value = ''
-  // try {
-  //   await tempRoomStore.storeGetRoomsDetail(route.params.id)    
-  // } catch(error) {
-  //   console.log('error!')
-  //   modalStore.step.value = 0
-  //   errorStatusCode.value = error.status
-  //   msg.value = error.response.data.message
-  // }
-  // modalStore.openModal()
-}
-const decreasePeopleNum = () => {
-  if (tempRoomStore.peopleNum > 1) {
-    tempRoomStore.peopleNum--
-  }
-}
+// const makeOrder = async() => {
+//   tempRoomStore.room = room.value
+//   // console.log('tempRoomStore.room', tempRoomStore.room)
+//   router.push({
+//     name: 'Book'
+//   })
+//   // console.log('makeOrder')
+//   // msg.value = ''
+//   // errorStatusCode.value = ''
+//   // try {
+//   //   await tempRoomStore.storeGetRoomsDetail(route.params.id)    
+//   // } catch(error) {
+//   //   console.log('error!')
+//   //   modalStore.step.value = 0
+//   //   errorStatusCode.value = error.status
+//   //   msg.value = error.response.data.message
+//   // }
+//   // modalStore.openModal()
+// }
+// const decreasePeopleNum = () => {
+//   if (tempRoomStore.peopleNum > 1) {
+//     tempRoomStore.peopleNum--
+//   }
+// }
 
-const increasePeopleNum = () => {
-  if (tempRoomStore.peopleNum < room.value.maxPeople) {
-    tempRoomStore.peopleNum++
-  }
-}
+// const increasePeopleNum = () => {
+//   if (tempRoomStore.peopleNum < room.value.maxPeople) {
+//     tempRoomStore.peopleNum++
+//   }
+// }
 
 onMounted(async() => {
   try {
@@ -356,6 +370,7 @@ onMounted(async() => {
     // console.log('route.params.id',route.params.id)
     if (res.data.status) { 
       room.value = res.data.result
+      tempRoomStore.room = room.value
     } else {
       console.error('apiGetRoomsDetail 未知錯誤')
     }

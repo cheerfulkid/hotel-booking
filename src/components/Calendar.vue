@@ -7,18 +7,18 @@
         <div class="flex mb-[40px]">
           <!-- 住宿時間 -->
           <div class="w-[220px] mr-[40px]">
-            <p class="text-[1.5rem] mb-[8px]">1 晚</p>
-            <p>2023/ 12 / 03 - 2023/ 12 / 04</p>
+            <p class="text-[1.5rem] mb-[8px]">16 晚</p>
+            <p>2023/ 12 / 11 - 2023/ 12 / 27</p>
           </div>
           <!-- 入住與退房按鈕 -->
           <div class="relative w-[398px] grid grid-flow-col gap-[8px] mb-[16px] justify-stretch items-center">
             <button class="p-[16px] border rounded-lg text-left">
               <p class="text-[0.75rem]">入住</p>
-              <p>2023 / 12 / 03</p>
+              <p>2023 / 12 / 11</p>
             </button>
             <button class="p-[16px] border rounded-lg text-left">
               <p class="text-[0.75rem]">退房</p>
-              <p>2023 / 12 / 04</p>
+              <p>2023 / 12 / 27</p>
             </button>
           </div>
         </div>
@@ -169,7 +169,7 @@
           </button>
           <button
             class="w-full max-w-[129px] h-[56px] flex items-center justify-center text-[#FFFFFF] bg-[#BF9D7D] rounded-lg font-bold"
-            @click="calendarStore.makeSureDate()"
+            @click="calendarStore.makeSureDate('pc')"
           >
             確定日期
           </button>
@@ -177,7 +177,7 @@
       </div>
       <!-- PC END -->
       <!-- MOBILE -->
-      <div
+      <div v-if="calendarStore.step===1"
         class="block lg:hidden fixed left-0 bottom-0 z-70 w-full rounded-tl-lg rounded-tr-lg bg-[#FFFFFF] h-[97%] overflow-auto"
       >
         <div class="fixed w-full bg-[#ECECEC] px-[24px] pt-[16px] pb-[8px] border-b-[1px] border-[black/10]">
@@ -323,6 +323,62 @@
           </button>
         </div>
       </div>
+      <div v-if="calendarStore.step===2"
+        class="block lg:hidden fixed left-0 bottom-0 z-70 w-full rounded-tl-lg rounded-tr-lg bg-[#FFFFFF]"
+      >
+        <div class="fixed w-full bg-[#ECECEC] px-[24px] pt-[16px] pb-[8px] border-b-[1px] border-[black/10]">
+          <button @click="calendarStore.closeCalendar" class="w-[40px] h-[40px] mb-[16px] flex items-center justify-center">
+            <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_14_2300)">
+                <path
+                  class="fill-[#4B4B4B]"
+                  d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
+                  fill="black"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_14_2300">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+          <p class="text-[1.25rem] font-bold mb-[16px]">16 晚<span class="ml-[16px] text-[0.875rem] text-[#4B4B4B]">2023 / 12 / 11 - 2023 / 12 / 27</span></p>
+        </div>
+        <div class="pt-[141px] pb-[24px] flex flex-col mb-[40px] p-[24px]  overflow-auto">
+          <div class="w-full mb-[48px]">            
+            <p class="text-left w-full font-bold text-[1rem] mb-[4px]">選擇人數</p>
+            <p class="text-left text-[0.875rem] text-[#4B4B4B] mb-[16px]">此房型最多供 4 人居住，不接受寵物入住。</p>
+            <div class="flex items-center">
+              <button @click="tempRoomStore.decreasePeopleNum()" class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
+                <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 13H5V11H19V13Z" fill="black" />
+                </svg>
+              </button>
+              <span class="text-[1.25rem] mx-[16px] w-[16px] text-center">{{ tempRoomStore.peopleNum }}</span>
+              <button @click="tempRoomStore.increasePeopleNum()" class="rounded-full border w-[56px] h-[56px] flex items-center justify-center">
+                <svg class="w-[24px] h-[24px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="black" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex justify-between p-[12px] items-center fixed w-full bottom-0 bg-[#FFFFFF] border-t-[1px] border-[black/10]"
+        >
+          <button class="w-full max-w-[168px] h-[56px] flex items-center justify-center text-[#000000] rounded-lg font-bold" 
+            @click="calendarStore.reSelect()">
+            重新選擇日期
+          </button>
+          <button
+            class="w-full max-w-[168px] h-[56px] flex items-center justify-center text-[#FFFFFF] bg-[#BF9D7D] rounded-lg font-bold"
+            @click="calendarStore.save()"
+          >
+            儲存
+          </button>
+        </div>
+      </div>
       <!-- MOBILE END -->
     </div>
   </transition>  
@@ -344,5 +400,7 @@
 <script setup>
 // import { ref, defineProps, defineEmits } from 'vue'
 import { useCalendarStore } from '@/stores/calendar'
+import { useTempRoomStore } from '@/stores/tempRoom'
 const calendarStore = useCalendarStore()
+const tempRoomStore = useTempRoomStore()
 </script>

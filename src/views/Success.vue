@@ -37,13 +37,13 @@
               alt=""
             />
             <p class="text-[#4B4B4B] text-[0.875rem] md:text-[1.25rem] flex items-center mb-[24px] font-bold">
-              尊爵雙人房，1 晚<span class="bg-[#909090] w-[1px] h-full inline-block mx-[16px]"></span>住宿人數：2 位
+              尊爵雙人房，16 晚<span class="bg-[#909090] w-[1px] h-full inline-block mx-[16px]"></span>住宿人數：2 位
             </p>
             <DecoTitle customClass="mb-[8px] before:bg-[#BF9D7D] text-[0.875rem] md:text-[1rem]"
-              >入住：6 月 10 日星期二，15:00 可入住</DecoTitle
+              >入住：12 月 11 日星期一，15:00 可入住</DecoTitle
             >
             <DecoTitle customClass="before:bg-[#909090] mb-[24px] text-[0.875rem] md:text-[1rem]"
-              >退房：6 月 11 日星期三，12:00 前退房</DecoTitle
+              >退房：12 月 27 日星期三，12:00 前退房</DecoTitle
             >
             <p class="font-bold text-[#4B4B4B] text-[0.875rem] md:text-[1rem]">NT$ 10,000</p>
             <DivideLine customClass="bg-[#ECECEC] my-[24px] md:my-[40px]"></DivideLine>
