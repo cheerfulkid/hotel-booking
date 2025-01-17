@@ -3,7 +3,7 @@
   <transition name="slide">
     <div
       v-if="modalStore.isShow"
-      class="flex items-end md:items-center justify-center w-full h-full fixed left-0 top-0 z-40 bg-black/40 backdrop-blur-sm p-[12px]"
+      class="flex items-end md:items-center justify-center w-full h-full fixed left-0 top-0 z-80 bg-black/40 backdrop-blur-sm p-[12px]"
     >
       <div
         class="relative w-full overflow-hidden max-w-[600px] bg-[#FFFFFF] rounded-lg flex flex-col items-center justify-between"
