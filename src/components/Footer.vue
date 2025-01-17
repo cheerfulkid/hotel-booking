@@ -66,6 +66,7 @@
       </div>
     </div>
   </footer>
+  <p class="bg-[#140F0A] text-[0.75rem] pt-2 pb-2 text-red-500 text-center">本網站僅供個人作品使用，無任何商業用途</p>
 </template>
 
 <style scoped></style>
