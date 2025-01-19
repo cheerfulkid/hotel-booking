@@ -63,7 +63,7 @@
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">手機號碼</p>
         <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo?.phone }}</p>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">生日</p>
-        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">1991 年 7 月 4 日</p>
+        <p class="font-bold mb-[16px] md:mb-[24px] text-[0.875rem] md:text-[1rem]">{{ userBirthYear }} 年 {{ userBirthMonth }} 月 {{ userBirthDay }} 日</p>
         <p class="text-[#4B4B4B] mb-[8px] text-[0.875rem] md:text-[1rem]">地址</p>
         <p class="font-bold mb-[24px] md:mb-[40px] text-[0.875rem] md:text-[1rem]">{{ userStore.userInfo?.address?.detail }}</p>
         <!-- <div class="max-w-[97px]">
@@ -313,6 +313,10 @@ const areaList = computed(() => {
 const lastDayOfMonth = computed(() => {
   return new Date(birthYear.value, birthMonth.value, 0).getDate()
 })
+// 使用 computed 提取年月日
+const userBirthYear = computed(() => new Date(userStore.userInfo?.birthday).getFullYear());
+const userBirthMonth = computed(() => new Date(userStore.userInfo?.birthday).getMonth() + 1);
+const userBirthDay = computed(() => new Date(userStore.userInfo?.birthday).getDate());
 // signupData.value.birthday = `${birthYear.value}/${birthMonth.value}/${birthDay.value}`
 const generateYearRange = () => {
   const startYear = currentYear.value - 100
